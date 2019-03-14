@@ -51,9 +51,11 @@ namespace MAPPS.TimerJobs {
                     uP.Name = "*";
                     PrincipalSearcher ps = new PrincipalSearcher();
                     ps.QueryFilter = uP;
-                    PrincipalSearchResult<Principal> result = ps.FindAll();
+                    ((DirectorySearcher)ps.GetUnderlyingSearcher()).PageSize = 500;
 
-                    foreach (UserPrincipal p in result) {
+                    //PrincipalSearchResult<Principal> result = ps.FindAll();
+
+                    foreach (UserPrincipal p in ps.FindAll()) {
                         resultsCount++;
                         if (!MAPPS.User.ADObjectGuidExists(p.Guid.ToString())) {
                             MAPPS.User user = new MAPPS.User();

@@ -16,7 +16,7 @@ namespace MAPPS.TimerJobs {
 
 
         const string TIMER_JOB_NAME = "MAPPS - Collect Servers";
-
+        
         public CollectServers()
             : base() {
             this.Title = TIMER_JOB_NAME;
@@ -51,8 +51,10 @@ namespace MAPPS.TimerJobs {
                     cP.Name = "*";
                     PrincipalSearcher ps = new PrincipalSearcher();
                     ps.QueryFilter = cP;
-                    PrincipalSearchResult<Principal> result = ps.FindAll();
-                    foreach (ComputerPrincipal p in result) {
+                    ((DirectorySearcher)ps.GetUnderlyingSearcher()).PageSize = 500;
+
+                    //PrincipalSearchResult<Principal> result = ps.FindAll();
+                    foreach (ComputerPrincipal p in ps.FindAll()) {
                         resultsCount++;
                         DirectoryEntry de = (DirectoryEntry)p.GetUnderlyingObject();
                         string os = "";
