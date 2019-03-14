@@ -1,0 +1,3 @@
+﻿add-spsolution -LiteralPath "C:\Projects\MAPPS\MAPPS\Setup\MAPPS.wsp"
+Install-SPSolution -Identity mapps.wsp -Force -AllWebApplications -GACDeployment
+Update-spsolution -Identity mapps.wsp -LiteralPath "C:\Projects\MAPPS\MAPPS\Setup\MAPPS.wsp" -Force -GACDeployment

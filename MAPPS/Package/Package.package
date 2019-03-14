@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="9ba9e15e-8262-490d-ac61-a6ca3ed26051" solutionId="9ba9e15e-8262-490d-ac61-a6ca3ed26051" resetWebServer="false" sharePointProductVersion="15.0" name="MAPPS" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="9fc4594b-1d28-441a-bbbb-bdbff3b56696" />
+    <featureReference itemId="4c00e44b-83fc-4e11-a8d9-ab4a00389ea8" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="fd7bc50c-f3ab-4557-91b3-3d016382353b" />
+    <projectItemReference itemId="f51b3be0-8c64-4bad-b424-b9fdd3920731" />
+    <projectItemReference itemId="edb4520f-7eea-47cb-8a05-2a2faea4d1ce" />
+  </projectItems>
+</package>

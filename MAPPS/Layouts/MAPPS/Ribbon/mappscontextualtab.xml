@@ -1,0 +1,14 @@
+﻿<GroupTemplate Id="Ribbon.Templates.MAPPSGroup">
+  <Layout Title="MAPPSLayout" LayoutTitle="MAPPSLayout">
+    <Section Alignment="Top" Type="OneRow">
+      <Row>
+        <ControlRef DisplayMode="Large" TemplateAlias="cust1" />
+        <ControlRef DisplayMode="Large" TemplateAlias="cust2" />
+        <ControlRef DisplayMode="Large" TemplateAlias="cust3" />
+        <ControlRef DisplayMode="Large" TemplateAlias="cust4" />
+        <ControlRef DisplayMode="Large" TemplateAlias="cust5" />
+        <ControlRef DisplayMode="Large" TemplateAlias="cust6" />
+      </Row>
+    </Section>
+  </Layout>
+</GroupTemplate>

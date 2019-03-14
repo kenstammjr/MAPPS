@@ -1,0 +1,245 @@
+.treeview, .treeview ul
+{
+    /*background-color: white;*/
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+    .treeview ul
+    {
+        /*background-color: white;*/
+        margin-top: 4px;
+    }
+
+    .treeview .hitarea
+    {
+        background: url(/_layouts/15/images/mapps/navigation/treeview-default.gif) -64px -25px no-repeat;
+        height: 16px;
+        width: 16px;
+        margin-left: -16px;
+        float: left;
+        cursor: pointer;
+    }
+/* fix for IE6 */
+* html .hitarea
+{
+    display: inline;
+    float: none;
+}
+
+.treeview li
+{
+    margin: 0;
+    padding: 3px 0pt 3px 16px;
+    font-size: xx-small;
+    font-family: Verdana;
+}
+
+.treeview a.selected
+{
+    background-color: #eee;
+}
+
+#treecontrol
+{
+    margin: 1em 0;
+    display: none;
+}
+
+.treeview .hover
+{
+    color: red;
+    cursor: pointer;
+}
+
+.treeview li
+{
+    background: url(/_layouts/15/images/mapps/navigation/treeview-default-line.gif) 0 0 no-repeat;
+}
+
+.treeview a
+{
+    padding: 0 0 0 3px;
+    color: #3b4f65;
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 1.1em;
+}
+
+.treeview li.collapsable, .treeview li.expandable
+{
+    background-position: 0 -176px;
+}
+
+.treeview .expandable-hitarea
+{
+    background-position: -80px -3px;
+}
+
+.treeview li.last
+{
+    background-position: 0 -1766px;
+}
+
+.treeview li.lastCollapsable, .treeview li.lastExpandable
+{
+    background-image: url(/_layouts/15/images/mapps/navigation/treeview-default.gif);
+}
+
+.treeview li.lastCollapsable
+{
+    background-position: 0 -111px;
+}
+
+.treeview li.lastExpandable
+{
+    background-position: -32px -67px;
+}
+
+.treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea
+{
+    background-position: 0;
+}
+
+.treeview-red li
+{
+    background-image: url(/_layouts/15/images/mapps/navigation/treeview-red-line.gif);
+}
+
+    .treeview-red .hitarea, .treeview-red li.lastCollapsable, .treeview-red li.lastExpandable
+    {
+        background-image: url(/_layouts/15/images/mapps/navigation/treeview-red.gif);
+    }
+
+.treeview-black li
+{
+    background-image: url(/_layouts/15/images/mapps/navigation/treeview-black-line.gif);
+}
+
+    .treeview-black .hitarea, .treeview-black li.lastCollapsable, .treeview-black li.lastExpandable
+    {
+        background-image: url(/_layouts/15/images/mapps/navigation/treeview-black.gif);
+    }
+
+.treeview-gray li
+{
+    background-image: url(/_layouts/15/images/mapps/treeview-gray-line.gif);
+}
+
+    .treeview-gray .hitarea, .treeview-gray li.lastCollapsable, .treeview-gray li.lastExpandable
+    {
+        background-image: url(/_layouts/15/images/mapps/navigation/treeview-gray.gif);
+    }
+
+.treeview-famfamfam li
+{
+    background-image: url(/_layouts/15/images/mapps/navigation/treeview-famfamfam-line.gif);
+}
+
+    .treeview-famfamfam .hitarea, .treeview-famfamfam li.lastCollapsable, .treeview-famfamfam li.lastExpandable
+    {
+        background-image: url(/_layouts/15/images/mapps/navigation/treeview-famfamfam.gif);
+    }
+
+.treeview .placeholder
+{
+    background: url(/_layouts/15/images/mapps/navigation/ajax-loader.gif) 0 0 no-repeat;
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.navtree li
+{
+    padding: 3px 0 2px 16px;
+}
+
+.navtree span.folder, .navtree span.file
+{
+    padding: 1px 0 1px 16px;
+    display: block;
+}
+
+.navtree span.folder
+{
+    background: url(/_layouts/15/images/mapps/navigation/folder.gif) 0 0 no-repeat;
+}
+
+.navtree li.expandable span.folder
+{
+    background: url(/_layouts/15/images/mapps/navigation/folder-closed.gif) 0 0 no-repeat;
+}
+
+.navtree span.file
+{
+    background: url(/_layouts/15/images/mapps/navigation/sharepointfoundation16.png) 0 0 no-repeat;
+}
+
+.navlink a
+{
+    color: #0072bc;
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 9pt;
+    padding-left: 5px;
+}
+
+.navlink div
+{
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.navmenulink a
+{
+    color: #009933;
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 7pt;
+}
+
+.navmenuroot
+{
+    position: absolute;
+}
+
+.navmenunodeedit
+{
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.navmenuhelp
+{
+    position: absolute;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    background: #EAEBD8;
+    border: 1px solid #5970B2;
+}
+
+    .navmenuhelp a
+    {
+        position: relative;
+        display: block;
+        margin: 0;
+        padding: 5px 10px;
+        width: auto;
+        white-space: nowrap;
+        text-align: left;
+        text-decoration: none;
+        background: #EAEBD8;
+        color: #2875DE;
+        font: 11px arial;
+    }
+
+        .navmenuhelp a:hover
+        {
+            background: #49A3FF;
+            color: #FFF;
+        }
+
+.nav-list-selected
+{
+    color: red;
+}

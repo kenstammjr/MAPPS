@@ -1,0 +1,10 @@
+﻿Add-PSSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
+
+# grant the web application app pool account the sysadm role during MAPPS deployment
+# insure the web application app pool account has dbo rights to the mapps database after creation
+
+$farm = Get-SPFarm 
+$farm.Properties[“MAPPS_SQL_SERVER”] = “{replace with instance/listener name}”
+$farm.Properties[“MAPPS_SQL_DATABASE”] = “MAPPS”
+$farm.Properties[“MAPPS_DOMAIN”] = “{replace with domain name}”
+$farm.Update()

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="MAPPS.WebParts.ServerName, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">MAPPS: ServerName</property>
+        <property name="Description" type="string">Displays the name of the SharePoint Server</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

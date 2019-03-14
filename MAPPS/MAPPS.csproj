@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63B70108-9A77-400D-B05C-C13EADAF872F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MAPPS</RootNamespace>
+    <AssemblyName>MAPPS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Server, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.UserProfiles, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.UserProfiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Web.CommandUI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Activity.cs" />
+    <Compile Include="Classes\ADProperty.cs" />
+    <Compile Include="Classes\Alerts.cs" />
+    <Compile Include="Classes\Applications.cs" />
+    <Compile Include="Classes\CaptchaImage.cs" />
+    <Compile Include="Classes\Common.cs" />
+    <Compile Include="Classes\CommonApp.cs" />
+    <Compile Include="Classes\Configuration.cs" />
+    <Compile Include="Classes\DataSource.cs" />
+    <Compile Include="Classes\DataSystem.cs" />
+    <Compile Include="Classes\Errors.cs" />
+    <Compile Include="Classes\Framework.cs" />
+    <Compile Include="Classes\Groups.cs" />
+    <Compile Include="Classes\GroupTypes.cs" />
+    <Compile Include="Classes\Impersonator.cs" />
+    <Compile Include="Classes\MenuAdmins.cs" />
+    <Compile Include="Classes\MenuNodeAdmins.cs" />
+    <Compile Include="Classes\MenuNodes.cs" />
+    <Compile Include="Classes\Menus.cs" />
+    <Compile Include="Classes\Messages.cs" />
+    <Compile Include="Classes\Modules.cs" />
+    <Compile Include="Classes\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\Roles.cs" />
+    <Compile Include="Classes\SecurityGroupMemberships.cs" />
+    <Compile Include="Classes\SecurityGroups.cs" />
+    <Compile Include="Classes\TimerJobs\CollectUsers.cs" />
+    <Compile Include="Classes\TimerJobs\CollectServers.cs" />
+    <Compile Include="Classes\TimerJobs\SendAlerts.cs" />
+    <Compile Include="Classes\ServerFunctions.cs" />
+    <Compile Include="Classes\ServerPorts.cs" />
+    <Compile Include="Classes\Servers.cs" />
+    <Compile Include="Classes\ServerStatuses.cs" />
+    <Compile Include="Classes\ServerTypes.cs" />
+    <Compile Include="Classes\ServerVersions.cs" />
+    <Compile Include="Classes\Settings.cs" />
+    <Compile Include="Classes\SPCommon.cs" />
+    <Compile Include="Classes\Tabs.cs" />
+    <Compile Include="Classes\TimeZoneOffsets.cs" />
+    <Compile Include="Classes\TimeZones.cs" />
+    <Compile Include="Classes\Transactions.cs" />
+    <Compile Include="Classes\UserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\Users.cs" />
+    <Compile Include="Classes\Utilities.cs" />
+    <Compile Include="Classes\WebPartBase.cs" />
+    <Compile Include="CONTROLTEMPLATES\MAPPS\LeftNavBar.ascx.cs">
+      <DependentUpon>LeftNavBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\LeftNavBar.ascx.designer.cs">
+      <DependentUpon>LeftNavBar.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\Modules.ascx.cs">
+      <DependentUpon>Modules.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\Modules.ascx.designer.cs">
+      <DependentUpon>Modules.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\NavigationTree.ascx.cs">
+      <DependentUpon>NavigationTree.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\NavigationTree.ascx.designer.cs">
+      <DependentUpon>NavigationTree.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerFilters.ascx.cs">
+      <DependentUpon>ServerFilters.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerFilters.ascx.designer.cs">
+      <DependentUpon>ServerFilters.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\Tabs.ascx.cs">
+      <DependentUpon>Tabs.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\Tabs.ascx.designer.cs">
+      <DependentUpon>Tabs.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\UserRoles.ascx.cs">
+      <DependentUpon>UserRoles.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\UserRoles.ascx.designer.cs">
+      <DependentUpon>UserRoles.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Farm\Farm.EventReceiver.cs">
+      <DependentUpon>Farm.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Activity.aspx.cs">
+      <DependentUpon>Activity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Activity.aspx.designer.cs">
+      <DependentUpon>Activity.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Administration.aspx.cs">
+      <DependentUpon>Administration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Administration.aspx.designer.cs">
+      <DependentUpon>Administration.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\CollectUsers.aspx.cs">
+      <DependentUpon>CollectUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\CollectUsers.aspx.designer.cs">
+      <DependentUpon>CollectUsers.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ApplicationItem.aspx.cs">
+      <DependentUpon>ApplicationItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ApplicationItem.aspx.designer.cs">
+      <DependentUpon>ApplicationItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Applications.aspx.cs">
+      <DependentUpon>Applications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Applications.aspx.designer.cs">
+      <DependentUpon>Applications.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\DBUtility.aspx.cs">
+      <DependentUpon>DBUtility.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\DBUtility.aspx.designer.cs">
+      <DependentUpon>DBUtility.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Debug.aspx.cs">
+      <DependentUpon>Debug.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Debug.aspx.designer.cs">
+      <DependentUpon>Debug.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ExceptionItem.aspx.cs">
+      <DependentUpon>ExceptionItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ExceptionItem.aspx.designer.cs">
+      <DependentUpon>ExceptionItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Exceptions.aspx.cs">
+      <DependentUpon>Exceptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Exceptions.aspx.designer.cs">
+      <DependentUpon>Exceptions.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ApplicationsDashboard.aspx.cs">
+      <DependentUpon>ApplicationsDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ApplicationsDashboard.aspx.designer.cs">
+      <DependentUpon>ApplicationsDashboard.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\InitialSetup.aspx.cs">
+      <DependentUpon>InitialSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\InitialSetup.aspx.designer.cs">
+      <DependentUpon>InitialSetup.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\JpegImage.aspx.cs">
+      <DependentUpon>JpegImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\JpegImage.aspx.designer.cs">
+      <DependentUpon>JpegImage.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\MailTest.aspx.cs">
+      <DependentUpon>MailTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\MailTest.aspx.designer.cs">
+      <DependentUpon>MailTest.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ModuleItem.aspx.cs">
+      <DependentUpon>ModuleItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ModuleItem.aspx.designer.cs">
+      <DependentUpon>ModuleItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Modules.aspx.cs">
+      <DependentUpon>Modules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Modules.aspx.designer.cs">
+      <DependentUpon>Modules.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\OpsHome.aspx.cs">
+      <DependentUpon>OpsHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\OpsHome.aspx.designer.cs">
+      <DependentUpon>OpsHome.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Permissions.aspx.cs">
+      <DependentUpon>Permissions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Permissions.aspx.designer.cs">
+      <DependentUpon>Permissions.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerStatusItem.aspx.cs">
+      <DependentUpon>ServerStatusItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerStatusItem.aspx.designer.cs">
+      <DependentUpon>ServerStatusItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerVersionItem.aspx.cs">
+      <DependentUpon>ServerVersionItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerVersionItem.aspx.designer.cs">
+      <DependentUpon>ServerVersionItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerTypeItem.aspx.cs">
+      <DependentUpon>ServerTypeItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerTypeItem.aspx.designer.cs">
+      <DependentUpon>ServerTypeItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerFunctionItem.aspx.cs">
+      <DependentUpon>ServerFunctionItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerFunctionItem.aspx.designer.cs">
+      <DependentUpon>ServerFunctionItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerStatuses.aspx.cs">
+      <DependentUpon>ServerStatuses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerStatuses.aspx.designer.cs">
+      <DependentUpon>ServerStatuses.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerVersions.aspx.cs">
+      <DependentUpon>ServerVersions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerVersions.aspx.designer.cs">
+      <DependentUpon>ServerVersions.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerTypes.aspx.cs">
+      <DependentUpon>ServerTypes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerTypes.aspx.designer.cs">
+      <DependentUpon>ServerTypes.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerItem.aspx.cs">
+      <DependentUpon>ServerItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerItem.aspx.designer.cs">
+      <DependentUpon>ServerItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerFunctions.aspx.cs">
+      <DependentUpon>ServerFunctions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerFunctions.aspx.designer.cs">
+      <DependentUpon>ServerFunctions.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Servers.aspx.cs">
+      <DependentUpon>Servers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Servers.aspx.designer.cs">
+      <DependentUpon>Servers.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\SettingItem.aspx.cs">
+      <DependentUpon>SettingItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\SettingItem.aspx.designer.cs">
+      <DependentUpon>SettingItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\TabItem.aspx.cs">
+      <DependentUpon>TabItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\TabItem.aspx.designer.cs">
+      <DependentUpon>TabItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Tabs.aspx.cs">
+      <DependentUpon>Tabs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Tabs.aspx.designer.cs">
+      <DependentUpon>Tabs.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Transactions.aspx.cs">
+      <DependentUpon>Transactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Transactions.aspx.designer.cs">
+      <DependentUpon>Transactions.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\UserItem.aspx.cs">
+      <DependentUpon>UserItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\UserItem.aspx.designer.cs">
+      <DependentUpon>UserItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\UserMessage.aspx.cs">
+      <DependentUpon>UserMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\UserMessage.aspx.designer.cs">
+      <DependentUpon>UserMessage.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ViewLsts.aspx.cs">
+      <DependentUpon>ViewLsts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ViewLsts.aspx.designer.cs">
+      <DependentUpon>ViewLsts.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\WebServices\Data.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\WebServices\Time.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebParts\ServerName\ServerName.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{edb4520f-7eea-47cb-8a05-2a2faea4d1ce}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\Farm\Farm.feature">
+      <FeatureId>{9fc4594b-1d28-441a-bbbb-bdbff3b56696}</FeatureId>
+    </None>
+    <None Include="Features\Site\Site.feature">
+      <FeatureId>{4c00e44b-83fc-4e11-a8d9-ab4a00389ea8}</FeatureId>
+    </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f51b3be0-8c64-4bad-b424-b9fdd3920731}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\MAPPS\MasterPages\app.master" />
+    <None Include="Layouts\MAPPS\MasterPages\default.master" />
+    <None Include="Layouts\MAPPS\MasterPages\jsou.master" />
+    <None Include="Layouts\MAPPS\MasterPages\seattle.master" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fd7bc50c-f3ab-4557-91b3-3d016382353b}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{9ba9e15e-8262-490d-ac61-a6ca3ed26051}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="WebParts\ServerName\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d2298a13-ece0-43b1-8433-1e8087f4026f}</SharePointProjectItemId>
+    </None>
+    <None Include="WebParts\ServerName\ServerName.webpart" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Setup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CONTROLTEMPLATES\MAPPS\LeftNavBar.ascx" />
+    <Content Include="CONTROLTEMPLATES\MAPPS\Modules.ascx" />
+    <Content Include="CONTROLTEMPLATES\MAPPS\NavigationTree.ascx" />
+    <Content Include="CONTROLTEMPLATES\MAPPS\ServerFilters.ascx" />
+    <Content Include="CONTROLTEMPLATES\MAPPS\Tabs.ascx" />
+    <Content Include="CONTROLTEMPLATES\MAPPS\UserRoles.ascx" />
+    <Content Include="Documents\Enable Session State.txt" />
+    <Content Include="Documents\Farm Properties.txt" />
+    <Content Include="Documents\Force Deploy Solution.txt" />
+    <Content Include="Features\Farm\Farm.Template.xml">
+      <DependentUpon>Farm.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Site\Site.Template.xml">
+      <DependentUpon>Site.feature</DependentUpon>
+    </Content>
+    <Content Include="Images\MAPPS\32x32 Map.png" />
+    <Content Include="Images\MAPPS\AddIcon16x16.png" />
+    <Content Include="Images\MAPPS\AddIcon_10x10.png" />
+    <Content Include="Images\MAPPS\addperson.gif" />
+    <Content Include="Images\MAPPS\addressbook.gif" />
+    <Content Include="Images\MAPPS\ajax-loader.gif" />
+    <Content Include="Images\MAPPS\APP-ICON.png" />
+    <Content Include="Images\MAPPS\arrow.png" />
+    <Content Include="Images\MAPPS\binding_dark.png" />
+    <Content Include="Images\MAPPS\blank.png" />
+    <Content Include="Images\MAPPS\bottomCenter.gif" />
+    <Content Include="Images\MAPPS\bottomLeft.gif" />
+    <Content Include="Images\MAPPS\bottomRight.gif" />
+    <Content Include="Images\MAPPS\calendar.gif" />
+    <Content Include="Images\MAPPS\checknames.gif" />
+    <Content Include="Images\MAPPS\clocks.png" />
+    <Content Include="Images\MAPPS\download.jpg" />
+    <Content Include="Images\MAPPS\favicon.ico" />
+    <Content Include="Images\MAPPS\faviconmep.ico" />
+    <Content Include="Images\MAPPS\FeatureImage.gif" />
+    <Content Include="Images\MAPPS\FeatureLogo.png" />
+    <Content Include="Images\MAPPS\file.gif" />
+    <Content Include="Images\MAPPS\fill.png" />
+    <Content Include="Images\MAPPS\folder-closed.gif" />
+    <Content Include="Images\MAPPS\folder.gif" />
+    <Content Include="Images\MAPPS\formatmap16x16.png" />
+    <Content Include="Images\MAPPS\formatmap32x32.png" />
+    <Content Include="Images\MAPPS\generic.png" />
+    <Content Include="Images\MAPPS\green.gif" />
+    <Content Include="Images\MAPPS\grey.gif" />
+    <Content Include="Images\MAPPS\left.gif" />
+    <Content Include="Images\MAPPS\menubuttonhover.gif" />
+    <Content Include="Images\MAPPS\MENUDARK.GIF" />
+    <Content Include="Images\MAPPS\minus.gif" />
+    <Content Include="Images\MAPPS\Navigation\ajax-loader.gif" />
+    <Content Include="Images\MAPPS\Navigation\file.gif" />
+    <Content Include="Images\MAPPS\Navigation\folder-closed.gif" />
+    <Content Include="Images\MAPPS\Navigation\folder.gif" />
+    <Content Include="Images\MAPPS\Navigation\minus.gif" />
+    <Content Include="Images\MAPPS\Navigation\module.png" />
+    <Content Include="Images\MAPPS\Navigation\plus.gif" />
+    <Content Include="Images\MAPPS\Navigation\sharepointfoundation16.png" />
+    <Content Include="Images\MAPPS\Navigation\treeview-black-line.gif" />
+    <Content Include="Images\MAPPS\Navigation\treeview-black.gif" />
+    <Content Include="Images\MAPPS\Navigation\treeview-default-line.gif" />
+    <Content Include="Images\MAPPS\Navigation\treeview-default.gif" />
+    <Content Include="Images\MAPPS\Navigation\treeview-famfamfam-line.gif" />
+    <Content Include="Images\MAPPS\Navigation\treeview-famfamfam.gif" />
+    <Content Include="Images\MAPPS\Navigation\treeview-gray-line.gif" />
+    <Content Include="Images\MAPPS\Navigation\treeview-gray.gif" />
+    <Content Include="Images\MAPPS\Navigation\treeview-red-line.gif" />
+    <Content Include="Images\MAPPS\Navigation\treeview-red.gif" />
+    <Content Include="Images\MAPPS\new-building.jpg" />
+    <Content Include="Images\MAPPS\new.gif" />
+    <Content Include="Images\MAPPS\newemail.png" />
+    <Content Include="Images\MAPPS\next-horizontal.png" />
+    <Content Include="Images\MAPPS\next-vertical.png" />
+    <Content Include="Images\MAPPS\NodeArrow_16x16.png" />
+    <Content Include="Images\MAPPS\opsSched.jpg" />
+    <Content Include="Images\MAPPS\PHOTO-NOT-AVAILABLE.png" />
+    <Content Include="Images\MAPPS\plus.gif" />
+    <Content Include="Images\MAPPS\prev-horizontal.png" />
+    <Content Include="Images\MAPPS\prev-vertical.png" />
+    <Content Include="Images\MAPPS\red.gif" />
+    <Content Include="Images\MAPPS\right.gif" />
+    <Content Include="Images\MAPPS\rsort.gif" />
+    <Content Include="Images\MAPPS\SetupLogo.gif" />
+    <Content Include="Images\MAPPS\socom.gif" />
+    <Content Include="Images\MAPPS\socom.png" />
+    <Content Include="Images\MAPPS\SOCOMFeatureLogo.png" />
+    <Content Include="Images\MAPPS\SOCOMLogo.gif" />
+    <Content Include="Images\MAPPS\sort.gif" />
+    <Content Include="Images\MAPPS\sp.ico" />
+    <Content Include="Images\MAPPS\sp.png" />
+    <Content Include="Images\MAPPS\spcommon.png" />
+    <Content Include="Images\MAPPS\square.gif" />
+    <Content Include="Images\MAPPS\topbanner.png" />
+    <Content Include="Images\MAPPS\topCenter.gif" />
+    <Content Include="Images\MAPPS\topLeft.gif" />
+    <Content Include="Images\MAPPS\topRight.gif" />
+    <Content Include="Images\MAPPS\USMEPCOM_Logo_Small.png" />
+    <Content Include="Images\MAPPS\working.gif" />
+    <Content Include="Images\MAPPS\world-half-black-16.png" />
+    <Content Include="Images\MAPPS\yellow.gif" />
+    <Content Include="Layouts\MAPPS\Pages\Activity.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Administration.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Administration.xml" />
+    <Content Include="Layouts\MAPPS\Pages\CollectUsers.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ApplicationItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Applications.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Dashboard.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\DBUtility.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Debug.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ExceptionItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Exceptions.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ApplicationsDashboard.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Home.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\InitialSetup.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\JpegImage.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\LeftNavBar.xml" />
+    <Content Include="Layouts\MAPPS\Pages\MailTest.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ModuleItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Modules.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\OpsHome.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Permissions.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerStatusItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerVersionItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerTypeItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerFunctionItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerStatuses.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerVersions.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerTypes.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerFunctions.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Servers.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\SettingItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Settings.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\TabItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Tabs.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Transactions.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\UserItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\UserMessage.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Users.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ViewLsts.aspx" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery-1.10.2.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery-1.11.1.min.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery-1.9.1.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery-cookie.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery-treeview-1.4.0.min.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery-treeview-async-0.1.0.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery-ui.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.cycle.all.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.cycle.lite.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.infinite-carousel.css" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.infinite-carousel.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.infiniteCarousel.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.jcarousel.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.jcarousel.min.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.json-2.2.min.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.mask.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.SPServices-0.7.2.min.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.SPServices-2014.02.js" />
+    <Content Include="Layouts\MAPPS\Scripts\jquery.SPServices-2014.02.min.js" />
+    <Content Include="Layouts\MAPPS\Scripts\json2.js" />
+    <Content Include="Layouts\MAPPS\Scripts\mapps.js" />
+    <Content Include="Layouts\MAPPS\Scripts\mappsmenu.js" />
+    <Content Include="Layouts\MAPPS\Scripts\PageComponent.js" />
+    <Content Include="Layouts\MAPPS\Scripts\speechbubbles.js" />
+    <Content Include="Layouts\MAPPS\Styles\jquery-ui.css" />
+    <Content Include="Layouts\MAPPS\Styles\mapps.css" />
+    <Content Include="Layouts\MAPPS\Styles\mappsmenu.css" />
+    <Content Include="Layouts\MAPPS\Styles\speechbubbles.css" />
+    <Content Include="Layouts\MAPPS\WebServices\Data.asmx" />
+    <Content Include="Layouts\MAPPS\WebServices\Time.asmx" />
+    <Content Include="Layouts\MAPPS\XML\TmeZoneOffsets.xml" />
+    <EmbeddedResource Include="SQL\DROP_PROC_UpdateApplicationDisplayIndex.sql" />
+    <EmbeddedResource Include="SQL\CREATE_PROC_UpdateApplicationDisplayIndex.sql" />
+    <EmbeddedResource Include="SQL\Applications.sql" />
+    <EmbeddedResource Include="SQL\ServerPorts.sql" />
+    <Content Include="WebParts\ServerName\Elements.xml" />
+    <EmbeddedResource Include="SQL\ServerVersions.sql" />
+    <EmbeddedResource Include="SQL\ServerEnvironments.sql" />
+    <EmbeddedResource Include="SQL\ServerStatuses.sql" />
+    <EmbeddedResource Include="SQL\ServerTypes.sql" />
+    <EmbeddedResource Include="SQL\ServerFunctions.sql" />
+    <EmbeddedResource Include="SQL\Servers.sql" />
+    <EmbeddedResource Include="SQL\_Template.sql" />
+    <EmbeddedResource Include="SQL\Activity.sql" />
+    <EmbeddedResource Include="SQL\CREATE_PROC_UpdateTabDisplayIndex.sql" />
+    <EmbeddedResource Include="SQL\DROP_PROC_UpdateTabDisplayIndex.sql" />
+    <EmbeddedResource Include="SQL\Encrypt.sql" />
+    <EmbeddedResource Include="SQL\Errors.sql" />
+    <EmbeddedResource Include="SQL\MenuAdmins.sql" />
+    <EmbeddedResource Include="SQL\MenuNodeAdmins.sql" />
+    <EmbeddedResource Include="SQL\MenuNodes.sql" />
+    <EmbeddedResource Include="SQL\Menus.sql" />
+    <EmbeddedResource Include="SQL\Messages.sql" />
+    <EmbeddedResource Include="SQL\Modules.sql" />
+    <EmbeddedResource Include="SQL\Roles.sql" />
+    <EmbeddedResource Include="SQL\SecurityGroupMemberships.sql" />
+    <EmbeddedResource Include="SQL\SecurityGroups.sql" />
+    <EmbeddedResource Include="SQL\Settings.sql" />
+    <EmbeddedResource Include="SQL\TableVersions.sql" />
+    <EmbeddedResource Include="SQL\Tabs.sql" />
+    <EmbeddedResource Include="SQL\TimeZones.sql" />
+    <EmbeddedResource Include="SQL\Transactions.sql" />
+    <EmbeddedResource Include="SQL\Users.sql" />
+    <EmbeddedResource Include="Layouts\MAPPS\Ribbon\mappscontextualtab.xml" />
+    <EmbeddedResource Include="Layouts\MAPPS\Ribbon\mappstab.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

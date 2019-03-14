@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <Link ID="1" Name="Home" Tab="Home" URL="home.aspx" Image="/_layouts/images/hhome.png" />
+  <Link ID="2" Name="Security" Tab="Security" URL="securitymanager.aspx" Image="/_layouts/images/TABSEC.GIF" />
+  <Link ID="3" Name="Training" Tab="Training" URL="training.aspx" Image="/_layouts/images/STSPEOPL.GIF" />
+  <Link ID="4" Name="Help" Tab="Help" URL="help.aspx" Image="/_layouts/images/HELPICON.GIF" />
+
+  <UserLink ID="1" Name="Administration" Tab="Administration" URL="javascript:void(0);" Image="/_layouts/images/lg_ICPROP.gif" />
+</root>

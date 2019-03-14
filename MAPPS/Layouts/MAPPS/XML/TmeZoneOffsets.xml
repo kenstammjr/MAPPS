@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <TimeZone ID="1" Offset="01:00:00" Letter="A" />
+  <TimeZone ID="2" Offset="02:00:00" Letter="B" />
+  <TimeZone ID="3" Offset="03:00:00" Letter="C" />
+  <TimeZone ID="4" Offset="03:30:00" Letter="C" />
+  <TimeZone ID="5" Offset="04:00:00" Letter="D" />
+  <TimeZone ID="6" Offset="04:30:00" Letter="D" />
+  <TimeZone ID="7" Offset="05:00:00" Letter="E" />
+  <TimeZone ID="8" Offset="05:30:00" Letter="E" />
+  <TimeZone ID="9" Offset="05:45:00" Letter="E" />
+  <TimeZone ID="10" Offset="06:00:00" Letter="F" />
+  <TimeZone ID="11" Offset="06:30:00" Letter="F" />
+  <TimeZone ID="12" Offset="07:00:00" Letter="G" />
+  <TimeZone ID="13" Offset="08:00:00" Letter="H" />
+  <TimeZone ID="14" Offset="09:00:00" Letter="I" />
+  <TimeZone ID="15" Offset="09:30:00" Letter="I" />
+  <TimeZone ID="16" Offset="10:00:00" Letter="K" />
+  <TimeZone ID="17" Offset="11:00:00" Letter="L" />
+  <TimeZone ID="18" Offset="12:00:00" Letter="M" />
+  <TimeZone ID="19" Offset="13:00:00" Letter="M" />
+  <TimeZone ID="20" Offset="-01:00:00" Letter="N" />
+  <TimeZone ID="21" Offset="-02:00:00" Letter="O" />
+  <TimeZone ID="22" Offset="-03:00:00" Letter="P" />
+  <TimeZone ID="23" Offset="-03:30:00" Letter="P" />
+  <TimeZone ID="24" Offset="-04:00:00" Letter="Q" />
+  <TimeZone ID="25" Offset="-04:30:00" Letter="Q" />
+  <TimeZone ID="26" Offset="-05:00:00" Letter="R" />
+  <TimeZone ID="27" Offset="-06:00:00" Letter="S" />
+  <TimeZone ID="28" Offset="-07:00:00" Letter="T" />
+  <TimeZone ID="29" Offset="-08:00:00" Letter="U" />
+  <TimeZone ID="30" Offset="-09:00:00" Letter="V" />
+  <TimeZone ID="31" Offset="-10:00:00" Letter="W" />
+  <TimeZone ID="32" Offset="-11:00:00" Letter="X" />
+  <TimeZone ID="33" Offset="-12:00:00" Letter="Y" />
+  <TimeZone ID="34" Offset="00:00:00" Letter="Z" />
+</root>
