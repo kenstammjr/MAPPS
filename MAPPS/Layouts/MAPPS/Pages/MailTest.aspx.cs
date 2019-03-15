@@ -47,7 +47,7 @@ namespace MAPPS.Pages {
                     string smtpHost = string.Empty;
                     smtpHost = SPAdministrationWebApplication.Local.OutboundMailServiceInstance.Server.Name;
                     MailMessage email = new MailMessage();
-                    email.From = new MailAddress("noreply@nga.dev");
+                    email.From = new MailAddress("mapps.noreply@mail.mil");
                     email.Subject = "MAPPS SIS Email Functionality Test";
                     email.IsBodyHtml = true;
                     email.Body = msg;

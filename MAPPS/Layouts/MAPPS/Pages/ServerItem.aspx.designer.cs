@@ -94,6 +94,33 @@ namespace MAPPS.Pages {
         protected global::System.Web.UI.WebControls.LinkButton lbtnRibbonEdit;
         
         /// <summary>
+        /// tdDrive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdDrive;
+        
+        /// <summary>
+        /// ibtnRibbonDrive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibtnRibbonDrive;
+        
+        /// <summary>
+        /// lbtnRibbonDrive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnRibbonDrive;
+        
+        /// <summary>
         /// tdSave control.
         /// </summary>
         /// <remarks>
@@ -317,6 +344,24 @@ namespace MAPPS.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMemoryView;
+        
+        /// <summary>
+        /// trDrive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trDrive;
+        
+        /// <summary>
+        /// ServerDrives control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl ServerDrives;
         
         /// <summary>
         /// txtIPAddress control.

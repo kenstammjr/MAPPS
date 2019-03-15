@@ -103,6 +103,7 @@
     <Compile Include="Classes\Roles.cs" />
     <Compile Include="Classes\SecurityGroupMemberships.cs" />
     <Compile Include="Classes\SecurityGroups.cs" />
+    <Compile Include="Classes\ServerDrives.cs" />
     <Compile Include="Classes\TimerJobs\CollectUsers.cs" />
     <Compile Include="Classes\TimerJobs\CollectServers.cs" />
     <Compile Include="Classes\TimerJobs\SendAlerts.cs" />
@@ -118,6 +119,9 @@
     <Compile Include="Classes\TimeZoneOffsets.cs" />
     <Compile Include="Classes\TimeZones.cs" />
     <Compile Include="Classes\Transactions.cs" />
+    <Compile Include="Classes\ServerControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Classes\UserControlBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -158,6 +162,13 @@
     </Compile>
     <Compile Include="CONTROLTEMPLATES\MAPPS\Tabs.ascx.designer.cs">
       <DependentUpon>Tabs.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerDrives.ascx.cs">
+      <DependentUpon>ServerDrives.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerDrives.ascx.designer.cs">
+      <DependentUpon>ServerDrives.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROLTEMPLATES\MAPPS\UserRoles.ascx.cs">
       <DependentUpon>UserRoles.ascx</DependentUpon>
@@ -460,7 +471,6 @@
     <None Include="key.snk" />
     <None Include="Layouts\MAPPS\MasterPages\app.master" />
     <None Include="Layouts\MAPPS\MasterPages\default.master" />
-    <None Include="Layouts\MAPPS\MasterPages\jsou.master" />
     <None Include="Layouts\MAPPS\MasterPages\seattle.master" />
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fd7bc50c-f3ab-4557-91b3-3d016382353b}</SharePointProjectItemId>
@@ -485,6 +495,7 @@
     <Content Include="CONTROLTEMPLATES\MAPPS\NavigationTree.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\ServerFilters.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\Tabs.ascx" />
+    <Content Include="CONTROLTEMPLATES\MAPPS\ServerDrives.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\UserRoles.ascx" />
     <Content Include="Documents\Enable Session State.txt" />
     <Content Include="Documents\Farm Properties.txt" />
@@ -656,6 +667,7 @@
     <EmbeddedResource Include="SQL\CREATE_PROC_UpdateApplicationDisplayIndex.sql" />
     <EmbeddedResource Include="SQL\Applications.sql" />
     <EmbeddedResource Include="SQL\ServerPorts.sql" />
+    <EmbeddedResource Include="SQL\ServerDrives.sql" />
     <Content Include="WebParts\ServerName\Elements.xml" />
     <EmbeddedResource Include="SQL\ServerVersions.sql" />
     <EmbeddedResource Include="SQL\ServerEnvironments.sql" />

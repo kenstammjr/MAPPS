@@ -61,7 +61,7 @@
                             <td class="mapps-logo">
                                 <SharePoint:AjaxDelta ID="DeltaSiteLogo" BlockElement="true" runat="server">
                                     <asp:ContentPlaceHolder ID="PlaceHolderSiteLogo" runat="server">
-                                        <asp:Image ID="imgSiteLogo" runat="server" ImageUrl="/_layouts/15/images/nga/logo.png" />
+                                        <asp:Image ID="imgSiteLogo" runat="server" ImageUrl="/_layouts/15/images/mapps/logo.png" />
                                     </asp:ContentPlaceHolder>
                                 </SharePoint:AjaxDelta>
                             </td>

@@ -22,7 +22,7 @@ namespace MAPPS.Pages {
         protected void Page_Load(object sender, EventArgs e) {
             try {
                 if (!IsPostBack && !new Framework().IsDatabaseCurrent) {
-                    Response.Redirect(this.Web.Url + "/_layouts/nga/pages/dbutility.aspx", false);
+                    Response.Redirect(this.Web.Url + "/_layouts/mapps/pages/dbutility.aspx", false);
                     return;
                 }
 

@@ -123,6 +123,13 @@ namespace MAPPS.Pages {
                         Label lblPurpose = (Label)e.Row.FindControl("lblPurpose");
                         Label lblIPAddress = (Label)e.Row.FindControl("lblIPAddress");
 
+                        int rowID = int.Parse(lbtnName.CommandArgument.ToString());
+
+                        string urlView = string.Format("{0}/{1}?View=View&ID={2}&ServerID={2}&Filter={3}", this.Web.Url, Pages.ServerItem.PAGE_URL, id, txtSearch.Text.Trim());
+                        string urlEdit = string.Format("{0}/{1}?View=Edit&ID={2}&ServerID={2}&Filter={3}", this.Web.Url, Pages.ServerItem.PAGE_URL, id, txtSearch.Text.Trim());
+
+                        ibtnEdit.OnClientClick = "openModalDialog('Server - " + string.Format("{0}", lbtnName.Text) + "', '" + urlEdit + "'); return false;";
+                        lbtnName.OnClientClick = "openModalDialog('Server - " + string.Format("{0}", lbtnName.Text) + "', '" + urlView + "'); return false;";
 
 
                         if (lblStatus.Text.ToUpper().Contains("OFF")) {

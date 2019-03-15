@@ -20,7 +20,7 @@
     
     <asp:BulletedList ID="bltlDebugData" runat="server"></asp:BulletedList>
     <br />
-    <img src="/_layouts/15/nga/pages/JpegImage.aspx" alt="CaptchaImage" />
+    <img src="/_layouts/15/mapps/pages/JpegImage.aspx" alt="CaptchaImage" />
     <asp:Label ID="lblMsg" runat="server"></asp:Label>
 
 </asp:Content>

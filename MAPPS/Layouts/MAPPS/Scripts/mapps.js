@@ -141,7 +141,7 @@ function SaveProfile() {
                         break;
                 }
             });
-            window.location.replace("/_layouts/15/nga/pages/userprofiles.aspx");
+            window.location.replace("/_layouts/15/mapps/pages/userprofiles.aspx");
         },
         error: function (e) {
             alert("ActiveProperties: Error" + e);

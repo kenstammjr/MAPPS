@@ -225,10 +225,10 @@ namespace MAPPS.Pages {
                         if (field.SortExpression == PersonnelGridSortExpression) {
                             Image sortImage = new Image();
                             if (PersonnelGridSortDirection == SortDirection.Descending) {
-                                sortImage.ImageUrl = "/_layouts/15/Images/nga/rsort.gif";
+                                sortImage.ImageUrl = "/_layouts/15/Images/mapps/rsort.gif";
                                 sortImage.ToolTip = "Sort Descending";
                             } else {
-                                sortImage.ImageUrl = "/_layouts/15/Images/nga/sort.gif";
+                                sortImage.ImageUrl = "/_layouts/15/Images/mapps/sort.gif";
                                 sortImage.ToolTip = "Sort Ascending";
                             }
                             td.Controls.Add(lblSpace);
@@ -469,10 +469,10 @@ namespace MAPPS.Pages {
                         if (field.SortExpression == LeaveGridSortExpression) {
                             Image sortImage = new Image();
                             if (LeaveGridSortDirection == SortDirection.Descending) {
-                                sortImage.ImageUrl = "/_layouts/15/Images/nga/rsort.gif";
+                                sortImage.ImageUrl = "/_layouts/15/Images/mapps/rsort.gif";
                                 sortImage.ToolTip = "Sort Descending";
                             } else {
-                                sortImage.ImageUrl = "/_layouts/15/Images/nga/sort.gif";
+                                sortImage.ImageUrl = "/_layouts/15/Images/mapps/sort.gif";
                                 sortImage.ToolTip = "Sort Ascending";
                             }
                             td.Controls.Add(lblSpace);
@@ -713,10 +713,10 @@ namespace MAPPS.Pages {
                         if (field.SortExpression == TravelGridSortExpression) {
                             Image sortImage = new Image();
                             if (TravelGridSortDirection == SortDirection.Descending) {
-                                sortImage.ImageUrl = "/_layouts/15/Images/nga/rsort.gif";
+                                sortImage.ImageUrl = "/_layouts/15/Images/mapps/rsort.gif";
                                 sortImage.ToolTip = "Sort Descending";
                             } else {
-                                sortImage.ImageUrl = "/_layouts/15/Images/nga/sort.gif";
+                                sortImage.ImageUrl = "/_layouts/15/Images/mapps/sort.gif";
                                 sortImage.ToolTip = "Sort Ascending";
                             }
                             td.Controls.Add(lblSpace);

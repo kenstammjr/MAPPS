@@ -13,7 +13,7 @@ using System.Web.UI.WebControls;
 using System.Xml;
 
 namespace MAPPS{
-    public abstract class UserControlBase : UserControl {
+    public abstract class ServerControlBase : UserControl {
 
         #region _Constants_
 
@@ -115,6 +115,16 @@ namespace MAPPS{
             }
             set {
                 ViewState["ParentID"] = value;
+            }
+        }
+        protected int ServerID {
+            get {
+                if (ViewState["ServerID"] == null)
+                    ViewState["ServerID"] = 0;
+                return int.Parse(ViewState["ServerID"].ToString());
+            }
+            set {
+                ViewState["ServerID"] = value;
             }
         }
         protected int UserID {
@@ -290,6 +300,9 @@ namespace MAPPS{
                                 break;
                             case "parentid":
                                 ParentID = int.Parse(value);
+                                break;
+                            case "serverid":
+                                ServerID = int.Parse(value);
                                 break;
                             case "userid":
                                 UserID = int.Parse(value);

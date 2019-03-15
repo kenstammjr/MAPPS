@@ -26,7 +26,7 @@ namespace MAPPS{
 
         private static string JQUERY_SCRIPT_REFERENCE = string.Format("<script type=\"text/javascript\" src=\"/_layouts/15/mapps/scripts/jquery-1.11.1.min.js?v={0}\"></script>\r", Framework.RequiredVersion);
         private static string MAPPS_STYLES_REFERENCE = string.Format("<link rel=\"stylesheet\" type=\"text/css\" href=\"/_layouts/15/mapps/styles/mapps.css?v={0}\" />\r", Framework.RequiredVersion);
-        private static string MAPPS_SCRIPTS_REFERENCE = string.Format("<script type=\"text/javascript\" src=\"/_layouts/15/mapps/scripts/nga.js?v={0}\"></script>\r", Framework.RequiredVersion);
+        private static string MAPPS_SCRIPTS_REFERENCE = string.Format("<script type=\"text/javascript\" src=\"/_layouts/15/mapps/scripts/mapps.js?v={0}\"></script>\r", Framework.RequiredVersion);
         private static string JQUERY_MASK_REFERENCE = string.Format("<script type=\"text/javascript\" src=\"/_layouts/15/mapps/scripts/jquery.mask.js?v={0}\"></script>\r", Framework.RequiredVersion);
         private static string JQUERY_UI_STYLES_REFERENCE = string.Format("<link rel=\"stylesheet\" type=\"text/css\" href=\"/_layouts/15/mapps/styles/jquery-ui.css?v={0}\" />\r", Framework.RequiredVersion);
         private static string VISIFIRE_REFERENCE = string.Format("<script type=\"text/javascript\" src=\"/_layouts/15/mapps/Visifire/Visifire.js?v={0}\"></script>\r", Framework.RequiredVersion);
@@ -166,6 +166,17 @@ namespace MAPPS{
                 ViewState["UserID"] = value;
             }
         }
+        protected int ServerID {
+            get {
+                if (ViewState["ServerID"] == null)
+                    ViewState["ServerID"] = 0;
+                return int.Parse(ViewState["ServerID"].ToString());
+            }
+            set {
+                ViewState["ServerID"] = value;
+            }
+        }
+
         protected int StudentID {
             get {
                 if (ViewState["StudentID"] == null)
@@ -382,6 +393,9 @@ namespace MAPPS{
                                 break;
                             case "userid":
                                 UserID = int.Parse(value);
+                                break;
+                            case "serverid":
+                                ServerID = int.Parse(value);
                                 break;
                             case "studentid":
                                 StudentID = int.Parse(value);

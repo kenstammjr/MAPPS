@@ -36,7 +36,7 @@
     /* background-color: rgb(17, 32, 38);*/ /* dark blue*/
     /* background-color: rgb(136, 117, 52);*/ /* gold */
     background-color: black;
-    /*background: url("/_layouts/15/images/nga/binding_dark.png");*/
+    /*background: url("/_layouts/15/images/mapps/binding_dark.png");*/
 }
 
 /*#titleAreaBox { display: none; }
@@ -50,7 +50,7 @@
     /*background-color: rgb(17, 32, 38) !important;*/
     background-color: black !important;
     color: #ccc;
-    /*background: url("/_layouts/15/images/nga/binding_dark.png");*/
+    /*background: url("/_layouts/15/images/mapps/binding_dark.png");*/
 }
 
     #suiteBarRight #welcomeMenuBox .ms-core-menu-root {
@@ -66,7 +66,7 @@
     background-color: black !important;
     height: 5px !important;
     color: #ccc !important;
-    /*background: url("/_layouts/15/images/nga/binding_dark.png");*/
+    /*background: url("/_layouts/15/images/mapps/binding_dark.png");*/
 }
 
     .ms-cui-topBar2 .ms-cui-tt-span, .ms-cui-topBar2 .ms-cui-tt-a:hover > .ms-cui-tt-span {
@@ -80,7 +80,7 @@
 #globalNavBox, .ms-clientcontrol-chromeheader {
     /*background-color: rgb(17, 32, 38) !important;*/
     background-color: black !important;
-    /*background: url("/_layouts/15/images/nga/binding_dark.png");*/
+    /*background: url("/_layouts/15/images/mapps/binding_dark.png");*/
 }
 
 .ms-cui-topBar2, .ms-cui-topBarMaximized.ms-cui-topBar2 {

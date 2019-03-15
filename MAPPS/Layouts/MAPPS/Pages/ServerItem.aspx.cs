@@ -173,6 +173,8 @@ namespace MAPPS.Pages {
                 tdView.Visible = !isView && ItemID != 0;
                 tdDelete.Visible = !isView && ItemID != 0;
                 tdSave.Visible = !isView;
+                trDrive.Visible = ItemID != 0;
+                tdDrive.Visible = ItemID != 0;
 
 
                 if (!IsPostBack) {
@@ -277,6 +279,8 @@ namespace MAPPS.Pages {
 
                 btnSave.Visible = !isView;
                 btnCancel.Text = isView ? "Close" : "Cancel";
+
+                //lblErrorMessage.Text = string.Format("ItemID={0} ServerID={1}", ItemID.ToString(), ServerID.ToString());
             } catch (Exception ex) {
                 MAPPS.Error.WriteError(ex);
                 if (ShowDebug)
@@ -353,28 +357,28 @@ namespace MAPPS.Pages {
         }
 
         protected void ibtnRibbonNew_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
-            Response.Redirect(string.Format("{0}/{1}?View=New&id={2}&userid={2}&Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, 0, Filter), false);
+            Response.Redirect(string.Format("{0}/{1}?View=New&id={2}&serverid={2}&IsDlg=1&Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, 0, Filter), false);
         }
 
         protected void lbtnRibbonNew_Click(object sender, EventArgs e) {
-            Response.Redirect(string.Format("{0}/{1}?View=New&id={2}&userid={2}&Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, 0, Filter), false);
+            Response.Redirect(string.Format("{0}/{1}?View=New&id={2}&serverid={2}&IsDlg=1&Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, 0, Filter), false);
         }
 
         protected void ibtnRibbonView_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
-            Response.Redirect(string.Format("{0}/{1}?View=View&id={2}&userid={2}&Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, ItemID, Filter), false);
+            Response.Redirect(string.Format("{0}/{1}?View=View&id={2}&serverid={2}&IsDlg=1&Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, ItemID, Filter), false);
         }
 
         protected void lbtnRibbonView_Click(object sender, EventArgs e) {
-            Response.Redirect(string.Format("{0}/{1}?View=View&id={2}&userid={2}&Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, ItemID, Filter), false);
+            Response.Redirect(string.Format("{0}/{1}?View=View&id={2}&serverid={2}&IsDlg=1&Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, ItemID, Filter), false);
         }
 
         protected void ibtnRibbonEdit_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
-            Response.Redirect(string.Format("{0}/{1}?View=Edit&id={2}&userid={2}?Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, ItemID, Filter), false);
+            Response.Redirect(string.Format("{0}/{1}?View=Edit&id={2}&serverid={2}&IsDlg=1&Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, ItemID, Filter), false);
 
         }
 
         protected void lbtnRibbonEdit_Click(object sender, EventArgs e) {
-            Response.Redirect(string.Format("{0}/{1}?View=Edit&id={2}&userid={2}?Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, ItemID, Filter), false);
+            Response.Redirect(string.Format("{0}/{1}?View=Edit&id={2}&serverid={2}&IsDlg=1&Filter={3}", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, ItemID, Filter), false);
         }
 
         protected void ibtnRibbonSave_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
@@ -403,6 +407,13 @@ namespace MAPPS.Pages {
 
         protected void lbtnRibbonCancel_Click(object sender, EventArgs e) {
             Response.Redirect(string.Format("{0}/{1}?Filter={2}", SPContext.Current.Web.Url, Pages.Servers.PAGE_URL, Filter), false);
+        }
+        protected void ibtnRibbonDrive_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
+            Response.Redirect(string.Format("{0}&adddrive=true", this.Request.Url.ToString()), false);
+        }
+
+        protected void lbtnRibbonDrive_Click(object sender, EventArgs e) {
+            Response.Redirect(string.Format("{0}&adddrive=true", this.Request.Url.ToString()), false);
         }
     }
 }

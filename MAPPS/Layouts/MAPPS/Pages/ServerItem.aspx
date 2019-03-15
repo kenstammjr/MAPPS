@@ -4,6 +4,8 @@
 <%@ Register TagPrefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Register Src="~/_controltemplates/15/MAPPS/NavigationTree.ascx" TagPrefix="uc1" TagName="NavigationTree" %>
+<%@ Register Src="~/_controltemplates/15/MAPPS/ServerDrives.ascx" TagPrefix="uc1" TagName="ServerDrives" %>
+
 
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
@@ -47,6 +49,18 @@
                         <tr>
                             <td>
                                 <asp:LinkButton ID="lbtnRibbonEdit" runat="server" Text="Edit" CssClass="mapps-ribbon-link" OnClick="lbtnRibbonEdit_Click" CausesValidation="false"></asp:LinkButton></td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="tdDrive" runat="server" class="mapps-ribbon-cell" visible="true">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 32px;">
+                        <tr>
+                            <td>
+                                <asp:ImageButton ID="ibtnRibbonDrive" runat="server" CssClass="mapps-contact-ribbon" OnClick="ibtnRibbonDrive_Click" /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lbtnRibbonDrive" runat="server" Text="Drive" CssClass="mapps-ribbon-link" OnClick="lbtnRibbonDrive_Click"></asp:LinkButton></td>
                         </tr>
                     </table>
                 </td>
@@ -184,6 +198,16 @@
                     <asp:Label ID="lblMemoryView" runat="server" CssClass="mapps-item" />
                 </td>
             </tr>
+            <%--Drives--%>
+            <tr id="trDrive" runat="server" visible="false">
+                <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
+                    <h3 class="ms-standardheader">Drive(s)
+                    </h3>
+                </td>
+                <td valign="middle" width="350px" class="mapps-formbody">
+                    <uc1:ServerDrives runat="server" id="ServerDrives" />
+                </td>
+            </tr>
             <%--IPAddress--%>
             <tr>
                 <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
@@ -196,6 +220,7 @@
                     <asp:Label ID="lblIPAddressView" runat="server" CssClass="mapps-item" />
                 </td>
             </tr>
+
             <%--ServerFunction--%>
             <tr>
                 <td nowrap="true" valign="top" width="113px" class="ms-formlabel">

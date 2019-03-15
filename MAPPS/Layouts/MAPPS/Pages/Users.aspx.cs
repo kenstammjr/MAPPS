@@ -57,7 +57,7 @@ namespace MAPPS.Pages {
         private void SetupContribute() {
             if (IsManager) {
                 //jsActionNewItem = string.Format("window.location.replace('{0}/{1}?View=New&ID=0&Filter={2}'); return false;", SPContext.Current.Web.Url, UserItem.PAGE_URL, Filter);
-                jsActionNewItem = string.Format("openModalDialog('Student - New Item','{0}/{1}?View=New&ID=0&UserID=0&Filter={2}'); return false;", SPContext.Current.Web.Url, Pages.UserItem.PAGE_URL, Filter);
+                jsActionNewItem = string.Format("openModalDialog('User - New Item','{0}/{1}?View=New&ID=0&UserID=0&Filter={2}'); return false;", SPContext.Current.Web.Url, Pages.UserItem.PAGE_URL, Filter);
                 lbtnNew.OnClientClick = jsActionNewItem;
                 lbtnNew.Visible = true;
                 gvData.Columns[0].Visible = true;
@@ -118,12 +118,12 @@ namespace MAPPS.Pages {
                         Label lblPreferredName = (Label)e.Row.FindControl("lblPreferredName");
                         Label lblEmail = (Label)e.Row.FindControl("lblEmail");
 
-                        //int rowID = int.Parse(lbtnLastName.CommandArgument.ToString());
-                        //string urlView = string.Format("{0}/{1}?View=View&ID={2}&UserID={2}&Filter={3}", this.Web.Url, Pages.UserItem.PAGE_URL, rowID, txtSearch.Text.Trim());
-                        //string urlEdit = string.Format("{0}/{1}?View=Edit&ID={2}&UserID={2}&Filter={3}", this.Web.Url, Pages.UserItem.PAGE_URL, rowID, txtSearch.Text.Trim());
+                        int rowID = int.Parse(lbtnLastName.CommandArgument.ToString());
+                        string urlView = string.Format("{0}/{1}?View=View&ID={2}&UserID={2}&Filter={3}", this.Web.Url, Pages.UserItem.PAGE_URL, rowID, txtSearch.Text.Trim());
+                        string urlEdit = string.Format("{0}/{1}?View=Edit&ID={2}&UserID={2}&Filter={3}", this.Web.Url, Pages.UserItem.PAGE_URL, rowID, txtSearch.Text.Trim());
 
-                        //ibtnEdit.OnClientClick = "openModalDialog('User - " + string.Format("{0} {1}", lblFirstName.Text, lbtnLastName.Text) + "', '" + urlEdit + "'); return false;";
-                        //lbtnLastName.OnClientClick = "openModalDialog('User - " + string.Format("{0} {1}", lblFirstName.Text, lbtnLastName.Text) + "', '" + urlView + "'); return false;";
+                        ibtnEdit.OnClientClick = "openModalDialog('User - " + string.Format("{0} {1}", lblFirstName.Text, lbtnLastName.Text) + "', '" + urlEdit + "'); return false;";
+                        lbtnLastName.OnClientClick = "openModalDialog('User - " + string.Format("{0} {1}", lblFirstName.Text, lbtnLastName.Text) + "', '" + urlView + "'); return false;";
 
                         if (txtSearch.Text.Length > 0) {
                             Filter = txtSearch.Text.Trim();
