@@ -14,14 +14,14 @@
 
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <div style="width: 95%; float: left;">
-        <table id="Table1" runat="server" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+        <table id="Table1" runat="server" border="0" cellpadding="0" cellspacing="0" style="width: 50%;">
             <tr>
                 <td class="mapps-grid-top-left" style="text-align: left;">
-                    <asp:HyperLink ID="lnkTitle" runat="server" Text="Organizations" ForeColor="White"></asp:HyperLink></td>
+                    <asp:HyperLink ID="lnkTitle" runat="server" Text="Navigation Menu Nodes" ForeColor="White"></asp:HyperLink></td>
                 <td class="mapps-grid-top-right" style="text-align: right;">
-                    <asp:Label ID="lblSearch" runat="server" Text="Search" CssClass="mapps-tool-text" />
-                    <asp:TextBox ID="txtSearch" runat="server" MaxLength="50" CssClass="mapps-tool-input" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged" />&nbsp;&nbsp;&nbsp;
-                    <asp:LinkButton ID="lbtnNew" runat="server" Text="New" CssClass="mapps-app-page-button" Visible="false" OnClick="lbtnNew_Click"></asp:LinkButton>
+                    <asp:Label ID="lblSearch" runat="server" Text="Search" CssClass="mapps-tool-text" Visible="false" />
+                    <asp:TextBox ID="txtSearch" runat="server" MaxLength="50" CssClass="mapps-tool-input" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged" Visible="false" />&nbsp;&nbsp;&nbsp;
+                    <asp:LinkButton ID="lbtnNew" runat="server" Text="New" CssClass="mapps-app-page-button" Visible="false"></asp:LinkButton>
                 </td>
             </tr>
             <tr>
@@ -50,37 +50,37 @@
                                 <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Width="5px" />
                             </asp:TemplateField>
                             <%-- Name --%>
-                            <asp:TemplateField HeaderText="Organization&nbsp;" SortExpression="Name">
+                            <asp:TemplateField HeaderText="Name&nbsp;" SortExpression="Name">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lbtnName" runat="server" CommandArgument='<%# DataBinder.Eval(Container,"DataItem.ID") %>'
                                         CommandName="GetChildren" Text='<%# DataBinder.Eval(Container,"DataItem.Name") %>' />
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="mapps-grid-header-left-none" />
-                                <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" />
+                                <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" />
                             </asp:TemplateField>
-                            <%-- Abbreviation --%>
-                            <asp:TemplateField HeaderText="Abbreviation&nbsp;" SortExpression="Abbreviation">
+                            <%-- URL --%>
+                            <asp:TemplateField HeaderText="URL&nbsp;" SortExpression="URL">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblOrganizationAbbreviation" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.Abbreviation ") %>' />
+                                    <asp:Label ID="lblURL" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.URL ") %>' />
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="mapps-grid-header-left-none" />
-                                <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" />
+                                <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" />
                             </asp:TemplateField>
                             <%-- Description --%>
                             <asp:TemplateField HeaderText="Description&nbsp;" SortExpression="Description">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblOrganizationDescription" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.Description ") %>' />
+                                    <asp:Label ID="lblDescription" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.Description ") %>' />
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="mapps-grid-header-left-none" />
-                                <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" />
+                                <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" Width="300px" />
                             </asp:TemplateField>
                             <%-- Parent Organization --%>
-                            <asp:TemplateField HeaderText="Parent Organization&nbsp;" SortExpression="ParentName">
+                            <asp:TemplateField HeaderText="Parent Tab&nbsp;" SortExpression="ParentName">
                                 <ItemTemplate>
                                     <asp:Label ID="lblOrganizationParent" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.ParentName") %>' />
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="mapps-grid-header-left-none" />
-                                <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" />
+                                <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" />
                             </asp:TemplateField>
                          </Columns>
                     </SharePoint:SPGridView>

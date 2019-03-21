@@ -103,6 +103,7 @@
     <Compile Include="Classes\Roles.cs" />
     <Compile Include="Classes\SecurityGroupMemberships.cs" />
     <Compile Include="Classes\SecurityGroups.cs" />
+    <Compile Include="Classes\ServerAddresses.cs" />
     <Compile Include="Classes\ServerDrives.cs" />
     <Compile Include="Classes\TimerJobs\CollectUsers.cs" />
     <Compile Include="Classes\TimerJobs\CollectServers.cs" />
@@ -148,6 +149,20 @@
     </Compile>
     <Compile Include="CONTROLTEMPLATES\MAPPS\NavigationTree.ascx.designer.cs">
       <DependentUpon>NavigationTree.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerAddresses.ascx.cs">
+      <DependentUpon>ServerAddresses.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerAddresses.ascx.designer.cs">
+      <DependentUpon>ServerAddresses.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerPorts.ascx.cs">
+      <DependentUpon>ServerPorts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerPorts.ascx.designer.cs">
+      <DependentUpon>ServerPorts.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROLTEMPLATES\MAPPS\ServerFilters.ascx.cs">
       <DependentUpon>ServerFilters.ascx</DependentUpon>
@@ -284,6 +299,34 @@
     </Compile>
     <Compile Include="Layouts\MAPPS\Pages\MailTest.aspx.designer.cs">
       <DependentUpon>MailTest.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\MenuItem.aspx.cs">
+      <DependentUpon>MenuItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\MenuItem.aspx.designer.cs">
+      <DependentUpon>MenuItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\MenuNodeItem.aspx.cs">
+      <DependentUpon>MenuNodeItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\MenuNodeItem.aspx.designer.cs">
+      <DependentUpon>MenuNodeItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\MenuNodes.aspx.cs">
+      <DependentUpon>MenuNodes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\MenuNodes.aspx.designer.cs">
+      <DependentUpon>MenuNodes.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Menus.aspx.cs">
+      <DependentUpon>Menus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Menus.aspx.designer.cs">
+      <DependentUpon>Menus.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Layouts\MAPPS\Pages\ModuleItem.aspx.cs">
       <DependentUpon>ModuleItem.aspx</DependentUpon>
@@ -493,6 +536,8 @@
     <Content Include="CONTROLTEMPLATES\MAPPS\LeftNavBar.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\Modules.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\NavigationTree.ascx" />
+    <Content Include="CONTROLTEMPLATES\MAPPS\ServerAddresses.ascx" />
+    <Content Include="CONTROLTEMPLATES\MAPPS\ServerPorts.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\ServerFilters.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\Tabs.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\ServerDrives.ascx" />
@@ -607,6 +652,10 @@
     <Content Include="Layouts\MAPPS\Pages\JpegImage.aspx" />
     <Content Include="Layouts\MAPPS\Pages\LeftNavBar.xml" />
     <Content Include="Layouts\MAPPS\Pages\MailTest.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\MenuItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\MenuNodeItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\MenuNodes.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Menus.aspx" />
     <Content Include="Layouts\MAPPS\Pages\ModuleItem.aspx" />
     <Content Include="Layouts\MAPPS\Pages\Modules.aspx" />
     <Content Include="Layouts\MAPPS\Pages\OpsHome.aspx" />
@@ -668,6 +717,7 @@
     <EmbeddedResource Include="SQL\Applications.sql" />
     <EmbeddedResource Include="SQL\ServerPorts.sql" />
     <EmbeddedResource Include="SQL\ServerDrives.sql" />
+    <EmbeddedResource Include="SQL\ServerAddresses.sql" />
     <Content Include="WebParts\ServerName\Elements.xml" />
     <EmbeddedResource Include="SQL\ServerVersions.sql" />
     <EmbeddedResource Include="SQL\ServerEnvironments.sql" />

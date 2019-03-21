@@ -219,6 +219,13 @@
     Text-indent: -9999px;
     background: url("/_layouts/15/1033/images/formatmap32x32.png") -306px -102px no-repeat;
 }
+.mapps-add-ribbon {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    Text-indent: -9999px;
+    background: url("/_layouts/15/1033/images/formatmap32x32.png") -171px -442px no-repeat;
+}
 .mapps-calendar-ribbon {
     width: 32px;
     height: 32px;

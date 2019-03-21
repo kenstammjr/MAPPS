@@ -175,7 +175,10 @@ namespace MAPPS.Pages {
                 tdSave.Visible = !isView;
                 trDrive.Visible = ItemID != 0;
                 tdDrive.Visible = ItemID != 0;
-
+                trAddress.Visible = ItemID != 0;
+                tdAddress.Visible = ItemID != 0;
+                trPort.Visible = ItemID != 0;
+                tdPort.Visible = ItemID != 0;
 
                 if (!IsPostBack) {
                     ddlServerFunction.DataSource = MAPPS.ServerFunction.Items();
@@ -414,6 +417,22 @@ namespace MAPPS.Pages {
 
         protected void lbtnRibbonDrive_Click(object sender, EventArgs e) {
             Response.Redirect(string.Format("{0}&adddrive=true", this.Request.Url.ToString()), false);
+        }
+
+        protected void ibtnRibbonAddress_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
+            Response.Redirect(string.Format("{0}&addaddress=true", this.Request.Url.ToString()), false);
+        }
+
+        protected void lbtnRibbonAddress_Click(object sender, EventArgs e) {
+            Response.Redirect(string.Format("{0}&addaddress=true", this.Request.Url.ToString()), false);
+        }
+
+        protected void ibtnRibbonPort_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
+            Response.Redirect(string.Format("{0}&addport=true", this.Request.Url.ToString()), false);
+        }
+
+        protected void lbtnRibbonPort_Click(object sender, EventArgs e) {
+            Response.Redirect(string.Format("{0}&addport=true", this.Request.Url.ToString()), false);
         }
     }
 }

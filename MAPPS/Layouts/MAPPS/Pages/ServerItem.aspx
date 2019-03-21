@@ -5,7 +5,8 @@
 <%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Register Src="~/_controltemplates/15/MAPPS/NavigationTree.ascx" TagPrefix="uc1" TagName="NavigationTree" %>
 <%@ Register Src="~/_controltemplates/15/MAPPS/ServerDrives.ascx" TagPrefix="uc1" TagName="ServerDrives" %>
-
+<%@ Register Src="~/_controltemplates/15/MAPPS/ServerAddresses.ascx" TagPrefix="uc1" TagName="ServerAddresses" %>
+<%@ Register Src="~/_controltemplates/15/MAPPS/ServerPorts.ascx" TagPrefix="uc1" TagName="ServerPorts" %>
 
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
@@ -56,11 +57,35 @@
                     <table border="0" cellpadding="0" cellspacing="0" style="width: 32px;">
                         <tr>
                             <td>
-                                <asp:ImageButton ID="ibtnRibbonDrive" runat="server" CssClass="mapps-contact-ribbon" OnClick="ibtnRibbonDrive_Click" /></td>
+                                <asp:ImageButton ID="ibtnRibbonDrive" runat="server" CssClass="mapps-add-ribbon" OnClick="ibtnRibbonDrive_Click" /></td>
                         </tr>
                         <tr>
                             <td>
                                 <asp:LinkButton ID="lbtnRibbonDrive" runat="server" Text="Drive" CssClass="mapps-ribbon-link" OnClick="lbtnRibbonDrive_Click"></asp:LinkButton></td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="tdAddress" runat="server" class="mapps-ribbon-cell" visible="true">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 32px;">
+                        <tr>
+                            <td>
+                                <asp:ImageButton ID="ibtnRibbonAddress" runat="server" CssClass="mapps-add-ribbon" OnClick="ibtnRibbonAddress_Click"/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lbtnRibbonAddress" runat="server" Text="Address" CssClass="mapps-ribbon-link" OnClick="lbtnRibbonAddress_Click"></asp:LinkButton></td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="tdPort" runat="server" class="mapps-ribbon-cell" visible="true">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 32px;">
+                        <tr>
+                            <td>
+                                <asp:ImageButton ID="ibtnRibbonPort" runat="server" CssClass="mapps-add-ribbon" OnClick="ibtnRibbonPort_Click"/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lbtnRibbonPort" runat="server" Text="Port" CssClass="mapps-ribbon-link" OnClick="lbtnRibbonPort_Click"></asp:LinkButton></td>
                         </tr>
                     </table>
                 </td>
@@ -208,6 +233,27 @@
                     <uc1:ServerDrives runat="server" id="ServerDrives" />
                 </td>
             </tr>
+            <%--IP Addresses--%>
+            <tr id="trAddress" runat="server" visible="false">
+                <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
+                    <h3 class="ms-standardheader">IP Address(es)
+                    </h3>
+                </td>
+                <td valign="middle" width="350px" class="mapps-formbody">
+                    <uc1:ServerAddresses runat="server" id="ServerAddresses" />
+                </td>
+            </tr>
+            <%--Ports--%>
+            <tr id="trPort" runat="server" visible="false">
+                <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
+                    <h3 class="ms-standardheader">Port(s)
+                    </h3>
+                </td>
+                <td valign="middle" width="350px" class="mapps-formbody">
+                    <uc1:ServerPorts runat="server" id="ServerPorts" />
+                </td>
+            </tr>
+
             <%--IPAddress--%>
             <tr>
                 <td nowrap="true" valign="top" width="113px" class="ms-formlabel">

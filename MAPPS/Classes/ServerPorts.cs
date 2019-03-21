@@ -11,6 +11,7 @@ namespace MAPPS {
         private int _ServerID;
         private string _Port;
         private string _Protocol;
+        private string _Description;
         private string _CreatedBy;
         private DateTime _CreatedOn;
         private string _ModifiedBy;
@@ -48,6 +49,14 @@ namespace MAPPS {
             }
             set {
                 _Protocol = value;
+            }
+        }
+        public string Description {
+            get {
+                return _Description;
+            }
+            set {
+                _Description = value;
             }
         }
         public string CreatedBy {
@@ -91,6 +100,7 @@ namespace MAPPS {
             _ServerID = 0;
             _Port = string.Empty;
             _Protocol = string.Empty;
+            _Description = string.Empty;
             _CreatedBy = "System Account";
             _CreatedOn = new DateTime(1900, 1, 1);
             _ModifiedBy = "System Account";
@@ -114,6 +124,7 @@ namespace MAPPS {
                         _ServerID = int.Parse(sdr["ServerID"].ToString());
                         _Port = sdr["Port"].ToString();
                         _Protocol = sdr["Protocol"].ToString();
+                        _Description = sdr["Description"].ToString();
                         _CreatedBy = sdr["CreatedBy"].ToString();
                         _CreatedOn = DateTime.Parse(sdr["CreatedOn"].ToString());
                         _ModifiedBy = sdr["ModifiedBy"].ToString();
@@ -151,6 +162,7 @@ namespace MAPPS {
 			                                (ServerID,
 										Port,
 										Protocol,
+										Description,
 										CreatedBy,
 										CreatedOn,
 										ModifiedBy,
@@ -159,6 +171,7 @@ namespace MAPPS {
 			                                (@ServerID,
 										@Port,
 										@Protocol,
+										@Description,
 										@CreatedBy,
 										@CreatedOn,
 										@ModifiedBy,
@@ -168,6 +181,7 @@ namespace MAPPS {
                     cmd.Parameters.AddWithValue("@ServerID", _ServerID);
                     cmd.Parameters.AddWithValue("@Port", _Port);
                     cmd.Parameters.AddWithValue("@Protocol", _Protocol);
+                    cmd.Parameters.AddWithValue("@Description", _Description);
                     cmd.Parameters.AddWithValue("@CreatedBy", _CreatedBy);
                     cmd.Parameters.AddWithValue("@CreatedOn", TimeStamp);
                     cmd.Parameters.AddWithValue("@ModifiedBy", _ModifiedBy);
@@ -202,6 +216,7 @@ namespace MAPPS {
 			                        SET ServerID = @ServerID,
 										Port = @Port,
 										Protocol = @Protocol,
+										Description = @Description,
 										ModifiedBy = @ModifiedBy,
 										ModifiedOn = @ModifiedOn
 			                        WHERE ID = @ID";
@@ -210,6 +225,7 @@ namespace MAPPS {
                     cmd.Parameters.AddWithValue("@ServerID", _ServerID);
                     cmd.Parameters.AddWithValue("@Port", _Port);
                     cmd.Parameters.AddWithValue("@Protocol", _Protocol);
+                    cmd.Parameters.AddWithValue("@Description", _Description);
                     cmd.Parameters.AddWithValue("@ModifiedBy", _ModifiedBy);
                     cmd.Parameters.AddWithValue("@ModifiedOn", TimeStamp);
                     if (conn.State != ConnectionState.Open) { conn.Open(); }
@@ -251,7 +267,7 @@ namespace MAPPS {
             }
             return Successful;
         }
-        public static DataSet Items(int ServerID) {
+        public static DataSet Items() {
             DataSet ds = new DataSet();
             using (new Impersonator()) {
                 SqlConnection conn = DataSource.Conn();
@@ -270,7 +286,7 @@ namespace MAPPS {
             }
             return ds;
         }
-        public static DataSet ItemsByServer(int ServerID) {
+        public static DataSet Items(int ServerID) {
             DataSet ds = new DataSet();
             using (new Impersonator()) {
                 SqlConnection conn = DataSource.Conn();
@@ -290,7 +306,6 @@ namespace MAPPS {
             }
             return ds;
         }
-
 
         #endregion
     }

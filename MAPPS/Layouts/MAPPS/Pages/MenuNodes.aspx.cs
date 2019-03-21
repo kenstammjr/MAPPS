@@ -55,7 +55,7 @@ namespace MAPPS.Pages {
 
         private void SetupContribute() {
             if (IsAdmin) {
-                jsActionNewItem = string.Format("window.location.replace('{0}/{1}?View=New&ID=0'); return false;", SPContext.Current.Web.Url, OrganizationItem.PAGE_URL);
+                jsActionNewItem = string.Format("window.location.replace('{0}/{1}?View=New&ID=0'); return false;", SPContext.Current.Web.Url, MenuNodeItem.PAGE_URL);
                 lbtnNew.Visible = true;
                 gvData.Columns[0].Visible = true;
             } else {
@@ -64,14 +64,14 @@ namespace MAPPS.Pages {
         }
         protected void BuildBreadcrumb() {
             try {
-                string bc = "<SPAN class=menu-item-text><b>Parent Organizations</b></SPAN>";
+                string bc = "<SPAN class=menu-item-text><b>Parent Nodes</b></SPAN>";
                 if (ItemID > 0) {
-                    bc = string.Format("<SPAN class=menu-item-text><a  href='{0}'>Parent Organizations</a></SPAN>", "Organizations.aspx");
-                    DataSet ds = Organization.Parents(ItemID);
+                    bc = string.Format("<SPAN class=menu-item-text><a  href='{0}'>Parent Nodes</a></SPAN>", "MenuNodes.aspx");
+                    DataSet ds = MenuNode.Parents(ItemID);
                     foreach (DataRow dr in ds.Tables[0].Rows) {
-                        bc = bc + string.Format("{3}<SPAN class=menu-item-text><a href='{0}?ID={1}'>{2}</a></SPAN>", "Organizations.aspx", dr["ID"].ToString(), dr["Name"].ToString(), GetBreadCrumbSpacer());
+                        bc = bc + string.Format("{3}<SPAN class=menu-item-text><a href='{0}?ID={1}'>{2}</a></SPAN>", "MenuNodes.aspx", dr["ID"].ToString(), dr["Name"].ToString(), GetBreadCrumbSpacer());
                     }
-                    bc = bc + GetBreadCrumbSpacer() + "<SPAN><b>" + new Organization(ItemID).Name + "</b></SPAN>";
+                    bc = bc + GetBreadCrumbSpacer() + "<SPAN><b>" + new MenuNode(ItemID).Name + "</b></SPAN>";
                 }
                 lblBreadCrumb.Text = bc;
             } catch (Exception ex) {
@@ -86,12 +86,11 @@ namespace MAPPS.Pages {
                 BuildBreadcrumb();
                 DataView dv = new DataView();
                 if (txtSearch.Text == string.Empty) {
-                    gvData.EmptyDataText = Message.EMPTY_LIST;
-                    dv = new DataView(MAPPS.Organization.Items(ItemID).Tables[0]);
+                    gvData.EmptyDataText = "There are no items to show at this level";
+                    dv = new DataView(MenuNode.Items(1, ItemID, false).Tables[0]);
                 } else {
                     gvData.EmptyDataText = Message.EMPTY_LIST_SEARCHED;
-                    //dv = new DataView(MAPPS.Organization.Items(txtSearch.Text.Trim()).Tables[0]);
-                    dv = new DataView(MAPPS.Organization.Items(ItemID).Tables[0]);
+                    dv = new DataView(MenuNode.Items(1, ItemID, false).Tables[0]);
                 }
                 dv.Sort = (GridSortDirection == SortDirection.Ascending) ? GridSortExpression + " ASC" : GridSortExpression + " DESC";
                 gvData.PageSize = GridViewPageSize;
@@ -119,6 +118,19 @@ namespace MAPPS.Pages {
             try {
                 switch (e.Row.RowType) {
                     case DataControlRowType.DataRow:
+                        e.Row.Attributes.Add("onmouseover", "this.originalstyle = this.style.backgroundColor; this.style.backgroundColor = 'rgba( 156,206,240,0.5 )'; this.style.color = 'White'");
+                        e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=this.originalstyle;this.style.color=this.originalstyle;");
+                        e.Row.Attributes["style"] = "cursor:pointer";
+
+                        LinkButton lbtnName = (LinkButton)e.Row.FindControl("lbtnName");
+                        ImageButton ibtnEdit = (ImageButton)e.Row.FindControl("ibtnEdit");
+                        int rowID = int.Parse(lbtnName.CommandArgument.ToString());
+
+                        string urlView = string.Format("{0}/{1}?View=View&ID={2}&Filter={3}", this.Web.Url, Pages.MenuNodeItem.PAGE_URL, rowID, Filter);
+                        string urlEdit = string.Format("{0}/{1}?View=Edit&ID={2}&Filter={3}", this.Web.Url, Pages.MenuNodeItem.PAGE_URL, rowID, Filter);
+
+                        ibtnEdit.OnClientClick = "openModalDialog('Node - " + string.Format("{0}", lbtnName.Text) + "', '" + urlEdit + "'); return false;";
+                        //lbtnName.OnClientClick = "openModalDialog('Tab - " + string.Format("{0}", lbtnName.Text) + "', '" + urlView + "'); return false;";
                         break;
                     case DataControlRowType.Header:
                         SetupSort(gvData, e);
@@ -133,14 +145,14 @@ namespace MAPPS.Pages {
         protected void gvData_RowCommand(object sender, GridViewCommandEventArgs e) {
             if (e.CommandName != "Sort" && e.CommandName != "Page") {
                 try {
-                    if (e.CommandName == "ViewItem") {
-                        ItemID = int.Parse(e.CommandArgument.ToString());
-                        Response.Redirect(string.Format("{0}/{1}?View=View&ID={2}", SPContext.Current.Web.Url, OrganizationItem.PAGE_URL, ItemID), false);
-                    }
-                    if (e.CommandName == "EditItem") {
-                        ItemID = int.Parse(e.CommandArgument.ToString());
-                        Response.Redirect(string.Format("{0}/{1}?View=Edit&ID={2}", SPContext.Current.Web.Url, OrganizationItem.PAGE_URL, ItemID), false);
-                    }
+                    //if (e.CommandName == "ViewItem") {
+                    //    ItemID = int.Parse(e.CommandArgument.ToString());
+                    //    Response.Redirect(string.Format("{0}/{1}?View=View&ID={2}", SPContext.Current.Web.Url, TabItem.PAGE_URL, ItemID), false);
+                    //}
+                    //if (e.CommandName == "EditItem") {
+                    //    ItemID = int.Parse(e.CommandArgument.ToString());
+                    //    Response.Redirect(string.Format("{0}/{1}?View=Edit&ID={2}", SPContext.Current.Web.Url, TabItem.PAGE_URL, ItemID), false);
+                    //}
                     if (e.CommandName == "GetChildren") {
                         ItemID = int.Parse(e.CommandArgument.ToString());
                         Fill();
@@ -157,9 +169,6 @@ namespace MAPPS.Pages {
 
         #region _Events_
 
-        protected void lbtnNew_Click(object sender, EventArgs e) {
-            Response.Redirect(string.Format("{0}/{1}?View=New&id={2}", SPContext.Current.Web.Url, Pages.OrganizationItem.PAGE_URL, 0), false);
-        }
         protected void txtSearch_TextChanged(object sender, EventArgs e) {
             PageIndex = 0;
             Fill();
