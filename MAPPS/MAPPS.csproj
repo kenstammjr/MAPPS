@@ -104,6 +104,8 @@
     <Compile Include="Classes\SecurityGroupMemberships.cs" />
     <Compile Include="Classes\SecurityGroups.cs" />
     <Compile Include="Classes\ServerAddresses.cs" />
+    <Compile Include="Classes\ServerCertificates.cs" />
+    <Compile Include="Classes\ServerContacts.cs" />
     <Compile Include="Classes\ServerDrives.cs" />
     <Compile Include="Classes\TimerJobs\CollectUsers.cs" />
     <Compile Include="Classes\TimerJobs\CollectServers.cs" />
@@ -156,6 +158,20 @@
     </Compile>
     <Compile Include="CONTROLTEMPLATES\MAPPS\ServerAddresses.ascx.designer.cs">
       <DependentUpon>ServerAddresses.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerContacts.ascx.cs">
+      <DependentUpon>ServerContacts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerContacts.ascx.designer.cs">
+      <DependentUpon>ServerContacts.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerCertificates.ascx.cs">
+      <DependentUpon>ServerCertificates.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\MAPPS\ServerCertificates.ascx.designer.cs">
+      <DependentUpon>ServerCertificates.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="CONTROLTEMPLATES\MAPPS\ServerPorts.ascx.cs">
       <DependentUpon>ServerPorts.ascx</DependentUpon>
@@ -537,6 +553,8 @@
     <Content Include="CONTROLTEMPLATES\MAPPS\Modules.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\NavigationTree.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\ServerAddresses.ascx" />
+    <Content Include="CONTROLTEMPLATES\MAPPS\ServerContacts.ascx" />
+    <Content Include="CONTROLTEMPLATES\MAPPS\ServerCertificates.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\ServerPorts.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\ServerFilters.ascx" />
     <Content Include="CONTROLTEMPLATES\MAPPS\Tabs.ascx" />

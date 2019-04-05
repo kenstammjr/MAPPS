@@ -440,9 +440,6 @@ namespace MAPPS {
                                     Servers.ServerStatusID, 
                                     Servers.ServerEnvironmentID, 
                                     Servers.ServerVersionID, 
-                                    Servers.IPAddress, 
-                                    Servers.PrimaryPOC,         
-                                    Servers.AlternatePOC,       
                                     Servers.RestartOrder, 
                                     Servers.Memory, 
                                     Servers.CPU, 
@@ -454,7 +451,27 @@ namespace MAPPS {
                                     ServerFunctions.Name AS FunctionName, 
                                     ServerStatuses.Name AS StatusName, 
                                     ServerTypes.Name AS TypeName, 
-                                    ServerVersions.Name AS VersionName
+                                    ServerVersions.Name AS VersionName,
+                                    (SELECT DISTINCT  
+                                        SUBSTRING(
+                                            (
+                                                SELECT ','+contact.username  AS [text()]
+                                                FROM dbo.vServerContacts contact
+                                                WHERE contact.ServerID = svr2.ID
+                                                ORDER BY contact.ServerID
+                                                FOR XML PATH ('')
+                                            ), 2, 1000) [ServerContacts]
+                                    FROM dbo.Servers svr2 where id = Servers.ID) as Contacts,
+                                    (SELECT DISTINCT  
+                                        SUBSTRING(
+                                            (
+                                                SELECT ','+address.name  AS [text()]
+                                                FROM dbo.ServerAddresses address
+                                                WHERE address.ServerID = svr3.ID
+                                                ORDER BY address.ServerID
+                                                FOR XML PATH ('')
+                                            ), 2, 1000) [ServerAddresses]
+                                    FROM dbo.Servers svr3 where id = Servers.id) as IPAddresses
                                 FROM Servers 
                                 INNER JOIN
                                     ServerFunctions ON Servers.ServerFunctionID = ServerFunctions.ID INNER JOIN
@@ -466,6 +483,33 @@ namespace MAPPS {
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(ds);
+
+                    //DataTable dt = ds.Tables[0];
+
+                    //DataColumn colContacts = new DataColumn("Contacts");
+                    //colContacts.AllowDBNull = true;
+                    //dt.Columns.Add(colContacts);
+                    //// add contacts
+                    //foreach (DataRow dr in dt.Rows) {
+                    //    int serverID = int.Parse(dr["id"].ToString());
+                    //    string contacts = MAPPS.ServerContact.ServerContactsString(serverID);
+                    //    dr["Contacts"] = contacts;
+                    //}
+                    //dt.AcceptChanges();
+                    //dt = ds.Tables[0];
+
+                    //DataColumn colIPAddresses = new DataColumn("IPAddresses");
+                    //colIPAddresses.AllowDBNull = true;
+                    //dt.Columns.Add(colIPAddresses);
+                    //// add ip addresses
+                    //foreach (DataRow dr in dt.Rows) {
+                    //    int serverID = int.Parse(dr["id"].ToString());
+                    //    string addresses = MAPPS.ServerAddress.ServerAddressString(serverID);
+                    //    dr["IPAddresses"] = addresses;
+                    //}
+                    //dt.AcceptChanges();
+                    //ds.AcceptChanges();
+
                 } catch (SqlException sqlex) {
                     Error.WriteError(sqlex);
                 } catch (Exception ex) {
@@ -486,14 +530,31 @@ namespace MAPPS {
                     if (Filter.Length != 0)
                         filter = @" AND (Servers.Name LIKE @Filter 
                                     OR Servers.Description LIKE @Filter
-                                    OR Servers.IPAddress LIKE @Filter
-                                    OR Servers.PrimaryPOC LIKE @Filter
-                                    OR Servers.AlternatePOC LIKE @Filter
                                     OR Servers.Purpose LIKE @Filter
                                     OR ServerFunctions.Name LIKE @Filter
                                     OR ServerStatuses.Name LIKE @Filter
                                     OR ServerTypes.Name LIKE @Filter
-                                    OR ServerVersions.Name LIKE @Filter)";
+                                    OR ServerVersions.Name LIKE @Filter
+                                    OR (SELECT DISTINCT  
+                                            SUBSTRING(
+                                                (
+                                                    SELECT ','+contact.username  AS [text()]
+                                                    FROM dbo.vServerContacts contact
+                                                    WHERE contact.ServerID = svr2.ID
+                                                    ORDER BY contact.ServerID
+                                                    FOR XML PATH ('')
+                                                ), 2, 1000) [ServerContacts]
+                                        FROM dbo.Servers svr2 where id = Servers.ID) LIKE @Filter
+                                    OR (SELECT DISTINCT  
+                                            SUBSTRING(
+                                                (
+                                                    SELECT ','+address.name  AS [text()]
+                                                    FROM dbo.ServerAddresses address
+                                                    WHERE address.ServerID = svr3.ID
+                                                    ORDER BY address.ServerID
+                                                    FOR XML PATH ('')
+                                                ), 2, 1000) [ServerAddresses]
+                                        FROM dbo.Servers svr3 where id = Servers.id) LIKE @Filter)";
 
                     string sql = string.Format(@"SELECT {0} 
                                         Servers.ID, 
@@ -504,9 +565,6 @@ namespace MAPPS {
                                         Servers.ServerStatusID, 
                                         Servers.ServerEnvironmentID, 
                                         Servers.ServerVersionID, 
-                                        Servers.IPAddress, 
-                                        Servers.PrimaryPOC, 
-                                        Servers.AlternatePOC, 
                                         Servers.RestartOrder, 
                                         Servers.Memory,
                                         Servers.CPU, 
@@ -518,21 +576,67 @@ namespace MAPPS {
                                         ServerFunctions.Name AS FunctionName,
                                         ServerStatuses.Name AS StatusName,
                                         ServerTypes.Name AS TypeName,
-                                        ServerVersions.Name AS VersionName
-                                    FROM Servers
-                                    INNER JOIN
-                                        ServerFunctions ON Servers.ServerFunctionID = ServerFunctions.ID INNER JOIN
-                                        ServerStatuses ON Servers.ServerStatusID = ServerStatuses.ID INNER JOIN
-                                        ServerTypes ON Servers.ServerTypeID = ServerTypes.ID INNER JOIN
-                                        ServerVersions ON Servers.ServerVersionID = ServerVersions.ID 
-                                    WHERE 1= 1
-                                    {1}
-                                    ORDER BY Servers.Name", maxRecords, filter);
+                                        ServerVersions.Name AS VersionName,
+                                        (SELECT DISTINCT  
+                                            SUBSTRING(
+                                                (
+                                                    SELECT ','+contact.username  AS [text()]
+                                                    FROM dbo.vServerContacts contact
+                                                    WHERE contact.ServerID = svr2.ID
+                                                    ORDER BY contact.ServerID
+                                                    FOR XML PATH ('')
+                                                ), 2, 1000) [ServerContacts]
+                                        FROM dbo.Servers svr2 where id = Servers.ID) as Contacts,
+                                        (SELECT DISTINCT  
+                                            SUBSTRING(
+                                                (
+                                                    SELECT ','+address.name  AS [text()]
+                                                    FROM dbo.ServerAddresses address
+                                                    WHERE address.ServerID = svr3.ID
+                                                    ORDER BY address.ServerID
+                                                    FOR XML PATH ('')
+                                                ), 2, 1000) [ServerAddresses]
+                                        FROM dbo.Servers svr3 where id = Servers.id) as IPAddresses
+                                        FROM Servers
+                                        INNER JOIN
+                                            ServerFunctions ON Servers.ServerFunctionID = ServerFunctions.ID INNER JOIN
+                                            ServerStatuses ON Servers.ServerStatusID = ServerStatuses.ID INNER JOIN
+                                            ServerTypes ON Servers.ServerTypeID = ServerTypes.ID INNER JOIN
+                                            ServerVersions ON Servers.ServerVersionID = ServerVersions.ID 
+                                        WHERE 1= 1
+                                        {1}
+                                        ORDER BY Servers.Name", maxRecords, filter);
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@Filter", "%" + Filter + "%");
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(ds);
+                    //DataTable dt = ds.Tables[0];
+
+                    //DataColumn colContacts = new DataColumn("Contacts");
+                    //colContacts.AllowDBNull = true;
+                    //dt.Columns.Add(colContacts);
+                    //// add contacts
+                    //foreach (DataRow dr in dt.Rows) {
+                    //    int serverID = int.Parse(dr["id"].ToString());
+                    //    string contacts = MAPPS.ServerContact.ServerContactsString(serverID);
+                    //    dr["Contacts"] = contacts;
+                    //}
+                    //dt.AcceptChanges();
+                    //dt = ds.Tables[0];
+
+                    //DataColumn colIPAddresses = new DataColumn("IPAddresses");
+                    //colIPAddresses.AllowDBNull = true;
+                    //dt.Columns.Add(colIPAddresses);
+                    //// add ip addresses
+                    //foreach (DataRow dr in dt.Rows) {
+                    //    int serverID = int.Parse(dr["id"].ToString());
+                    //    string addresses = MAPPS.ServerAddress.ServerAddressString(serverID);
+                    //    dr["IPAddresses"] = addresses;
+                    //}
+                    //dt.AcceptChanges();
+                    //ds.AcceptChanges();
+
                 } catch (SqlException sqlex) {
                     Error.WriteError(sqlex);
                 } catch (Exception ex) {

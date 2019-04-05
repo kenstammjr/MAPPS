@@ -111,27 +111,18 @@
                                 <HeaderStyle CssClass="mapps-grid-header-left" />
                                 <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" Width="5px" />
                             </asp:TemplateField>
-                            <%-- IPAddress --%>
-                            <asp:TemplateField HeaderText="IP Address" SortExpression="IPAddress">
+                            <%-- IPAddresses --%>
+                            <asp:TemplateField HeaderText="IP Addresses" SortExpression="IPAddresses">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblIPAddress" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.IPAddress") %>' />
+                                    <asp:Label ID="lblIPAddresses" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.IPAddresses") %>' />
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="mapps-grid-header-left" />
                                 <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" Width="5px" />
                             </asp:TemplateField>
-
-                            <%-- PrimaryPOC --%>
-                            <asp:TemplateField HeaderText="Primary POC&nbsp;" SortExpression="PrimaryPOC">
+                            <%-- Contacts --%>
+                            <asp:TemplateField HeaderText="Contacts&nbsp;" SortExpression="Contacts">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblPrimaryPOC" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.PrimaryPOC") %>' />
-                                </ItemTemplate>
-                                <HeaderStyle CssClass="mapps-grid-header-left" />
-                                <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" Width="5px" />
-                            </asp:TemplateField>
-                            <%-- AlternatePOC --%>
-                            <asp:TemplateField HeaderText="Alternate POC&nbsp;" SortExpression="AlternatePOC">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblAlternatePOC" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.AlternatePOC") %>' />
+                                    <asp:Label ID="lblContacts" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.Contacts") %>' />
                                 </ItemTemplate>
                                 <HeaderStyle CssClass="mapps-grid-header-left" />
                                 <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" Width="5px" />

@@ -94,6 +94,33 @@ namespace MAPPS.Pages {
         protected global::System.Web.UI.WebControls.LinkButton lbtnRibbonEdit;
         
         /// <summary>
+        /// tdContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdContact;
+        
+        /// <summary>
+        /// ibtnRibbonContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibtnRibbonContact;
+        
+        /// <summary>
+        /// lbtnRibbonContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnRibbonContact;
+        
+        /// <summary>
         /// tdDrive control.
         /// </summary>
         /// <remarks>
@@ -173,6 +200,33 @@ namespace MAPPS.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtnRibbonPort;
+        
+        /// <summary>
+        /// tdCertificate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdCertificate;
+        
+        /// <summary>
+        /// ibtnRibbonCertificate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibtnRibbonCertificate;
+        
+        /// <summary>
+        /// lbtnRibbonCertificate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnRibbonCertificate;
         
         /// <summary>
         /// tdSave control.
@@ -328,42 +382,6 @@ namespace MAPPS.Pages {
         protected global::System.Web.UI.WebControls.Label lblPurposeView;
         
         /// <summary>
-        /// txtPrimaryPOC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrimaryPOC;
-        
-        /// <summary>
-        /// lblPrimaryPOCView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrimaryPOCView;
-        
-        /// <summary>
-        /// txtAlternatePOC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAlternatePOC;
-        
-        /// <summary>
-        /// lblAlternatePOCView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAlternatePOCView;
-        
-        /// <summary>
         /// txtCPU control.
         /// </summary>
         /// <remarks>
@@ -398,6 +416,24 @@ namespace MAPPS.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMemoryView;
+        
+        /// <summary>
+        /// trContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trContact;
+        
+        /// <summary>
+        /// ServerContacts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl ServerContacts;
         
         /// <summary>
         /// trDrive control.
@@ -454,22 +490,22 @@ namespace MAPPS.Pages {
         protected global::System.Web.UI.UserControl ServerPorts;
         
         /// <summary>
-        /// txtIPAddress control.
+        /// trCertificate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIPAddress;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCertificate;
         
         /// <summary>
-        /// lblIPAddressView control.
+        /// ServerCertificates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIPAddressView;
+        protected global::System.Web.UI.UserControl ServerCertificates;
         
         /// <summary>
         /// lblServerFunctionRequired control.

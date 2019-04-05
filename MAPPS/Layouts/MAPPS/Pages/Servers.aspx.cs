@@ -57,7 +57,9 @@ namespace MAPPS.Pages {
 
         private void SetupContribute() {
             if (IsManager) {
-                jsActionNewItem = string.Format("window.location.replace('{0}/{1}?View=New&ID=0'); return false;", SPContext.Current.Web.Url, ServerItem.PAGE_URL);
+                //jsActionNewItem = string.Format("window.location.replace('{0}/{1}?View=New&ID=0'); return false;", SPContext.Current.Web.Url, ServerItem.PAGE_URL);
+                jsActionNewItem = string.Format("openModalDialog('User - New Item','{0}/{1}?View=New&ID=0&UserID=0&Filter={2}'); return false;", SPContext.Current.Web.Url, Pages.ServerItem.PAGE_URL, Filter);
+                lbtnNew.OnClientClick = jsActionNewItem;
                 lbtnNew.Visible = true;
                 gvData.Columns[0].Visible = true;
             } else {
@@ -118,10 +120,9 @@ namespace MAPPS.Pages {
                         Label lblDescription = (Label)e.Row.FindControl("lblDescription");
                         Label lblVersionName = (Label)e.Row.FindControl("lblVersionName");
                         Label lblStatus = (Label)e.Row.FindControl("lblStatus");
-                        Label lblPrimaryPOC = (Label)e.Row.FindControl("lblPrimaryPOC");
-                        Label lblAlternatePOC = (Label)e.Row.FindControl("lblAlternatePOC");
+                        Label lblContacts = (Label)e.Row.FindControl("lblContacts");
                         Label lblPurpose = (Label)e.Row.FindControl("lblPurpose");
-                        Label lblIPAddress = (Label)e.Row.FindControl("lblIPAddress");
+                        Label lblIPAddresses = (Label)e.Row.FindControl("lblIPAddresses");
 
                         int rowID = int.Parse(lbtnName.CommandArgument.ToString());
 
@@ -143,10 +144,9 @@ namespace MAPPS.Pages {
                             lblFunctionName.Text = Common.HighLightText(lblFunctionName.Text, Filter);
                             lblVersionName.Text = Common.HighLightText(lblVersionName.Text, Filter);
                             lblDescription.Text = Common.HighLightText(lblDescription.Text, Filter);
-                            lblPrimaryPOC.Text = Common.HighLightText(lblPrimaryPOC.Text, Filter);
-                            lblAlternatePOC.Text = Common.HighLightText(lblAlternatePOC.Text, Filter);
+                            lblContacts.Text = Common.HighLightText(lblContacts.Text, Filter);
                             lblPurpose.Text = Common.HighLightText(lblPurpose.Text, Filter);
-                            lblIPAddress.Text = Common.HighLightText(lblIPAddress.Text, Filter);
+                            lblIPAddresses.Text = Common.HighLightText(lblIPAddresses.Text, Filter);
                             lblStatus.Text = Common.HighLightText(lblStatus.Text, Filter);
                         }
                         break;

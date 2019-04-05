@@ -179,6 +179,10 @@ namespace MAPPS.Pages {
                 tdAddress.Visible = ItemID != 0;
                 trPort.Visible = ItemID != 0;
                 tdPort.Visible = ItemID != 0;
+                trContact.Visible = ItemID != 0;
+                tdContact.Visible = ItemID != 0;
+                trCertificate.Visible = ItemID != 0;
+                tdCertificate.Visible = ItemID != 0;
 
                 if (!IsPostBack) {
                     ddlServerFunction.DataSource = MAPPS.ServerFunction.Items();
@@ -222,16 +226,6 @@ namespace MAPPS.Pages {
                 lblPurposeView.Text = item.Purpose.ToString();
                 lblPurposeView.Visible = isView;
 
-                txtIPAddress.Text = item.IPAddress.ToString();
-                txtIPAddress.Visible = !isView;
-                lblIPAddressView.Text = item.IPAddress.ToString();
-                lblIPAddressView.Visible = isView;
-
-                txtPrimaryPOC.Text = item.PrimaryPOC.ToString();
-                txtPrimaryPOC.Visible = !isView;
-                lblPrimaryPOCView.Text = item.PrimaryPOC.ToString();
-                lblPrimaryPOCView.Visible = isView;
-
                 txtCPU.Text = item.CPU.ToString();
                 txtCPU.Visible = !isView;
                 lblCPUView.Text = item.CPU.ToString();
@@ -241,11 +235,6 @@ namespace MAPPS.Pages {
                 txtMemory.Visible = !isView;
                 lblMemoryView.Text = item.Memory.ToString();
                 lblMemoryView.Visible = isView;
-
-                txtAlternatePOC.Text = item.AlternatePOC.ToString();
-                txtAlternatePOC.Visible = !isView;
-                lblAlternatePOCView.Text = item.AlternatePOC.ToString();
-                lblAlternatePOCView.Visible = isView;
 
                 ddlServerFunction.SelectedIndex = -1;
                 ddlServerFunction.Items.FindByValue(item.ServerFunctionID.ToString()).Selected = true;
@@ -300,10 +289,7 @@ namespace MAPPS.Pages {
                 item.Name = txtName.Text.Trim();
                 item.Description = txtDescription.Text.Trim();
                 item.Purpose = txtPurpose.Text.Trim();
-                item.PrimaryPOC = txtPrimaryPOC.Text.Trim();
-                item.AlternatePOC = txtAlternatePOC.Text.Trim();
                 item.Memory = txtMemory.Text.Trim();
-                item.IPAddress = txtIPAddress.Text.Trim();
                 item.ServerFunctionID = int.Parse(ddlServerFunction.SelectedItem.Value);
                 item.ServerTypeID = int.Parse(ddlServerType.SelectedItem.Value);
                 item.ServerStatusID = int.Parse(ddlServerStatus.SelectedItem.Value);
@@ -386,22 +372,34 @@ namespace MAPPS.Pages {
 
         protected void ibtnRibbonSave_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
             SaveItem();
-            Response.Redirect(string.Format("{0}/{1}?Filter={2}", SPContext.Current.Web.Url, Pages.Servers.PAGE_URL, Filter), false);
+            if (SPContext.Current.IsPopUI)
+                Script("window.frameElement.commitPopup('');");
+            else
+                Response.Redirect(string.Format("{0}/{1}?Filter={2}", SPContext.Current.Web.Url, Pages.Servers.PAGE_URL, Filter), false);
         }
 
         protected void lbtnRibbonSave_Click(object sender, EventArgs e) {
             SaveItem();
-            Response.Redirect(string.Format("{0}/{1}?Filter={2}", SPContext.Current.Web.Url, Pages.Servers.PAGE_URL, Filter), false);
+            if (SPContext.Current.IsPopUI)
+                Script("window.frameElement.commitPopup('');");
+            else
+                Response.Redirect(string.Format("{0}/{1}?Filter={2}", SPContext.Current.Web.Url, Pages.Servers.PAGE_URL, Filter), false);
         }
 
         protected void ibtnRibbonDelete_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
             DeleteItem();
-            Response.Redirect(string.Format("{0}/{1}?Filter={2}", SPContext.Current.Web.Url, Pages.Servers.PAGE_URL, Filter), false);
+            if (SPContext.Current.IsPopUI)
+                Script("window.frameElement.commitPopup('');");
+            else
+                Response.Redirect(string.Format("{0}/{1}?Filter={2}", SPContext.Current.Web.Url, Pages.Servers.PAGE_URL, Filter), false);
         }
 
         protected void lbtnRibbonDelete_Click(object sender, EventArgs e) {
             DeleteItem();
-            Response.Redirect(string.Format("{0}/{1}?Filter={2}", SPContext.Current.Web.Url, Pages.Servers.PAGE_URL, Filter), false);
+            if (SPContext.Current.IsPopUI)
+                Script("window.frameElement.commitPopup('');");
+            else
+                Response.Redirect(string.Format("{0}/{1}?Filter={2}", SPContext.Current.Web.Url, Pages.Servers.PAGE_URL, Filter), false);
         }
 
         protected void ibtnRibbonCancel_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
@@ -433,6 +431,24 @@ namespace MAPPS.Pages {
 
         protected void lbtnRibbonPort_Click(object sender, EventArgs e) {
             Response.Redirect(string.Format("{0}&addport=true", this.Request.Url.ToString()), false);
+        }
+
+        protected void ibtnRibbonContact_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
+            Response.Redirect(string.Format("{0}&addcontact=true", this.Request.Url.ToString()), false);
+        }
+
+        protected void lbtnRibbonContact_Click(object sender, EventArgs e) {
+            Response.Redirect(string.Format("{0}&addcontact=true", this.Request.Url.ToString()), false);
+        }
+
+        protected void ibtnRibbonCertificate_Click(object sender, System.Web.UI.ImageClickEventArgs e) {
+            Response.Redirect(string.Format("{0}&addcert=true", this.Request.Url.ToString()), false);
+
+        }
+
+        protected void lbtnRibbonCertificate_Click(object sender, EventArgs e) {
+            Response.Redirect(string.Format("{0}&addcert=true", this.Request.Url.ToString()), false);
+
         }
     }
 }

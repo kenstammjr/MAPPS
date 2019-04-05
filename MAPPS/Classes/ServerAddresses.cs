@@ -290,6 +290,41 @@ namespace MAPPS {
             }
             return ds;
         }
+        public static string ServerAddressString(int ServerID) {
+            string addresses = string.Empty;
+            using (new Impersonator()) {
+                SqlConnection conn = DataSource.Conn();
+                const string sql = @"SELECT DISTINCT  
+                                        SUBSTRING(
+                                            (
+                                                SELECT ','+address.name  AS [text()]
+                                                FROM dbo.ServerAddresses address
+                                                WHERE address.ServerID = svr.ID
+                                                ORDER BY address.ServerID
+                                                FOR XML PATH ('')
+                                            ), 2, 1000) [ServerAddresses]
+                                    FROM dbo.Servers svr where svr.id = @ServerID";
+
+                SqlCommand cmd = new SqlCommand(sql.ToString(), conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@ServerID", ServerID);
+                try {
+                    conn.Open();
+                    SqlDataReader sdr = cmd.ExecuteReader();
+
+                    if (sdr.Read()) {
+                        addresses = sdr["ServerAddresses"].ToString();
+                    }
+                } catch (Exception ex) {
+                    Error.WriteError(ex);
+                } finally {
+                    if (conn.State != ConnectionState.Closed) { conn.Close(); }
+                }
+            }
+
+            return addresses;
+
+        }
         #endregion
     }
 }

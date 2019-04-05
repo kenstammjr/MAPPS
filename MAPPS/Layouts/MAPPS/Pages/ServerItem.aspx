@@ -7,6 +7,10 @@
 <%@ Register Src="~/_controltemplates/15/MAPPS/ServerDrives.ascx" TagPrefix="uc1" TagName="ServerDrives" %>
 <%@ Register Src="~/_controltemplates/15/MAPPS/ServerAddresses.ascx" TagPrefix="uc1" TagName="ServerAddresses" %>
 <%@ Register Src="~/_controltemplates/15/MAPPS/ServerPorts.ascx" TagPrefix="uc1" TagName="ServerPorts" %>
+<%@ Register Src="~/_controltemplates/15/MAPPS/ServerContacts.ascx" TagPrefix="uc1" TagName="ServerContacts" %>
+<%@ Register Src="~/_controltemplates/15/MAPPS/ServerCertificates.ascx" TagPrefix="uc1" TagName="ServerCertificates" %>
+
+
 
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
@@ -53,6 +57,18 @@
                         </tr>
                     </table>
                 </td>
+                <td id="tdContact" runat="server" class="mapps-ribbon-cell" visible="true">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 32px;">
+                        <tr>
+                            <td>
+                                <asp:ImageButton ID="ibtnRibbonContact" runat="server" CssClass="mapps-add-ribbon" OnClick="ibtnRibbonContact_Click" /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lbtnRibbonContact" runat="server" Text="Contact" CssClass="mapps-ribbon-link" OnClick="lbtnRibbonContact_Click"></asp:LinkButton></td>
+                        </tr>
+                    </table>
+                </td>
                 <td id="tdDrive" runat="server" class="mapps-ribbon-cell" visible="true">
                     <table border="0" cellpadding="0" cellspacing="0" style="width: 32px;">
                         <tr>
@@ -86,6 +102,18 @@
                         <tr>
                             <td>
                                 <asp:LinkButton ID="lbtnRibbonPort" runat="server" Text="Port" CssClass="mapps-ribbon-link" OnClick="lbtnRibbonPort_Click"></asp:LinkButton></td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="tdCertificate" runat="server" class="mapps-ribbon-cell" visible="true">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 32px;">
+                        <tr>
+                            <td>
+                                <asp:ImageButton ID="ibtnRibbonCertificate" runat="server" CssClass="mapps-add-ribbon" OnClick="ibtnRibbonCertificate_Click"/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lbtnRibbonCertificate" runat="server" Text="Certificate" CssClass="mapps-ribbon-link" OnClick="lbtnRibbonCertificate_Click"></asp:LinkButton></td>
                         </tr>
                     </table>
                 </td>
@@ -175,30 +203,6 @@
                     <asp:Label ID="lblPurposeView" runat="server" CssClass="mapps-item" />
                 </td>
             </tr>
-            <%--PrimaryPOC--%>
-            <tr>
-                <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
-                    <h3 class="ms-standardheader">Primary POC
-                    </h3>
-                </td>
-                <td valign="middle" width="350px" class="mapps-formbody">
-                    <asp:TextBox ID="txtPrimaryPOC" runat="server" CssClass="ms-input"
-                        MaxLength="128" Width="450" />
-                    <asp:Label ID="lblPrimaryPOCView" runat="server" CssClass="mapps-item" />
-                </td>
-            </tr>
-            <%--AlternatePOC--%>
-            <tr>
-                <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
-                    <h3 class="ms-standardheader">Alternate POC
-                    </h3>
-                </td>
-                <td valign="middle" width="350px" class="mapps-formbody">
-                    <asp:TextBox ID="txtAlternatePOC" runat="server" CssClass="ms-input"
-                        MaxLength="128" Width="450" />
-                    <asp:Label ID="lblAlternatePOCView" runat="server" CssClass="mapps-item" />
-                </td>
-            </tr>
             <%--CPU--%>
             <tr>
                 <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
@@ -221,6 +225,16 @@
                     <asp:TextBox ID="txtMemory" runat="server" CssClass="ms-input"
                         MaxLength="40" />
                     <asp:Label ID="lblMemoryView" runat="server" CssClass="mapps-item" />
+                </td>
+            </tr>
+            <%--Contacts--%>
+            <tr id="trContact" runat="server" visible="false">
+                <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
+                    <h3 class="ms-standardheader">Contact(s)
+                    </h3>
+                </td>
+                <td valign="middle" width="350px" class="mapps-formbody">
+                    <uc1:ServerContacts runat="server" id="ServerContacts" />
                 </td>
             </tr>
             <%--Drives--%>
@@ -253,20 +267,16 @@
                     <uc1:ServerPorts runat="server" id="ServerPorts" />
                 </td>
             </tr>
-
-            <%--IPAddress--%>
-            <tr>
+            <%--Certificates--%>
+            <tr id="trCertificate" runat="server" visible="false">
                 <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
-                    <h3 class="ms-standardheader">IP Address
+                    <h3 class="ms-standardheader">Certificate(s)
                     </h3>
                 </td>
-                <td valign="middle" width="550px" class="mapps-formbody">
-                    <asp:TextBox ID="txtIPAddress" runat="server" CssClass="ms-input"
-                        MaxLength="50" Width="650" />
-                    <asp:Label ID="lblIPAddressView" runat="server" CssClass="mapps-item" />
+                <td valign="middle" width="350px" class="mapps-formbody">
+                    <uc1:ServerCertificates runat="server" id="ServerCertificates" />
                 </td>
             </tr>
-
             <%--ServerFunction--%>
             <tr>
                 <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
