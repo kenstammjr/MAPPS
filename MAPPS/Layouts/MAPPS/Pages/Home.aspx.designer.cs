@@ -13,6 +13,15 @@ namespace MAPPS.Pages {
     public partial class Home {
         
         /// <summary>
+        /// Modules control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl Modules;
+        
+        /// <summary>
         /// lblErrorMessage control.
         /// </summary>
         /// <remarks>

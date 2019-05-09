@@ -544,6 +544,42 @@ namespace MAPPS.Pages {
         protected global::System.Web.UI.WebControls.Label lblServerFunctionView;
         
         /// <summary>
+        /// lblServerEnvironmentRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblServerEnvironmentRequired;
+        
+        /// <summary>
+        /// ddlServerEnvironment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlServerEnvironment;
+        
+        /// <summary>
+        /// rfvServerEnvironment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvServerEnvironment;
+        
+        /// <summary>
+        /// lblServerEnvironmentView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblServerEnvironmentView;
+        
+        /// <summary>
         /// lblServerTypeRequired control.
         /// </summary>
         /// <remarks>

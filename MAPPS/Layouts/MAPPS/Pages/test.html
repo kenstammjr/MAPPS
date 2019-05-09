@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en-US" dir="ltr">
+<head>
+    <title></title>
+    <style>
+        .ms-noList ul, .ms-noList ol, .ms-noList {
+            list-style-type: none;
+            padding-left: 0px;
+        }
+
+        .ms-tileview-tile-detailsListMedium {
+            height: 150px;
+            overflow: hidden;
+            padding: 10px;
+            padding-top: 6px;
+            margin: 0px;
+        }
+
+        .ms-tileview-tile-detailsBox {
+            color: #fff;
+            background-color: rgba( 0,0,0,0.6 );
+            position: absolute;
+            top: 130px;
+        }
+
+        a, .ms-link:visited {
+            color: #0072c6;
+            text-decoration: none;
+        }
+
+            a:hover, a:active {
+                text-decoration: underline;
+            }
+
+        .ms-tileview-tile-content > a:hover, .ms-tileview-tile-content > a:active {
+            text-decoration: none;
+        }
+
+        .ms-tileview-tile-content {
+            background-color: #0072c6;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ms-tileview-tile-root {
+            float: left;
+        }
+
+        .ms-promlink-body {
+            position: relative;
+            width: 10000px;
+            height: 150px;
+        }
+
+        table {
+            border-width: 0px;
+        }
+
+        .ms-rtestate-field table, .ms-rtestate-write table {
+            border-collapse: collapse;
+        }
+
+        .ms-promlink-root {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .ms-webpart-chrome-fullWidth {
+            min-width: 100%;
+        }
+
+        .ms-webpart-chrome {
+            border-spacing: 0px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        .ms-webpart-chrome-vertical {
+            display: table-row;
+        }
+
+        .ms-fullWidth {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            width: 100%;
+        }
+
+        .ms-webpartzone-cell {
+            margin: auto auto 20px;
+        }
+
+        .s4-wpcell, .s4-wpcell-plain, .s4-wpActive {
+            vertical-align: top;
+        }
+
+        .ms-webpart-cell-vertical {
+            display: table;
+        }
+
+        .ms-rte-wpbox {
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            word-spacing: normal;
+            letter-spacing: normal;
+            text-transform: none;
+            text-align: left;
+            text-indent: 0px;
+            text-decoration: none;
+            line-height: normal;
+            white-space: normal;
+            word-wrap: normal;
+            list-style-type: disc;
+            list-style-image: none;
+            list-style-position: outside;
+        }
+
+        .ms-rte-layoutszone-inner {
+            word-wrap: break-word;
+            border: 1px solid transparent;
+            margin: 1px;
+            padding: 10px;
+        }
+
+        .ms-rte-layoutszone-inner {
+            padding: 0px;
+        }
+
+        .ms-rte-layoutszone-outer {
+            float: left;
+        }
+
+        .ms-rtestate-field {
+            word-wrap: break-word;
+        }
+
+        body, .ms-core-defaultFont, #pageStatusBar, .ms-status-msg, .js-callout-body {
+            font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+            font-size: 13px;
+        }
+
+        body, .ms-core-defaultFont, .js-callout-body {
+            color: #444;
+        }
+
+        body {
+            margin: 0px;
+            overflow: hidden;
+            background-color: #fff;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .ms-backgroundImage {
+            background-image: url();
+        }
+
+        #contentBox {
+            margin-right: 20px;
+            margin-left: 220px;
+            min-width: 703px;
+        }
+
+        #contentRow {
+            padding-top: 19px;
+        }
+
+        #s4-bodyContainer {
+            padding-bottom: 35px;
+        }
+
+        .ms-core-overlay {
+            background-color: rgba( 255,255,255,0.85 );
+        }
+
+        #s4-workspace {
+            overflow: auto;
+            position: relative;
+        }
+
+        .ms-tileview-tile-titleMedium {
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .ms-tileview-tile-titleMediumExpanded {
+            display: table-cell;
+            max-height: 52px;
+            overflow: hidden;
+        }
+
+        .ms-tileview-tile-descriptionMedium {
+            padding-top: 15px;
+        }
+
+        .ms-tileview-tile-titleTextMediumExpanded {
+            max-height: 52px;
+            overflow: hidden;
+        }
+    </style><style>
+.ms-noList ul, .ms-noList ol, .ms-noList {
+	list-style-type: none;
+	padding-left: 0px;
+}
+.ms-tileview-tile-detailsListMedium {
+	height: 150px;
+	overflow: hidden;
+	padding: 10px;
+	padding-top: 6px;
+	margin: 0px;
+}
+.ms-tileview-tile-detailsBox {
+	color: #fff;
+	background-color: rgba( 0,0,0,0.6 );
+	position: absolute;
+	top: 130px;
+}
+a, .ms-link:visited {
+	color: #0072c6;
+	text-decoration: none;
+}
+a:hover, a:active {
+	text-decoration: underline;
+}
+.ms-tileview-tile-content > a:hover, .ms-tileview-tile-content > a:active {
+	text-decoration: none;
+}
+.ms-tileview-tile-content {
+	background-color: #0072c6;
+	position: relative;
+	overflow: hidden;
+}
+.ms-tileview-tile-root {
+	float: left;
+}
+.ms-promlink-body {
+	position: relative;
+	width: 10000px;
+	height: 150px;
+}
+table {
+	border-width: 0px;
+}
+.ms-rtestate-field table, .ms-rtestate-write table {
+	border-collapse: collapse;
+}
+.ms-promlink-root {
+	width: 100%;
+	overflow: hidden;
+}
+.ms-webpart-chrome-fullWidth {
+	min-width: 100%;
+}
+.ms-webpart-chrome {
+	border-spacing: 0px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.ms-webpart-chrome-vertical {
+	display: table-row;
+}
+.ms-fullWidth {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 100%;
+}
+.ms-webpartzone-cell {
+	margin: auto auto 20px;
+}
+.s4-wpcell, .s4-wpcell-plain, .s4-wpActive {
+	vertical-align: top;
+}
+.ms-webpart-cell-vertical {
+	display: table;
+}
+.ms-rte-wpbox {
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	word-spacing: normal;
+	letter-spacing: normal;
+	text-transform: none;
+	text-align: left;
+	text-indent: 0px;
+	text-decoration: none;
+	line-height: normal;
+	white-space: normal;
+	word-wrap: normal;
+	list-style-type: disc;
+	list-style-image: none;
+	list-style-position: outside;
+}
+.ms-rte-layoutszone-inner {
+	word-wrap: break-word;
+	border: 1px solid transparent;
+	margin: 1px;
+	padding: 10px;
+}
+.ms-rte-layoutszone-inner {
+	padding: 0px;
+}
+.ms-rte-layoutszone-outer {
+	float: left;
+}
+.ms-rtestate-field {
+	word-wrap: break-word;
+}
+body, .ms-core-defaultFont, #pageStatusBar, .ms-status-msg, .js-callout-body {
+	font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+	font-size: 13px;
+}
+body, .ms-core-defaultFont, .js-callout-body {
+	color: #444;
+}
+body {
+	margin: 0px;
+	overflow: hidden;
+	background-color: #fff;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.ms-backgroundImage {
+	background-image: url();
+}
+#contentBox {
+	margin-right: 20px;
+	margin-left: 220px;
+	min-width: 703px;
+}
+#contentRow {
+	padding-top: 19px;
+}
+#s4-bodyContainer {
+	padding-bottom: 35px;
+}
+.ms-core-overlay {
+	background-color: rgba( 255,255,255,0.85 );
+}
+#s4-workspace {
+	overflow: auto;
+	position: relative;
+}
+.ms-tileview-tile-titleMedium {
+	color: #fff;
+	font-size: 1em;
+}
+.ms-tileview-tile-titleMediumExpanded {
+	display: table-cell;
+	max-height: 52px;
+	overflow: hidden;
+}
+.ms-tileview-tile-descriptionMedium {
+	padding-top: 15px;
+}
+.ms-tileview-tile-titleTextMediumExpanded {
+	max-height: 52px;
+	overflow: hidden;
+}
+</style>
+    <table style="width: 100%; table-layout: fixed;"><tbody><tr><td><div class="ms-promlink-body" id="promotedlinksbody_WPQ2"><div class="ms-tileview-tile-root" id="Tile_WPQ2_1_1" style="width: 160px; height: 160px;"><div class="ms-tileview-tile-content" id="Tile_WPQ2_1_2" aria-haspopup="true" style="width: 150px; height: 150px;"><a id="Tile_WPQ2_1_3" onclick="PreventDefaultNavigation(); return false;" href="#" hrefAction="https://sp13.portal.kes.dev/sites/kes/SitePages/Home.aspx#" clickAction="PreventDefaultNavigation(); SP.UI.ModalDialog.ShowPopupDialog('\u002fsites\u002fkes\u002f_layouts\u002f15\u002faclinv.aspx?forSharing=1'); return false;"><span style="width: 150px; height: 150px; overflow: hidden; display: inline-block; position: relative;"><img style="left: -300px; top: 0px; position: absolute;" onerror="return SP.UI.PromotedLinks.BackgroundImage.OnLoadError(this);" alt="Share your site." src="/_layouts/15/images/gettingstarted.png?rev=23" /></span><div class="ms-tileview-tile-detailsBox" id="Tile_WPQ2_1_4" style="left: 0px; top: 100px; width: 150px; height: 150px;" offy="100"><ul class="ms-noList ms-tileview-tile-detailsListMedium"><li class="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed" id="Tile_WPQ2_1_5" expanded="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumExpanded" collapsed="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed"><div class="ms-tileview-tile-titleTextMediumCollapsed" expanded="ms-tileview-tile-titleTextMediumExpanded" collapsed="ms-tileview-tile-titleTextMediumCollapsed">Share your site.</div></li><li title="Share your site." class="ms-tileview-tile-descriptionMedium" id="Tile_WPQ2_1_6">Bring the right people together.</li></ul></div></a></div></div><div class="ms-tileview-tile-root" id="Tile_WPQ2_2_1" style="width: 160px; height: 160px;"><div class="ms-tileview-tile-content" id="Tile_WPQ2_2_2" aria-haspopup="true" style="width: 150px; height: 150px;"><a id="Tile_WPQ2_2_3" onclick="PreventDefaultNavigation(); return false;" href="#" hrefAction="https://sp13.portal.kes.dev/sites/kes/SitePages/Home.aspx#" clickAction="PreventDefaultNavigation(); SP.UI.ModalDialog.ShowPopupDialog('\u002fsites\u002fkes\u002f_layouts\u002f15\u002finstallprojapp.aspx'); return false;"><span style="width: 150px; height: 150px; overflow: hidden; display: inline-block; position: relative;"><img style="left: 0px; top: -150px; position: absolute;" onerror="return SP.UI.PromotedLinks.BackgroundImage.OnLoadError(this);" alt="Working on a deadline?" src="/_layouts/15/images/gettingstarted.png?rev=23" /></span><div class="ms-tileview-tile-detailsBox" id="Tile_WPQ2_2_4" style="left: 0px; top: 100px; width: 150px; height: 150px;" offy="100"><ul class="ms-noList ms-tileview-tile-detailsListMedium"><li class="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed" id="Tile_WPQ2_2_5" expanded="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumExpanded" collapsed="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed"><div class="ms-tileview-tile-titleTextMediumCollapsed" expanded="ms-tileview-tile-titleTextMediumExpanded" collapsed="ms-tileview-tile-titleTextMediumCollapsed">Working on a deadline?</div></li><li title="Working on a deadline?" class="ms-tileview-tile-descriptionMedium" id="Tile_WPQ2_2_6">Get organized with tasks, timeline and calendar.</li></ul></div></a></div></div><div class="ms-tileview-tile-root" id="Tile_WPQ2_3_1" style="width: 160px; height: 160px;"><div class="ms-tileview-tile-content" id="Tile_WPQ2_3_2" aria-haspopup="true" style="width: 150px; height: 150px;"><a id="Tile_WPQ2_3_3" onclick="PreventDefaultNavigation(); return false;" href="#" hrefAction="https://sp13.portal.kes.dev/sites/kes/_layouts/15/addanapp.aspx?Source=https%3A%2F%2Fsp13%2Eportal%2Ekes%2Edev%2Fsites%2Fkes%2FSitePages%2FHome%2Easpx" clickAction=""><span style="width: 150px; height: 150px; overflow: hidden; display: inline-block; position: relative;"><img style="left: -150px; top: 0px; position: absolute;" onerror="return SP.UI.PromotedLinks.BackgroundImage.OnLoadError(this);" alt="Add lists, libraries, and other apps." src="/_layouts/15/images/gettingstarted.png?rev=23" /></span><div class="ms-tileview-tile-detailsBox" id="Tile_WPQ2_3_4" style="left: 0px; top: 100px; width: 150px; height: 150px;" offy="100"><ul class="ms-noList ms-tileview-tile-detailsListMedium"><li class="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed" id="Tile_WPQ2_3_5" expanded="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumExpanded" collapsed="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed"><div class="ms-tileview-tile-titleTextMediumCollapsed" expanded="ms-tileview-tile-titleTextMediumExpanded" collapsed="ms-tileview-tile-titleTextMediumCollapsed">Add lists, libraries, and other apps.</div></li><li title="Add lists, libraries, and other apps." class="ms-tileview-tile-descriptionMedium" id="Tile_WPQ2_3_6">Discover new tools to get things done.</li></ul></div></a></div></div><div class="ms-tileview-tile-root" id="Tile_WPQ2_4_1" style="width: 160px; height: 160px;"><div class="ms-tileview-tile-content" id="Tile_WPQ2_4_2" aria-haspopup="true" style="width: 150px; height: 150px;"><a id="Tile_WPQ2_4_3" onclick="PreventDefaultNavigation(); return false;" href="#" hrefAction="https://sp13.portal.kes.dev/sites/kes/_layouts/15/designgallery.aspx?Source=https%3A%2F%2Fsp13%2Eportal%2Ekes%2Edev%2Fsites%2Fkes%2FSitePages%2FHome%2Easpx" clickAction=""><span style="width: 150px; height: 150px; overflow: hidden; display: inline-block; position: relative;"><img style="left: -300px; top: -150px; position: absolute;" onerror="return SP.UI.PromotedLinks.BackgroundImage.OnLoadError(this);" alt="What&amp;#39;s your style?" src="/_layouts/15/images/gettingstarted.png?rev=23" /></span><div class="ms-tileview-tile-detailsBox" id="Tile_WPQ2_4_4" style="left: 0px; top: 100px; width: 150px; height: 150px;" offy="100"><ul class="ms-noList ms-tileview-tile-detailsListMedium"><li class="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed" id="Tile_WPQ2_4_5" expanded="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumExpanded" collapsed="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed"><div class="ms-tileview-tile-titleTextMediumCollapsed" expanded="ms-tileview-tile-titleTextMediumExpanded" collapsed="ms-tileview-tile-titleTextMediumCollapsed">What's your style?</div></li><li title="What's your style?" class="ms-tileview-tile-descriptionMedium" id="Tile_WPQ2_4_6">Change the look of your site.</li></ul></div></a></div></div><div class="ms-tileview-tile-root" id="Tile_WPQ2_5_1" style="width: 160px; height: 160px;"><div class="ms-tileview-tile-content" id="Tile_WPQ2_5_2" aria-haspopup="true" style="width: 150px; height: 150px;"><a id="Tile_WPQ2_5_3" onclick="PreventDefaultNavigation(); return false;" href="#" hrefAction="https://sp13.portal.kes.dev/sites/kes/_layouts/15/prjsetng.aspx?Source=https%3A%2F%2Fsp13%2Eportal%2Ekes%2Edev%2Fsites%2Fkes%2FSitePages%2FHome%2Easpx" clickAction=""><span style="width: 150px; height: 150px; overflow: hidden; display: inline-block; position: relative;"><img style="left: 0px; top: 0px; position: absolute;" onerror="return SP.UI.PromotedLinks.BackgroundImage.OnLoadError(this);" alt="Your site. Your brand." src="/_layouts/15/images/gettingstarted.png?rev=23" /></span><div class="ms-tileview-tile-detailsBox" id="Tile_WPQ2_5_4" style="left: 0px; top: 100px; width: 150px; height: 150px;" offy="100"><ul class="ms-noList ms-tileview-tile-detailsListMedium"><li class="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed" id="Tile_WPQ2_5_5" expanded="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumExpanded" collapsed="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed"><div class="ms-tileview-tile-titleTextMediumCollapsed" expanded="ms-tileview-tile-titleTextMediumExpanded" collapsed="ms-tileview-tile-titleTextMediumCollapsed">Your site. Your brand.</div></li><li title="Your site. Your brand." class="ms-tileview-tile-descriptionMedium" id="Tile_WPQ2_5_6">Add a logo and description to your site.</li></ul></div></a></div></div></div></td></tr></tbody></table>
+</head>
+<body class=" ms-backgroundImage"=ms-backgroundImage" spellcheck="false">
+    <form id="aspnetForm" onsubmit="javascript:return WebForm_OnSubmit();" action="/sites/kes/SitePages/Home.aspx" method="post"><div class="ms-core-overlay" id="s4-workspace" style="width: 1689px; height: 342px;"><div id="s4-bodyContainer"><div id="contentRow"><div id="contentBox" aria-live="polite" aria-relevant="all"><div id="DeltaPlaceHolderMain"><div id="ctl00_PlaceHolderMain_WikiField"><div class="ms-wikicontent ms-rtestate-field" style="padding-right: 10px;"><div class="ExternalClassA62B3A82150F4F30B01ED680926BE2BB"><table id="layoutsTable" style="width: 100%;"><tbody><tr style="vertical-align: top;"><td colspan="2"><div class="ms-rte-layoutszone-outer" style="width: 100%;"><div class="ms-rte-layoutszone-inner" style="margin: 0px; border: 0px currentColor; -ms-word-wrap: break-word;"><div class="ms-rtestate-read ms-rte-wpbox"><div class="ms-rtestate-read 53f5ce9a-1663-4a74-a28f-68c52a018388" id="div_53f5ce9a-1663-4a74-a28f-68c52a018388"><div class="s4-wpcell-plain ms-webpartzone-cell ms-webpart-cell-vertical ms-fullWidth " id="MSOZoneCell_WebPartWPQ2"><div class="ms-webpart-chrome ms-webpart-chrome-vertical ms-webpart-chrome-fullWidth "><div class="ms-WPBody noindex " id="WebPartWPQ2" allowdelete="false" width="100%" haspers="false" webpartid="a2e057df-a2fa-4c7c-8c2a-9b931668d26a" allowremove="false" webpartid2="53f5ce9a-1663-4a74-a28f-68c52a018388"><div id="scriptWPQ2"><div class="ms-promlink-root" id="WPQ2-GettingStarted"><table style="width: 100%; table-layout: fixed;"><tbody><tr><td><div class="ms-promlink-body" id="promotedlinksbody_WPQ2"><div class="ms-tileview-tile-root" id="Tile_WPQ2_1_1" style="width: 160px; height: 160px;"><div class="ms-tileview-tile-content" id="Tile_WPQ2_1_2" aria-haspopup="true" style="width: 150px; height: 150px;"><a id="Tile_WPQ2_1_3" onclick="PreventDefaultNavigation(); return false;" href="#" clickaction="PreventDefaultNavigation(); SP.UI.ModalDialog.ShowPopupDialog('\u002fsites\u002fkes\u002f_layouts\u002f15\u002faclinv.aspx?forSharing=1'); return false;" hrefaction="https://sp13.portal.kes.dev/sites/kes/SitePages/Home.aspx#"><span style="width: 150px; height: 150px; overflow: hidden; display: inline-block; position: relative;"><img style="left: -300px; top: 0px; position: absolute;" onerror="return SP.UI.PromotedLinks.BackgroundImage.OnLoadError(this);" alt="Share your site." src="/_layouts/15/images/gettingstarted.png?rev=23" /></span><div class="ms-tileview-tile-detailsBox" id="Tile_WPQ2_1_4" style="left: 0px; top: 100px; width: 150px; height: 150px;" offy="100"><ul class="ms-noList ms-tileview-tile-detailsListMedium"><li class="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed" id="Tile_WPQ2_1_5" expanded="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumExpanded" collapsed="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed"><div class="ms-tileview-tile-titleTextMediumCollapsed" expanded="ms-tileview-tile-titleTextMediumExpanded" collapsed="ms-tileview-tile-titleTextMediumCollapsed">Share your site.</div></li><li title="Share your site." class="ms-tileview-tile-descriptionMedium" id="Tile_WPQ2_1_6">Bring the right people together.</li></ul></div></a></div></div><div class="ms-tileview-tile-root" id="Tile_WPQ2_2_1" style="width: 160px; height: 160px;"><div class="ms-tileview-tile-content" id="Tile_WPQ2_2_2" aria-haspopup="true" style="width: 150px; height: 150px;"><a id="Tile_WPQ2_2_3" onclick="PreventDefaultNavigation(); return false;" href="#" clickaction="PreventDefaultNavigation(); SP.UI.ModalDialog.ShowPopupDialog('\u002fsites\u002fkes\u002f_layouts\u002f15\u002finstallprojapp.aspx'); return false;" hrefaction="https://sp13.portal.kes.dev/sites/kes/SitePages/Home.aspx#"><span style="width: 150px; height: 150px; overflow: hidden; display: inline-block; position: relative;"><img style="left: 0px; top: -150px; position: absolute;" onerror="return SP.UI.PromotedLinks.BackgroundImage.OnLoadError(this);" alt="Working on a deadline?" src="/_layouts/15/images/gettingstarted.png?rev=23" /></span><div class="ms-tileview-tile-detailsBox" id="Tile_WPQ2_2_4" style="left: 0px; top: 100px; width: 150px; height: 150px;" offy="100"><ul class="ms-noList ms-tileview-tile-detailsListMedium"><li class="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed" id="Tile_WPQ2_2_5" expanded="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumExpanded" collapsed="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed"><div class="ms-tileview-tile-titleTextMediumCollapsed" expanded="ms-tileview-tile-titleTextMediumExpanded" collapsed="ms-tileview-tile-titleTextMediumCollapsed">Working on a deadline?</div></li><li title="Working on a deadline?" class="ms-tileview-tile-descriptionMedium" id="Tile_WPQ2_2_6">Get organized with tasks, timeline and calendar.</li></ul></div></a></div></div><div class="ms-tileview-tile-root" id="Tile_WPQ2_3_1" style="width: 160px; height: 160px;"><div class="ms-tileview-tile-content" id="Tile_WPQ2_3_2" aria-haspopup="true" style="width: 150px; height: 150px;"><a id="Tile_WPQ2_3_3" onclick="PreventDefaultNavigation(); return false;" href="#" clickaction="" hrefaction="https://sp13.portal.kes.dev/sites/kes/_layouts/15/addanapp.aspx?Source=https%3A%2F%2Fsp13%2Eportal%2Ekes%2Edev%2Fsites%2Fkes%2FSitePages%2FHome%2Easpx"><span style="width: 150px; height: 150px; overflow: hidden; display: inline-block; position: relative;"><img style="left: -150px; top: 0px; position: absolute;" onerror="return SP.UI.PromotedLinks.BackgroundImage.OnLoadError(this);" alt="Add lists, libraries, and other apps." src="/_layouts/15/images/gettingstarted.png?rev=23" /></span><div class="ms-tileview-tile-detailsBox" id="Tile_WPQ2_3_4" style="left: 0px; top: 100px; width: 150px; height: 150px;" offy="100"><ul class="ms-noList ms-tileview-tile-detailsListMedium"><li class="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed" id="Tile_WPQ2_3_5" expanded="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumExpanded" collapsed="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed"><div class="ms-tileview-tile-titleTextMediumCollapsed" expanded="ms-tileview-tile-titleTextMediumExpanded" collapsed="ms-tileview-tile-titleTextMediumCollapsed">Add lists, libraries, and other apps.</div></li><li title="Add lists, libraries, and other apps." class="ms-tileview-tile-descriptionMedium" id="Tile_WPQ2_3_6">Discover new tools to get things done.</li></ul></div></a></div></div><div class="ms-tileview-tile-root" id="Tile_WPQ2_4_1" style="width: 160px; height: 160px;"><div class="ms-tileview-tile-content" id="Tile_WPQ2_4_2" aria-haspopup="true" style="width: 150px; height: 150px;"><a id="Tile_WPQ2_4_3" onclick="PreventDefaultNavigation(); return false;" href="#" clickaction="" hrefaction="https://sp13.portal.kes.dev/sites/kes/_layouts/15/designgallery.aspx?Source=https%3A%2F%2Fsp13%2Eportal%2Ekes%2Edev%2Fsites%2Fkes%2FSitePages%2FHome%2Easpx"><span style="width: 150px; height: 150px; overflow: hidden; display: inline-block; position: relative;"><img style="left: -300px; top: -150px; position: absolute;" onerror="return SP.UI.PromotedLinks.BackgroundImage.OnLoadError(this);" alt="What&amp;#39;s your style?" src="/_layouts/15/images/gettingstarted.png?rev=23" /></span><div class="ms-tileview-tile-detailsBox" id="Tile_WPQ2_4_4" style="left: 0px; top: 100px; width: 150px; height: 150px;" offy="100"><ul class="ms-noList ms-tileview-tile-detailsListMedium"><li class="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed" id="Tile_WPQ2_4_5" expanded="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumExpanded" collapsed="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed"><div class="ms-tileview-tile-titleTextMediumCollapsed" expanded="ms-tileview-tile-titleTextMediumExpanded" collapsed="ms-tileview-tile-titleTextMediumCollapsed">What's your style?</div></li><li title="What's your style?" class="ms-tileview-tile-descriptionMedium" id="Tile_WPQ2_4_6">Change the look of your site.</li></ul></div></a></div></div><div class="ms-tileview-tile-root" id="Tile_WPQ2_5_1" style="width: 160px; height: 160px;"><div class="ms-tileview-tile-content" id="Tile_WPQ2_5_2" aria-haspopup="true" style="width: 150px; height: 150px;"><a id="Tile_WPQ2_5_3" onclick="PreventDefaultNavigation(); return false;" href="#" clickaction="" hrefaction="https://sp13.portal.kes.dev/sites/kes/_layouts/15/prjsetng.aspx?Source=https%3A%2F%2Fsp13%2Eportal%2Ekes%2Edev%2Fsites%2Fkes%2FSitePages%2FHome%2Easpx"><span style="width: 150px; height: 150px; overflow: hidden; display: inline-block; position: relative;"><img style="left: 0px; top: 0px; position: absolute;" onerror="return SP.UI.PromotedLinks.BackgroundImage.OnLoadError(this);" alt="Your site. Your brand." src="/_layouts/15/images/gettingstarted.png?rev=23" /></span><div class="ms-tileview-tile-detailsBox" id="Tile_WPQ2_5_4" style="left: 0px; top: 100px; width: 150px; height: 150px;" offy="100"><ul class="ms-noList ms-tileview-tile-detailsListMedium"><li class="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed" id="Tile_WPQ2_5_5" expanded="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumExpanded" collapsed="ms-tileview-tile-titleMedium ms-tileview-tile-titleMediumCollapsed"><div class="ms-tileview-tile-titleTextMediumCollapsed" expanded="ms-tileview-tile-titleTextMediumExpanded" collapsed="ms-tileview-tile-titleTextMediumCollapsed">Your site. Your brand.</div></li><li title="Your site. Your brand." class="ms-tileview-tile-descriptionMedium" id="Tile_WPQ2_5_6">Add a logo and description to your site.</li></ul></div></a></div></div></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></form>
+</body>
+</html>

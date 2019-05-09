@@ -71,6 +71,14 @@
                                 <HeaderStyle CssClass="mapps-grid-header-left" />
                                 <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" Width="5px" />
                             </asp:TemplateField>
+                            <%-- EnvironmentName --%>
+                            <asp:TemplateField HeaderText="Environment" SortExpression="EnvironmentName">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblEnvironmentName" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.EnvironmentName") %>' />
+                                </ItemTemplate>
+                                <HeaderStyle CssClass="mapps-grid-header-left" />
+                                <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" Width="5px" />
+                            </asp:TemplateField>
                             <%-- Description --%>
                             <asp:TemplateField HeaderText="Description">
                                 <ItemTemplate>
@@ -112,7 +120,7 @@
                                 <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" Width="5px" />
                             </asp:TemplateField>
                             <%-- IPAddresses --%>
-                            <asp:TemplateField HeaderText="IP Addresses" SortExpression="IPAddresses">
+                            <asp:TemplateField HeaderText="IP Addresses" SortExpression="IPAddresses" Visible="false">
                                 <ItemTemplate>
                                     <asp:Label ID="lblIPAddresses" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.IPAddresses") %>' />
                                 </ItemTemplate>
@@ -120,7 +128,7 @@
                                 <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" Width="5px" />
                             </asp:TemplateField>
                             <%-- Contacts --%>
-                            <asp:TemplateField HeaderText="Contacts&nbsp;" SortExpression="Contacts">
+                            <asp:TemplateField HeaderText="Contacts&nbsp;" SortExpression="Contacts" Visible="false">
                                 <ItemTemplate>
                                     <asp:Label ID="lblContacts" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.Contacts") %>' />
                                 </ItemTemplate>

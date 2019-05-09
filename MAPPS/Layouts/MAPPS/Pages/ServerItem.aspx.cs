@@ -191,6 +191,12 @@ namespace MAPPS.Pages {
                     ddlServerFunction.DataBind();
                     ddlServerFunction.Items.Insert(0, new ListItem("Choose", "0"));
 
+                    ddlServerEnvironment.DataSource = MAPPS.ServerEnvironment.Items();
+                    ddlServerEnvironment.DataTextField = "Name";
+                    ddlServerEnvironment.DataValueField = "ID";
+                    ddlServerEnvironment.DataBind();
+                    ddlServerEnvironment.Items.Insert(0, new ListItem("Choose", "0"));
+
                     ddlServerType.DataSource = MAPPS.ServerType.Items();
                     ddlServerType.DataTextField = "Name";
                     ddlServerType.DataValueField = "ID";
@@ -243,6 +249,13 @@ namespace MAPPS.Pages {
                 lblServerFunctionView.Visible = isView;
                 lblServerFunctionRequired.Visible = !isView;
 
+                ddlServerEnvironment.SelectedIndex = -1;
+                ddlServerEnvironment.Items.FindByValue(item.ServerEnvironmentID.ToString()).Selected = true;
+                ddlServerEnvironment.Visible = !isView;
+                lblServerEnvironmentView.Text = new ServerEnvironment(item.ServerEnvironmentID).Name;
+                lblServerEnvironmentView.Visible = isView;
+                lblServerEnvironmentRequired.Visible = !isView;
+
                 ddlServerType.SelectedIndex = -1;
                 ddlServerType.Items.FindByValue(item.ServerTypeID.ToString()).Selected = true;
                 ddlServerType.Visible = !isView;
@@ -291,6 +304,7 @@ namespace MAPPS.Pages {
                 item.Purpose = txtPurpose.Text.Trim();
                 item.Memory = txtMemory.Text.Trim();
                 item.ServerFunctionID = int.Parse(ddlServerFunction.SelectedItem.Value);
+                item.ServerEnvironmentID = int.Parse(ddlServerEnvironment.SelectedItem.Value);
                 item.ServerTypeID = int.Parse(ddlServerType.SelectedItem.Value);
                 item.ServerStatusID = int.Parse(ddlServerStatus.SelectedItem.Value);
                 item.ServerVersionID = int.Parse(ddlServerVersion.SelectedItem.Value);

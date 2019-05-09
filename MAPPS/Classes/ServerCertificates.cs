@@ -9,9 +9,7 @@ namespace MAPPS {
 
         private int _ID;
         private int _ServerID;
-        private string _Name;
-        private string _Description;
-        private DateTime _Expiration;
+        private int _CertificateID;
         private string _CreatedBy;
         private DateTime _CreatedOn;
         private string _ModifiedBy;
@@ -35,28 +33,12 @@ namespace MAPPS {
                 _ServerID = value;
             }
         }
-        public string Name {
+        public int CertificateID {
             get {
-                return _Name;
+                return _CertificateID;
             }
             set {
-                _Name = value;
-            }
-        }
-        public string Description {
-            get {
-                return _Description;
-            }
-            set {
-                _Description = value;
-            }
-        }
-        public DateTime Expiration {
-            get {
-                return _Expiration;
-            }
-            set {
-                _Expiration = value;
+                _CertificateID = value;
             }
         }
         public string CreatedBy {
@@ -98,9 +80,7 @@ namespace MAPPS {
         public ServerCertificate() {
             _ID = 0;
             _ServerID = 0;
-            _Name = string.Empty;
-            _Description = string.Empty;
-            _Expiration = new DateTime(1900, 1, 1);
+            _CertificateID = 0;
             _CreatedBy = "System Account";
             _CreatedOn = new DateTime(1900, 1, 1);
             _ModifiedBy = "System Account";
@@ -122,9 +102,7 @@ namespace MAPPS {
                     if (sdr.Read()) {
                         _ID = int.Parse(sdr["ID"].ToString());
                         _ServerID = int.Parse(sdr["ServerID"].ToString());
-                        _Name = sdr["Name"].ToString();
-                        _Description = sdr["Description"].ToString();
-                        _Expiration = DateTime.Parse(sdr["Expiration"].ToString());
+                        _CertificateID = int.Parse(sdr["CertificateID"].ToString());
                         _CreatedBy = sdr["CreatedBy"].ToString();
                         _CreatedOn = DateTime.Parse(sdr["CreatedOn"].ToString());
                         _ModifiedBy = sdr["ModifiedBy"].ToString();
@@ -160,18 +138,14 @@ namespace MAPPS {
                     DateTime TimeStamp = DateTime.UtcNow;
                     string sql = @"INSERT INTO dbo.ServerCertificates 
 			                                (ServerID,
-										Name,
-										Description,
-										Expiration,
+										CertificateID,
 										CreatedBy,
 										CreatedOn,
 										ModifiedBy,
 										ModifiedOn)
 			                            VALUES
 			                                (@ServerID,
-										@Name,
-										@Description,
-										@Expiration,
+										@CertificateID,
 										@CreatedBy,
 										@CreatedOn,
 										@ModifiedBy,
@@ -179,9 +153,7 @@ namespace MAPPS {
 			                            SELECT @ID = SCOPE_IDENTITY()";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@ServerID", _ServerID);
-                    cmd.Parameters.AddWithValue("@Name", _Name);
-                    cmd.Parameters.AddWithValue("@Description", _Description);
-                    cmd.Parameters.AddWithValue("@Expiration", _Expiration);
+                    cmd.Parameters.AddWithValue("@CertificateID", _CertificateID);
                     cmd.Parameters.AddWithValue("@CreatedBy", _CreatedBy);
                     cmd.Parameters.AddWithValue("@CreatedOn", TimeStamp);
                     cmd.Parameters.AddWithValue("@ModifiedBy", _ModifiedBy);
@@ -214,18 +186,14 @@ namespace MAPPS {
                     DateTime TimeStamp = DateTime.UtcNow;
                     string sql = @"UPDATE dbo.ServerCertificates 
 			                        SET ServerID = @ServerID,
-										Name = @Name,
-										Description = @Description,
-										Expiration = @Expiration,
+										CertificateID = @CertificateID,
 										ModifiedBy = @ModifiedBy,
 										ModifiedOn = @ModifiedOn
 			                        WHERE ID = @ID";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@ID", _ID);
                     cmd.Parameters.AddWithValue("@ServerID", _ServerID);
-                    cmd.Parameters.AddWithValue("@Name", _Name);
-                    cmd.Parameters.AddWithValue("@Description", _Description);
-                    cmd.Parameters.AddWithValue("@Expiration", _Expiration);
+                    cmd.Parameters.AddWithValue("@CertificateID", _CertificateID);
                     cmd.Parameters.AddWithValue("@ModifiedBy", _ModifiedBy);
                     cmd.Parameters.AddWithValue("@ModifiedOn", TimeStamp);
                     if (conn.State != ConnectionState.Open) { conn.Open(); }
@@ -291,7 +259,7 @@ namespace MAPPS {
             using (new Impersonator()) {
                 SqlConnection conn = DataSource.Conn();
                 try {
-                    string sql = @"SELECT * FROM dbo.ServerCertificates WHERE ServerID =  @ServerID";
+                    string sql = "SELECT * FROM dbo.ServerCertificates WHERE ServerID = @ServerID";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@ServerID", ServerID);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);

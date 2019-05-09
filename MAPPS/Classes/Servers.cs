@@ -452,10 +452,11 @@ namespace MAPPS {
                                     ServerStatuses.Name AS StatusName, 
                                     ServerTypes.Name AS TypeName, 
                                     ServerVersions.Name AS VersionName,
+                                    ServerEnvironments.Name AS EnvironmentName,
                                     (SELECT DISTINCT  
                                         SUBSTRING(
                                             (
-                                                SELECT ','+contact.username  AS [text()]
+                                                SELECT ','+contact.displayname  AS [text()]
                                                 FROM dbo.vServerContacts contact
                                                 WHERE contact.ServerID = svr2.ID
                                                 ORDER BY contact.ServerID
@@ -473,42 +474,16 @@ namespace MAPPS {
                                             ), 2, 1000) [ServerAddresses]
                                     FROM dbo.Servers svr3 where id = Servers.id) as IPAddresses
                                 FROM Servers 
-                                INNER JOIN
-                                    ServerFunctions ON Servers.ServerFunctionID = ServerFunctions.ID INNER JOIN
-                                    ServerStatuses ON Servers.ServerStatusID = ServerStatuses.ID INNER JOIN
-                                    ServerTypes ON Servers.ServerTypeID = ServerTypes.ID INNER JOIN
-                                    ServerVersions ON Servers.ServerVersionID = ServerVersions.ID
+                                INNER JOIN ServerFunctions ON Servers.ServerFunctionID = ServerFunctions.ID 
+                                INNER JOIN ServerStatuses ON Servers.ServerStatusID = ServerStatuses.ID 
+                                INNER JOIN ServerTypes ON Servers.ServerTypeID = ServerTypes.ID 
+                                INNER JOIN ServerVersions ON Servers.ServerVersionID = ServerVersions.ID 
+                                INNER JOIN ServerEnvironments ON Servers.ServerEnvironmentID = ServerEnvironments.ID
                                 ORDER BY Servers.Name";
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(ds);
-
-                    //DataTable dt = ds.Tables[0];
-
-                    //DataColumn colContacts = new DataColumn("Contacts");
-                    //colContacts.AllowDBNull = true;
-                    //dt.Columns.Add(colContacts);
-                    //// add contacts
-                    //foreach (DataRow dr in dt.Rows) {
-                    //    int serverID = int.Parse(dr["id"].ToString());
-                    //    string contacts = MAPPS.ServerContact.ServerContactsString(serverID);
-                    //    dr["Contacts"] = contacts;
-                    //}
-                    //dt.AcceptChanges();
-                    //dt = ds.Tables[0];
-
-                    //DataColumn colIPAddresses = new DataColumn("IPAddresses");
-                    //colIPAddresses.AllowDBNull = true;
-                    //dt.Columns.Add(colIPAddresses);
-                    //// add ip addresses
-                    //foreach (DataRow dr in dt.Rows) {
-                    //    int serverID = int.Parse(dr["id"].ToString());
-                    //    string addresses = MAPPS.ServerAddress.ServerAddressString(serverID);
-                    //    dr["IPAddresses"] = addresses;
-                    //}
-                    //dt.AcceptChanges();
-                    //ds.AcceptChanges();
 
                 } catch (SqlException sqlex) {
                     Error.WriteError(sqlex);
@@ -535,6 +510,7 @@ namespace MAPPS {
                                     OR ServerStatuses.Name LIKE @Filter
                                     OR ServerTypes.Name LIKE @Filter
                                     OR ServerVersions.Name LIKE @Filter
+                                    OR ServerEnvironments.Name LIKE @Filter
                                     OR (SELECT DISTINCT  
                                             SUBSTRING(
                                                 (
@@ -577,6 +553,7 @@ namespace MAPPS {
                                         ServerStatuses.Name AS StatusName,
                                         ServerTypes.Name AS TypeName,
                                         ServerVersions.Name AS VersionName,
+                                        ServerEnvironments.Name AS EnvironmentName,
                                         (SELECT DISTINCT  
                                             SUBSTRING(
                                                 (
@@ -598,11 +575,11 @@ namespace MAPPS {
                                                 ), 2, 1000) [ServerAddresses]
                                         FROM dbo.Servers svr3 where id = Servers.id) as IPAddresses
                                         FROM Servers
-                                        INNER JOIN
-                                            ServerFunctions ON Servers.ServerFunctionID = ServerFunctions.ID INNER JOIN
-                                            ServerStatuses ON Servers.ServerStatusID = ServerStatuses.ID INNER JOIN
-                                            ServerTypes ON Servers.ServerTypeID = ServerTypes.ID INNER JOIN
-                                            ServerVersions ON Servers.ServerVersionID = ServerVersions.ID 
+                                        INNER JOIN ServerFunctions ON Servers.ServerFunctionID = ServerFunctions.ID 
+                                        INNER JOIN ServerStatuses ON Servers.ServerStatusID = ServerStatuses.ID 
+                                        INNER JOIN ServerTypes ON Servers.ServerTypeID = ServerTypes.ID 
+                                        INNER JOIN ServerVersions ON Servers.ServerVersionID = ServerVersions.ID 
+                                        INNER JOIN ServerEnvironments ON Servers.ServerEnvironmentID = ServerEnvironments.ID
                                         WHERE 1= 1
                                         {1}
                                         ORDER BY Servers.Name", maxRecords, filter);
@@ -611,31 +588,6 @@ namespace MAPPS {
                     cmd.Parameters.AddWithValue("@Filter", "%" + Filter + "%");
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(ds);
-                    //DataTable dt = ds.Tables[0];
-
-                    //DataColumn colContacts = new DataColumn("Contacts");
-                    //colContacts.AllowDBNull = true;
-                    //dt.Columns.Add(colContacts);
-                    //// add contacts
-                    //foreach (DataRow dr in dt.Rows) {
-                    //    int serverID = int.Parse(dr["id"].ToString());
-                    //    string contacts = MAPPS.ServerContact.ServerContactsString(serverID);
-                    //    dr["Contacts"] = contacts;
-                    //}
-                    //dt.AcceptChanges();
-                    //dt = ds.Tables[0];
-
-                    //DataColumn colIPAddresses = new DataColumn("IPAddresses");
-                    //colIPAddresses.AllowDBNull = true;
-                    //dt.Columns.Add(colIPAddresses);
-                    //// add ip addresses
-                    //foreach (DataRow dr in dt.Rows) {
-                    //    int serverID = int.Parse(dr["id"].ToString());
-                    //    string addresses = MAPPS.ServerAddress.ServerAddressString(serverID);
-                    //    dr["IPAddresses"] = addresses;
-                    //}
-                    //dt.AcceptChanges();
-                    //ds.AcceptChanges();
 
                 } catch (SqlException sqlex) {
                     Error.WriteError(sqlex);

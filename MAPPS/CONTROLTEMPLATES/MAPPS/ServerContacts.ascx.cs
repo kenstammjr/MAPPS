@@ -58,8 +58,8 @@ namespace MAPPS.CONTROLTEMPLATES {
             tblList.Visible = false;
             tblItem.Visible = true;
             ddlUserName.Items.Clear();
-            ddlUserName.DataSource = MAPPS.User.Items();
-            ddlUserName.DataTextField = "UserName";
+            ddlUserName.DataSource = MAPPS.User.Admins();
+            ddlUserName.DataTextField = "DisplayName";
             ddlUserName.DataValueField = "ID";
             ddlUserName.DataBind();
             ddlUserName.Items.Insert(0, new ListItem("Choose", "0"));
@@ -76,7 +76,7 @@ namespace MAPPS.CONTROLTEMPLATES {
                 ddlUserName.SelectedIndex = -1;
                 try { ddlUserName.Items.FindByValue(item.UserID.ToString()).Selected = true; } catch { }
                 ddlUserName.Visible = !isView;
-                lblUserNameView.Text = item.UserID != 0 ? new MAPPS.User(item.UserID).UserName : "";
+                lblUserNameView.Text = item.UserID != 0 ? new MAPPS.User(item.UserID).DisplayName : "";
                 lblUserNameView.Visible = isView;
                 lblUserNameRequired.Visible = !isView;
 

@@ -9,9 +9,7 @@ namespace MAPPS {
 
         private int _ID;
         private int _ServerID;
-        private string _Port;
-        private string _Protocol;
-        private string _Description;
+        private int _PortID;
         private string _CreatedBy;
         private DateTime _CreatedOn;
         private string _ModifiedBy;
@@ -35,28 +33,12 @@ namespace MAPPS {
                 _ServerID = value;
             }
         }
-        public string Port {
+        public int PortID {
             get {
-                return _Port;
+                return _PortID;
             }
             set {
-                _Port = value;
-            }
-        }
-        public string Protocol {
-            get {
-                return _Protocol;
-            }
-            set {
-                _Protocol = value;
-            }
-        }
-        public string Description {
-            get {
-                return _Description;
-            }
-            set {
-                _Description = value;
+                _PortID = value;
             }
         }
         public string CreatedBy {
@@ -98,9 +80,7 @@ namespace MAPPS {
         public ServerPort() {
             _ID = 0;
             _ServerID = 0;
-            _Port = string.Empty;
-            _Protocol = string.Empty;
-            _Description = string.Empty;
+            _PortID = 0;
             _CreatedBy = "System Account";
             _CreatedOn = new DateTime(1900, 1, 1);
             _ModifiedBy = "System Account";
@@ -122,9 +102,7 @@ namespace MAPPS {
                     if (sdr.Read()) {
                         _ID = int.Parse(sdr["ID"].ToString());
                         _ServerID = int.Parse(sdr["ServerID"].ToString());
-                        _Port = sdr["Port"].ToString();
-                        _Protocol = sdr["Protocol"].ToString();
-                        _Description = sdr["Description"].ToString();
+                        _PortID = int.Parse(sdr["PortID"].ToString());
                         _CreatedBy = sdr["CreatedBy"].ToString();
                         _CreatedOn = DateTime.Parse(sdr["CreatedOn"].ToString());
                         _ModifiedBy = sdr["ModifiedBy"].ToString();
@@ -160,18 +138,14 @@ namespace MAPPS {
                     DateTime TimeStamp = DateTime.UtcNow;
                     string sql = @"INSERT INTO dbo.ServerPorts 
 			                                (ServerID,
-										Port,
-										Protocol,
-										Description,
+										PortID,
 										CreatedBy,
 										CreatedOn,
 										ModifiedBy,
 										ModifiedOn)
 			                            VALUES
 			                                (@ServerID,
-										@Port,
-										@Protocol,
-										@Description,
+										@PortID,
 										@CreatedBy,
 										@CreatedOn,
 										@ModifiedBy,
@@ -179,9 +153,7 @@ namespace MAPPS {
 			                            SELECT @ID = SCOPE_IDENTITY()";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@ServerID", _ServerID);
-                    cmd.Parameters.AddWithValue("@Port", _Port);
-                    cmd.Parameters.AddWithValue("@Protocol", _Protocol);
-                    cmd.Parameters.AddWithValue("@Description", _Description);
+                    cmd.Parameters.AddWithValue("@PortID", _PortID);
                     cmd.Parameters.AddWithValue("@CreatedBy", _CreatedBy);
                     cmd.Parameters.AddWithValue("@CreatedOn", TimeStamp);
                     cmd.Parameters.AddWithValue("@ModifiedBy", _ModifiedBy);
@@ -214,18 +186,14 @@ namespace MAPPS {
                     DateTime TimeStamp = DateTime.UtcNow;
                     string sql = @"UPDATE dbo.ServerPorts 
 			                        SET ServerID = @ServerID,
-										Port = @Port,
-										Protocol = @Protocol,
-										Description = @Description,
+										PortID = @PortID,
 										ModifiedBy = @ModifiedBy,
 										ModifiedOn = @ModifiedOn
 			                        WHERE ID = @ID";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@ID", _ID);
                     cmd.Parameters.AddWithValue("@ServerID", _ServerID);
-                    cmd.Parameters.AddWithValue("@Port", _Port);
-                    cmd.Parameters.AddWithValue("@Protocol", _Protocol);
-                    cmd.Parameters.AddWithValue("@Description", _Description);
+                    cmd.Parameters.AddWithValue("@PortID", _PortID);
                     cmd.Parameters.AddWithValue("@ModifiedBy", _ModifiedBy);
                     cmd.Parameters.AddWithValue("@ModifiedOn", TimeStamp);
                     if (conn.State != ConnectionState.Open) { conn.Open(); }

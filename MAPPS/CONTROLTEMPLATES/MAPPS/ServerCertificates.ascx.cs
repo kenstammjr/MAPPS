@@ -41,7 +41,7 @@ namespace MAPPS.CONTROLTEMPLATES {
                     FillItem("Edit", 0);
                 }
 
-                DataView dv = new DataView(ServerCertificate.Items(ServerID).Tables[0]);
+                DataView dv = new DataView(Certificate.Items(ServerID).Tables[0]);
                 gvData.EmptyDataText = "No certificates to display";
                 gvData.DataSource = dv;
                 gvData.DataBind();
@@ -57,32 +57,25 @@ namespace MAPPS.CONTROLTEMPLATES {
         private void FillItem(string Mode, int ID) {
             tblList.Visible = false;
             tblItem.Visible = true;
+            ddlCertificate.Items.Clear();
+            ddlCertificate.DataSource = MAPPS.Certificate.Items();
+            ddlCertificate.DataTextField = "Name";
+            ddlCertificate.DataValueField = "ID";
+            ddlCertificate.DataBind();
+            ddlCertificate.Items.Insert(0, new ListItem("Choose", "0"));
 
             ServerCertificate item = new ServerCertificate(ID);
             try {
                 bool isView = (Mode == "View");
                 bool isNew = (ID == 0);
-                //lbtnEdit.Visible = isView;
-                //lbtnView.Visible = !isView && ID != 0;
                 btnDelete.Visible = !isView && ID != 0;
-                //lblReqMsg.Visible = !isView;
 
-                txtName.Text = item.Name;
-                txtName.Visible = !isView;
-                lblNameView.Text = item.Name;
+                ddlCertificate.SelectedIndex = -1;
+                try { ddlCertificate.Items.FindByValue(item.CertificateID.ToString()).Selected = true; } catch { }
+                ddlCertificate.Visible = !isView;
+                lblNameView.Text = new Certificate(item.CertificateID).Name;
                 lblNameView.Visible = isView;
                 lblNameRequired.Visible = !isView;
-
-                txtExpiration.Text = item.Expiration.ToString();
-                txtExpiration.Visible = !isView;
-                lblExpirationView.Text = item.Expiration.ToString();
-                lblExpirationView.Visible = isView;
-                lblExpirationRequired.Visible = !isView;
-
-                txtDescription.Text = item.Description;
-                txtDescription.Visible = !isView;
-                lblDescriptionView.Text = item.Description;
-                lblDescriptionView.Visible = isView;
 
                 lblCreatedInfo.Text = string.Format("Created at {0} by {1}", MAPPS.Common.ConvertUTCToWebLocalTime(SPContext.Current.Web, item.CreatedOn), item.CreatedBy);
                 lblCreatedInfo.Visible = (item.ID != 0);
@@ -120,22 +113,12 @@ namespace MAPPS.CONTROLTEMPLATES {
             lblNameView.Text = "";
             lblNameView.CssClass = "";
             lblNameView.Visible = false;
-            if (txtName.Text.Trim().Length == 0) {
+            if (ddlCertificate.SelectedIndex < 1) {
                 lblNameView.Text = Message.REQUIRED_FIELD;
                 lblNameView.CssClass = "ms-formvalidation";
                 lblNameView.Visible = true;
                 bContinue = false;
             }
-            lblExpirationView.Text = "";
-            lblExpirationView.CssClass = "";
-            lblExpirationView.Visible = false;
-            if (txtExpiration.Text.Trim().Length == 0) {
-                lblExpirationView.Text = Message.REQUIRED_FIELD;
-                lblExpirationView.CssClass = "ms-formvalidation";
-                lblExpirationView.Visible = true;
-                bContinue = false;
-            } 
-            // add check to ensure expiration is a date
             return bContinue;
         }
         private void SaveItem() {
@@ -144,10 +127,8 @@ namespace MAPPS.CONTROLTEMPLATES {
                 if (PassedValidation()) {
                     ServerCertificate item = new ServerCertificate(int.Parse(hfItemID.Value));
                     MAPPS.User user = new MAPPS.User(Context.User.Identity.Name);
-                    item.Name = txtName.Text.Trim().ToUpper();
-                    item.Expiration = DateTime.Parse(txtExpiration.Text.Trim());
-                    item.Description = txtDescription.Text.Trim();
                     item.ServerID = ServerID;
+                    item.CertificateID = int.Parse(ddlCertificate.SelectedValue);
 
                     item.ModifiedBy = user.UserName;
                     if (item.ID == 0) {

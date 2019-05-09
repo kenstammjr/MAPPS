@@ -81,6 +81,7 @@
     <Compile Include="Classes\Alerts.cs" />
     <Compile Include="Classes\Applications.cs" />
     <Compile Include="Classes\CaptchaImage.cs" />
+    <Compile Include="Classes\Certificates.cs" />
     <Compile Include="Classes\Common.cs" />
     <Compile Include="Classes\CommonApp.cs" />
     <Compile Include="Classes\Configuration.cs" />
@@ -100,6 +101,9 @@
     <Compile Include="Classes\PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Classes\Ports.cs" />
+    <Compile Include="Classes\ProjectIssues.cs" />
+    <Compile Include="Classes\Projects.cs" />
     <Compile Include="Classes\Roles.cs" />
     <Compile Include="Classes\SecurityGroupMemberships.cs" />
     <Compile Include="Classes\SecurityGroups.cs" />
@@ -107,6 +111,7 @@
     <Compile Include="Classes\ServerCertificates.cs" />
     <Compile Include="Classes\ServerContacts.cs" />
     <Compile Include="Classes\ServerDrives.cs" />
+    <Compile Include="Classes\ServerEnvironments.cs" />
     <Compile Include="Classes\TimerJobs\CollectUsers.cs" />
     <Compile Include="Classes\TimerJobs\CollectServers.cs" />
     <Compile Include="Classes\TimerJobs\SendAlerts.cs" />
@@ -224,6 +229,62 @@
     </Compile>
     <Compile Include="Layouts\MAPPS\Pages\Administration.aspx.designer.cs">
       <DependentUpon>Administration.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Issues.aspx.cs">
+      <DependentUpon>Issues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Issues.aspx.designer.cs">
+      <DependentUpon>Issues.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\IssueItem.aspx.cs">
+      <DependentUpon>IssueItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\IssueItem.aspx.designer.cs">
+      <DependentUpon>IssueItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ProjectItem.aspx.cs">
+      <DependentUpon>ProjectItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ProjectItem.aspx.designer.cs">
+      <DependentUpon>ProjectItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Projects.aspx.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Projects.aspx.designer.cs">
+      <DependentUpon>Projects.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerEnvironmentItem.aspx.cs">
+      <DependentUpon>ServerEnvironmentItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerEnvironmentItem.aspx.designer.cs">
+      <DependentUpon>ServerEnvironmentItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\PortItem.aspx.cs">
+      <DependentUpon>PortItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\PortItem.aspx.designer.cs">
+      <DependentUpon>PortItem.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerEnvironments.aspx.cs">
+      <DependentUpon>ServerEnvironments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\ServerEnvironments.aspx.designer.cs">
+      <DependentUpon>ServerEnvironments.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Ports.aspx.cs">
+      <DependentUpon>Ports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Ports.aspx.designer.cs">
+      <DependentUpon>Ports.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Layouts\MAPPS\Pages\CollectUsers.aspx.cs">
       <DependentUpon>CollectUsers.aspx</DependentUpon>
@@ -372,6 +433,20 @@
     <Compile Include="Layouts\MAPPS\Pages\Permissions.aspx.designer.cs">
       <DependentUpon>Permissions.aspx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Certificates.aspx.cs">
+      <DependentUpon>Certificates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\Certificates.aspx.designer.cs">
+      <DependentUpon>Certificates.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\CertificateItem.aspx.cs">
+      <DependentUpon>CertificateItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\MAPPS\Pages\CertificateItem.aspx.designer.cs">
+      <DependentUpon>CertificateItem.aspx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layouts\MAPPS\Pages\ServerStatusItem.aspx.cs">
       <DependentUpon>ServerStatusItem.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -512,6 +587,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebParts\MyServers\MyServers.cs" />
     <Compile Include="WebParts\ServerName\ServerName.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -539,6 +615,10 @@
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="WebParts\MyServers\MyServers.webpart" />
+    <None Include="WebParts\MyServers\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8d74d538-4f34-4e4b-b0aa-f486052734d3}</SharePointProjectItemId>
     </None>
     <None Include="WebParts\ServerName\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{d2298a13-ece0-43b1-8433-1e8087f4026f}</SharePointProjectItemId>
@@ -569,6 +649,7 @@
     <Content Include="Features\Site\Site.Template.xml">
       <DependentUpon>Site.feature</DependentUpon>
     </Content>
+    <Content Include="Images\MAPPS\256_icdocset.gif" />
     <Content Include="Images\MAPPS\32x32 Map.png" />
     <Content Include="Images\MAPPS\AddIcon16x16.png" />
     <Content Include="Images\MAPPS\AddIcon_10x10.png" />
@@ -640,6 +721,10 @@
     <Content Include="Images\MAPPS\socom.png" />
     <Content Include="Images\MAPPS\SOCOMFeatureLogo.png" />
     <Content Include="Images\MAPPS\SOCOMLogo.gif" />
+    <Content Include="Images\MAPPS\SOF-ICON-ADSS.png" />
+    <Content Include="Images\MAPPS\SOF-ICON-DIRECTORY.png" />
+    <Content Include="Images\MAPPS\SOF-ICON-JUMPERS-GATEWAY.png" />
+    <Content Include="Images\MAPPS\SOF-ICON-MEETING-SCHEDULER.png" />
     <Content Include="Images\MAPPS\sort.gif" />
     <Content Include="Images\MAPPS\sp.ico" />
     <Content Include="Images\MAPPS\sp.png" />
@@ -656,6 +741,14 @@
     <Content Include="Layouts\MAPPS\Pages\Activity.aspx" />
     <Content Include="Layouts\MAPPS\Pages\Administration.aspx" />
     <Content Include="Layouts\MAPPS\Pages\Administration.xml" />
+    <Content Include="Layouts\MAPPS\Pages\Issues.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\IssueItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ProjectItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Projects.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerEnvironmentItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\PortItem.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\ServerEnvironments.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Ports.aspx" />
     <Content Include="Layouts\MAPPS\Pages\CollectUsers.aspx" />
     <Content Include="Layouts\MAPPS\Pages\ApplicationItem.aspx" />
     <Content Include="Layouts\MAPPS\Pages\Applications.aspx" />
@@ -678,6 +771,8 @@
     <Content Include="Layouts\MAPPS\Pages\Modules.aspx" />
     <Content Include="Layouts\MAPPS\Pages\OpsHome.aspx" />
     <Content Include="Layouts\MAPPS\Pages\Permissions.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\Certificates.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\CertificateItem.aspx" />
     <Content Include="Layouts\MAPPS\Pages\ServerStatusItem.aspx" />
     <Content Include="Layouts\MAPPS\Pages\ServerVersionItem.aspx" />
     <Content Include="Layouts\MAPPS\Pages\ServerTypeItem.aspx" />
@@ -692,11 +787,13 @@
     <Content Include="Layouts\MAPPS\Pages\Settings.aspx" />
     <Content Include="Layouts\MAPPS\Pages\TabItem.aspx" />
     <Content Include="Layouts\MAPPS\Pages\Tabs.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\test.html" />
     <Content Include="Layouts\MAPPS\Pages\Transactions.aspx" />
     <Content Include="Layouts\MAPPS\Pages\UserItem.aspx" />
     <Content Include="Layouts\MAPPS\Pages\UserMessage.aspx" />
     <Content Include="Layouts\MAPPS\Pages\Users.aspx" />
     <Content Include="Layouts\MAPPS\Pages\ViewLsts.aspx" />
+    <Content Include="Layouts\MAPPS\Pages\WUG.html" />
     <Content Include="Layouts\MAPPS\Scripts\jquery-1.10.2.js" />
     <Content Include="Layouts\MAPPS\Scripts\jquery-1.10.2.min.js" />
     <Content Include="Layouts\MAPPS\Scripts\jquery-1.11.1.min.js" />
@@ -736,6 +833,7 @@
     <EmbeddedResource Include="SQL\ServerPorts.sql" />
     <EmbeddedResource Include="SQL\ServerDrives.sql" />
     <EmbeddedResource Include="SQL\ServerAddresses.sql" />
+    <Content Include="WebParts\MyServers\Elements.xml" />
     <Content Include="WebParts\ServerName\Elements.xml" />
     <EmbeddedResource Include="SQL\ServerVersions.sql" />
     <EmbeddedResource Include="SQL\ServerEnvironments.sql" />

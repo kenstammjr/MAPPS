@@ -271,6 +271,11 @@ namespace MAPPS.Pages {
                 lblSeniorStaffView.Text = item.SeniorStaff ? "Yes" : "No";
                 lblSeniorStaffView.Visible = isView;
 
+                ckbxITAdmin.Checked = item.ITAdmin;
+                ckbxITAdmin.Visible = !isView;
+                lblITAdminView.Text = item.ITAdmin ? "Yes" : "No";
+                lblITAdminView.Visible = isView;
+
                 lblADObjectGuidView.Text = item.ADObjectGuid;
                 lblSPObjectGuidView.Text = item.SPObjectGuid;
 
@@ -305,6 +310,8 @@ namespace MAPPS.Pages {
                 item.MiddleInitial = txtMiddleInitial.Text.Trim();
                 item.GenerationalQualifier = txtGenerationalQualifier.Text.Trim();
                 item.PreferredName = txtPreferredName.Text.Trim();
+                item.SeniorStaff = ckbxSeniorStaff.Checked;
+                item.ITAdmin = ckbxITAdmin.Checked;
                 item.ModifiedBy = CurrentUser.DisplayName;
 
                 Transaction xAction = new Transaction();

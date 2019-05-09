@@ -49,13 +49,13 @@ namespace MAPPS.CONTROLTEMPLATES {
         protected global::System.Web.UI.WebControls.Label lblPortRequired;
         
         /// <summary>
-        /// txtPort control.
+        /// ddlPort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPort;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPort;
         
         /// <summary>
         /// lblPortView control.
@@ -65,51 +65,6 @@ namespace MAPPS.CONTROLTEMPLATES {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPortView;
-        
-        /// <summary>
-        /// lblProtocolRequired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProtocolRequired;
-        
-        /// <summary>
-        /// txtProtocol control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProtocol;
-        
-        /// <summary>
-        /// lblProtocolView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProtocolView;
-        
-        /// <summary>
-        /// txtDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
-        
-        /// <summary>
-        /// lblDescriptionView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescriptionView;
         
         /// <summary>
         /// lblCreatedInfo control.

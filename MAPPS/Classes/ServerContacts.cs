@@ -309,7 +309,8 @@ namespace MAPPS {
                                     Users.FirstName, 
                                     Users.MiddleInitial, 
                                     Users.Email,
-                                    Users.UserName
+                                    Users.UserName,
+                                    Users.LastName + ', ' + Users.FirstName + ' ' + Users.MiddleInitial + ' ' +  Users.GenerationalQualifier as DisplayName
                                 FROM ServerContacts 
                                 LEFT OUTER JOIN Users ON ServerContacts.UserID = Users.ID
                                 WHERE (ServerContacts.ServerID =  @ServerID) ";
@@ -334,7 +335,7 @@ namespace MAPPS {
                 const string sql = @"SELECT DISTINCT  
                                         SUBSTRING(
                                             (
-                                                SELECT ','+contact.username  AS [text()]
+                                                SELECT ','+contact.displayname  AS [text()]
                                                 FROM dbo.vServerContacts contact
                                                 WHERE contact.ServerID = svr.ID
                                                 ORDER BY contact.ServerID

@@ -41,7 +41,7 @@ namespace MAPPS.CONTROLTEMPLATES {
                     FillItem("Edit", 0);
                 }
 
-                DataView dv = new DataView(ServerPort.Items(ServerID).Tables[0]);
+                DataView dv = new DataView(Port.Items(ServerID).Tables[0]);
                 gvData.EmptyDataText = "No ports to display";
                 gvData.DataSource = dv;
                 gvData.DataBind();
@@ -57,32 +57,25 @@ namespace MAPPS.CONTROLTEMPLATES {
         private void FillItem(string Mode, int ID) {
             tblList.Visible = false;
             tblItem.Visible = true;
+            ddlPort.Items.Clear();
+            ddlPort.DataSource = MAPPS.Port.Items();
+            ddlPort.DataTextField = "LongName";
+            ddlPort.DataValueField = "ID";
+            ddlPort.DataBind();
+            ddlPort.Items.Insert(0, new ListItem("Choose", "0"));
 
             ServerPort item = new ServerPort(ID);
             try {
                 bool isView = (Mode == "View");
                 bool isNew = (ID == 0);
-                //lbtnEdit.Visible = isView;
-                //lbtnView.Visible = !isView && ID != 0;
-                btnDelete.Visible = !isView && ID != 0;
-                //lblReqMsg.Visible = !isView;
 
-                txtPort.Text = item.Port;
-                txtPort.Visible = !isView;
-                lblPortView.Text = item.Port;
+
+                ddlPort.SelectedIndex = -1;
+                try { ddlPort.Items.FindByValue(item.PortID.ToString()).Selected = true; } catch { }
+                ddlPort.Visible = !isView;
+                lblPortView.Text = new Port(item.PortID).Name + " " + new Port(item.PortID).Protocol;
                 lblPortView.Visible = isView;
                 lblPortRequired.Visible = !isView;
-
-                txtProtocol.Text = item.Protocol.ToString();
-                txtProtocol.Visible = !isView;
-                lblProtocolView.Text = item.Protocol.ToString();
-                lblProtocolView.Visible = isView;
-                lblProtocolRequired.Visible = !isView;
-
-                txtDescription.Text = item.Description;
-                txtDescription.Visible = !isView;
-                lblDescriptionView.Text = item.Description;
-                lblDescriptionView.Visible = isView;
 
                 lblCreatedInfo.Text = string.Format("Created at {0} by {1}", MAPPS.Common.ConvertUTCToWebLocalTime(SPContext.Current.Web, item.CreatedOn), item.CreatedBy);
                 lblCreatedInfo.Visible = (item.ID != 0);
@@ -120,21 +113,12 @@ namespace MAPPS.CONTROLTEMPLATES {
             lblPortView.Text = "";
             lblPortView.CssClass = "";
             lblPortView.Visible = false;
-            if (txtPort.Text.Trim().Length == 0) {
+            if (ddlPort.SelectedIndex < 1) {
                 lblPortView.Text = Message.REQUIRED_FIELD;
                 lblPortView.CssClass = "ms-formvalidation";
                 lblPortView.Visible = true;
                 bContinue = false;
             }
-            lblProtocolView.Text = "";
-            lblProtocolView.CssClass = "";
-            lblProtocolView.Visible = false;
-            if (txtProtocol.Text.Trim().Length == 0) {
-                lblProtocolView.Text = Message.REQUIRED_FIELD;
-                lblProtocolView.CssClass = "ms-formvalidation";
-                lblProtocolView.Visible = true;
-                bContinue = false;
-            } 
             return bContinue;
         }
         private void SaveItem() {
@@ -143,10 +127,8 @@ namespace MAPPS.CONTROLTEMPLATES {
                 if (PassedValidation()) {
                     ServerPort item = new ServerPort(int.Parse(hfItemID.Value));
                     MAPPS.User user = new MAPPS.User(Context.User.Identity.Name);
-                    item.Port = txtPort.Text.Trim().ToUpper();
-                    item.Protocol = txtProtocol.Text.Trim().ToUpper();
-                    item.Description = txtDescription.Text.Trim();
                     item.ServerID = ServerID;
+                    item.PortID = int.Parse(ddlPort.SelectedValue);
 
                     item.ModifiedBy = user.UserName;
                     if (item.ID == 0) {

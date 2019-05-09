@@ -28,11 +28,11 @@
                         <HeaderStyle CssClass="mapps-grid-header-left" />
                         <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Width="5px" />
                     </asp:TemplateField>
-                    <%-- UserName --%>
-                    <asp:TemplateField HeaderText="User Name">
+                    <%-- DisplayName --%>
+                    <asp:TemplateField HeaderText="Contact">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnName" runat="server" CommandArgument='<%# DataBinder.Eval(Container,"DataItem.ID") %>'
-                                CommandName="ViewItem" Text='<%# DataBinder.Eval(Container,"DataItem.UserName") %>' />
+                                CommandName="ViewItem" Text='<%# DataBinder.Eval(Container,"DataItem.DisplayName") %>' />
                         </ItemTemplate>
                         <HeaderStyle CssClass="mapps-grid-header-left-none" Wrap="false" />
                         <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" />

@@ -235,6 +235,17 @@
                             <asp:Label ID="lblSeniorStaffView" runat="server" CssClass="mapps-item" />
                         </td>
                     </tr>
+                    <%--ITAdmin--%>
+                    <tr>
+                        <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
+                            <h3 class="ms-standardheader">IT Admin
+                            </h3>
+                        </td>
+                        <td valign="middle" width="350px" class="mapps-formbody">
+                            <asp:CheckBox ID="ckbxITAdmin" runat="server" />
+                            <asp:Label ID="lblITAdminView" runat="server" CssClass="mapps-item" />
+                        </td>
+                    </tr>
                     <%--Roles--%>
                     <tr>
                         <td nowrap="true" valign="top" width="113px" class="ms-formlabel">

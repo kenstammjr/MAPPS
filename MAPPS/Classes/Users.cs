@@ -22,6 +22,7 @@ namespace MAPPS {
         private string _DutyTitle;
         private string _Salt;
         private bool _SeniorStaff;
+        private bool _ITAdmin;
         private string _CreatedBy;
         private DateTime _CreatedOn;
         private string _ModifiedBy;
@@ -140,6 +141,14 @@ namespace MAPPS {
                 _SeniorStaff = value;
             }
         }
+                public bool ITAdmin {
+            get {
+                return _ITAdmin;
+            }
+            set {
+                _ITAdmin = value;
+            }
+        }
         public string CreatedBy {
             get {
                 return _CreatedBy;
@@ -197,6 +206,7 @@ namespace MAPPS {
             _DutyTitle = string.Empty;
             _Salt = string.Empty;
             _SeniorStaff = false;
+            _ITAdmin = false;
             _CreatedBy = "System Account";
             _CreatedOn = new DateTime(1900, 1, 1);
             _ModifiedBy = "System Account";
@@ -232,6 +242,7 @@ namespace MAPPS {
                         _DutyTitle = sdr["DutyTitle"].ToString();
                         _Salt = sdr["Salt"].ToString();
                         _SeniorStaff = bool.Parse(sdr["SeniorStaff"].ToString());
+                        _ITAdmin = bool.Parse(sdr["ITAdmin"].ToString());
                         _CreatedBy = sdr["CreatedBy"].ToString();
                         _CreatedOn = DateTime.Parse(sdr["CreatedOn"].ToString());
                         _ModifiedBy = sdr["ModifiedBy"].ToString();
@@ -280,6 +291,7 @@ namespace MAPPS {
                         _DutyTitle = sdr["DutyTitle"].ToString();
                         _Salt = sdr["Salt"].ToString();
                         _SeniorStaff = bool.Parse(sdr["SeniorStaff"].ToString());
+                        _ITAdmin = bool.Parse(sdr["ITAdmin"].ToString());
                         _CreatedBy = sdr["CreatedBy"].ToString();
                         _CreatedOn = DateTime.Parse(sdr["CreatedOn"].ToString());
                         _ModifiedBy = sdr["ModifiedBy"].ToString();
@@ -385,6 +397,7 @@ namespace MAPPS {
 										DutyTitle,
 										Salt,
 										SeniorStaff,
+                                        ITAdmin,
 										CreatedBy,
 										CreatedOn,
 										ModifiedBy,
@@ -403,6 +416,7 @@ namespace MAPPS {
 										@DutyTitle,
 										@Salt,
 										@SeniorStaff,
+                                        @ITAdmin,
 										@CreatedBy,
 										@CreatedOn,
 										@ModifiedBy,
@@ -423,6 +437,7 @@ namespace MAPPS {
                     cmd.Parameters.AddWithValue("@DutyTitle", _DutyTitle);
                     cmd.Parameters.AddWithValue("@Salt", Common.Encrypt(salt));
                     cmd.Parameters.AddWithValue("@SeniorStaff", _SeniorStaff);
+                    cmd.Parameters.AddWithValue("@ITAdmin", _ITAdmin);
                     cmd.Parameters.AddWithValue("@CreatedBy", _CreatedBy);
                     cmd.Parameters.AddWithValue("@CreatedOn", TimeStamp);
                     cmd.Parameters.AddWithValue("@ModifiedBy", _ModifiedBy);
@@ -468,6 +483,7 @@ namespace MAPPS {
 										DutyTitle = @DutyTitle,
 										Salt = @Salt,
 										SeniorStaff = @SeniorStaff,
+										ITAdmin = @ITAdmin,
 										ModifiedBy = @ModifiedBy,
 										ModifiedOn = @ModifiedOn
 			                        WHERE ID = @ID";
@@ -486,6 +502,7 @@ namespace MAPPS {
                     cmd.Parameters.AddWithValue("@DutyTitle", _DutyTitle);
                     cmd.Parameters.AddWithValue("@Salt", _Salt);
                     cmd.Parameters.AddWithValue("@SeniorStaff", _SeniorStaff);
+                    cmd.Parameters.AddWithValue("@ITAdmin", _ITAdmin);
                     cmd.Parameters.AddWithValue("@ModifiedBy", _ModifiedBy);
                     cmd.Parameters.AddWithValue("@ModifiedOn", TimeStamp);
                     if (conn.State != ConnectionState.Open) { conn.Open(); }
@@ -560,6 +577,7 @@ namespace MAPPS {
                                         Users.DutyTitle, 
                                         Users.Salt,
                                         Users.SeniorStaff, 
+                                        Users.ITAdmin, 
                                         Users.CreatedBy, 
                                         Users.CreatedOn, 
                                         Users.ModifiedBy, 
@@ -584,7 +602,50 @@ namespace MAPPS {
             return ds;
         }
 
- 
+        public static DataSet Admins() {
+            DataSet ds = new DataSet();
+            using (new Impersonator()) {
+                SqlConnection conn = DataSource.Conn();
+                try {
+                    string sql = @"SELECT Users.ID, 
+                                        Users.UserName, 
+                                        Users.Email, 
+                                        Users.ADObjectGuid, 
+                                        Users.SPObjectGuid, 
+                                        Users.UserProfileRecordID, 
+                                        Users.LastName, 
+                                        Users.FirstName, 
+                                        Users.MiddleInitial, 
+                                        Users.GenerationalQualifier, 
+                                        Users.PreferredName, 
+                                        Users.DutyTitle, 
+                                        Users.Salt,
+                                        Users.SeniorStaff, 
+                                        Users.ITAdmin,
+                                        Users.LastName + ', ' + Users.FirstName + ' ' + Users.MiddleInitial + ' ' +  Users.GenerationalQualifier as DisplayName, 
+                                        Users.CreatedBy, 
+                                        Users.CreatedOn, 
+                                        Users.ModifiedBy, 
+                                        Users.ModifiedOn
+                                    FROM Users 
+                                    WHERE ITAdmin = 1
+                                    ORDER BY Users.LastName";
+
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                } catch (SqlException sqlex) {
+                    Error.WriteError(sqlex);
+                } catch (Exception ex) {
+                    Error.WriteError(ex);
+                } finally {
+                    if (conn.State != ConnectionState.Closed) conn.Close();
+                }
+            }
+            return ds;
+        }
+
+
         public static bool IdentityExists(string UserIdentity) {
             bool found = false;
 

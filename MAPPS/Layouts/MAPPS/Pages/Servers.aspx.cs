@@ -117,6 +117,7 @@ namespace MAPPS.Pages {
                         LinkButton lbtnName = (LinkButton)e.Row.FindControl("lbtnName");
                         Label lblTypeName = (Label)e.Row.FindControl("lblTypeName");
                         Label lblFunctionName = (Label)e.Row.FindControl("lblFunctionName");
+                        Label lblEnvironmentName = (Label)e.Row.FindControl("lblEnvironmentName");
                         Label lblDescription = (Label)e.Row.FindControl("lblDescription");
                         Label lblVersionName = (Label)e.Row.FindControl("lblVersionName");
                         Label lblStatus = (Label)e.Row.FindControl("lblStatus");
@@ -142,6 +143,7 @@ namespace MAPPS.Pages {
                             lbtnName.Text = Common.HighLightText(lbtnName.Text, Filter);
                             lblTypeName.Text = Common.HighLightText(lblTypeName.Text, Filter);
                             lblFunctionName.Text = Common.HighLightText(lblFunctionName.Text, Filter);
+                            lblEnvironmentName.Text = Common.HighLightText(lblEnvironmentName.Text, Filter);
                             lblVersionName.Text = Common.HighLightText(lblVersionName.Text, Filter);
                             lblDescription.Text = Common.HighLightText(lblDescription.Text, Filter);
                             lblContacts.Text = Common.HighLightText(lblContacts.Text, Filter);

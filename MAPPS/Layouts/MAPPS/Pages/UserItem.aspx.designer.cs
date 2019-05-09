@@ -409,6 +409,24 @@ namespace MAPPS.Pages {
         protected global::System.Web.UI.WebControls.Label lblSeniorStaffView;
         
         /// <summary>
+        /// ckbxITAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ckbxITAdmin;
+        
+        /// <summary>
+        /// lblITAdminView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblITAdminView;
+        
+        /// <summary>
         /// UserRoles control.
         /// </summary>
         /// <remarks>

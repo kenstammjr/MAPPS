@@ -48,7 +48,7 @@
                     <%-- Expiration --%>
                     <asp:TemplateField HeaderText="Expiration">
                         <ItemTemplate>
-                            <asp:Label ID="lblExpiration" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.Expiration") %>' />
+                            <asp:Label ID="lblExpiration" runat="server" Text='<%# DataBinder.Eval(Container,"DataItem.Expiration","{0:dd-MMM-yyyy}") %>' />
                         </ItemTemplate>
                         <HeaderStyle CssClass="mapps-grid-header-left" Wrap="false" />
                         <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" />
@@ -67,34 +67,10 @@
             </h3>
         </td>
         <td valign="middle" width="350px" class="snapps-formbody">
-            <asp:TextBox ID="txtName" runat="server" CssClass="ms-long" MaxLength="50" />
+            <asp:DropDownList ID="ddlCertificate" runat="server" CssClass="ms-long" />
             <asp:Label ID="lblNameView" runat="server" CssClass="mapps-item" />
         </td>
     </tr>
-    <%--Description--%>
-    <tr>
-        <td nowrap="true" valign="top" width="10px" class="ms-formlabel">
-            <h3 class="ms-standardheader">Description
-            </h3>
-        </td>
-        <td valign="middle" width="350px" class="snapps-formbody">
-            <asp:TextBox ID="txtDescription" runat="server" CssClass="ms-input" Width="300" MaxLength="350" />
-            <asp:Label ID="lblDescriptionView" runat="server" CssClass="mapps-item" />
-        </td>
-    </tr>
-    <%--Expiration--%>
-    <tr>
-        <td nowrap="true" valign="top" width="10px" class="ms-formlabel">
-            <h3 class="ms-standardheader">Expiration
-                        <asp:Label ID="lblExpirationRequired" runat="server" CssClass="ms-formvalidation" Text="*" ToolTip="This is a required field." />
-            </h3>
-        </td>
-        <td valign="middle" width="350px" class="snapps-formbody">
-            <asp:TextBox ID="txtExpiration" runat="server" CssClass="ms-long" Width="75" MaxLength="50" />
-            <asp:Label ID="lblExpirationView" runat="server" CssClass="mapps-item" />
-        </td>
-    </tr>
-
      <tr>
         <td colspan="2" class="ms-formline">
             <img alt="" src="/_layouts/15/images/blank.gif" width="1"

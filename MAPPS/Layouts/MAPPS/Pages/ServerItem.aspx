@@ -296,6 +296,25 @@
                     <asp:Label ID="lblServerFunctionView" runat="server" CssClass="mapps-item" />
                 </td>
             </tr>
+            <%--ServerEnvironment--%>
+            <tr>
+                <td nowrap="true" valign="top" width="113px" class="ms-formlabel">
+                    <h3 class="ms-standardheader">Server Environment
+                        <asp:Label ID="lblServerEnvironmentRequired" runat="server"
+                            CssClass="ms-formvalidation" Text="*" ToolTip="This is a required field." />
+                    </h3>
+                </td>
+                <td valign="middle" width="350px" class="mapps-formbody">
+                    <asp:DropDownList ID="ddlServerEnvironment" runat="server" />
+                    <asp:RequiredFieldValidator ID="rfvServerEnvironment" runat="server"
+                        ControlToValidate="ddlServerEnvironment"
+                        ErrorMessage="<br/>You can't leave this blank."
+                        InitialValue="0"
+                        Display="Dynamic"
+                        ForeColor="Red" />
+                    <asp:Label ID="lblServerEnvironmentView" runat="server" CssClass="mapps-item" />
+                </td>
+            </tr>
             <%--ServerType--%>
             <tr>
                 <td nowrap="true" valign="top" width="113px" class="ms-formlabel">

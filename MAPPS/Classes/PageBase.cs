@@ -176,6 +176,26 @@ namespace MAPPS{
                 ViewState["ServerID"] = value;
             }
         }
+        protected int CertificateID {
+            get {
+                if (ViewState["CertificateID"] == null)
+                    ViewState["CertificateID"] = 0;
+                return int.Parse(ViewState["CertificateID"].ToString());
+            }
+            set {
+                ViewState["CertificateID"] = value;
+            }
+        }
+        protected int PortID {
+            get {
+                if (ViewState["PortID"] == null)
+                    ViewState["PortID"] = 0;
+                return int.Parse(ViewState["PortID"].ToString());
+            }
+            set {
+                ViewState["CertificateID"] = value;
+            }
+        }
 
         protected int StudentID {
             get {
@@ -396,6 +416,12 @@ namespace MAPPS{
                                 break;
                             case "serverid":
                                 ServerID = int.Parse(value);
+                                break;
+                            case "certificateid":
+                                CertificateID = int.Parse(value);
+                                break;
+                            case "portid":
+                                PortID = int.Parse(value);
                                 break;
                             case "studentid":
                                 StudentID = int.Parse(value);

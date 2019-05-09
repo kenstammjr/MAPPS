@@ -1,39 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <root>
-  <Group ID="1" Name="Security" Icon="../../images/CentralAdmin_Security_48x48.png" Index="1"/>
-  <Group ID="2" Name="Resource Management" Icon="../../images/CentralAdmin_GeneralApplicationSettings_48x48.png" Index="2"/>
-  <Group ID="3" Name="Monitoring" Icon="../../images/CentralAdmin_Monitoring_48x48.png" Index="4"/>
-  <Group ID="4" Name="System Settings" Icon="../../images/centraladmin_systemsettings_48x48.png" Index="5"/>
-  <Group ID="5" Name="Configuration Wizards" Icon="../../images/CentralAdmin_ConfigurationWizards_48x48.png" Index="6"/>
+  <Group ID="1" Name="Security" Icon="../../images/CentralAdmin_Security_48x48.png" Index="01"/>
+  <Group ID="2" Name="Resource Management" Icon="../../images/CentralAdmin_GeneralApplicationSettings_48x48.png" Index="02"/>
+  <Group ID="3" Name="Monitoring" Icon="../../images/CentralAdmin_Monitoring_48x48.png" Index="04"/>
+  <Group ID="4" Name="System Settings" Icon="../../images/centraladmin_systemsettings_48x48.png" Index="05"/>
+  <Group ID="5" Name="Configuration Wizards" Icon="../../images/CentralAdmin_ConfigurationWizards_48x48.png" Index="06"/>
 
   <!--Security-->
-  <Link ID="1" GroupID="1" Name="Permissions" URL="permissions.aspx" Index="01" />
-  <Link ID="2" GroupID="1" Name="User Catalog" URL="users.aspx" Index="02" />
+  <Link ID="10" GroupID="1" Name="Permissions" URL="permissions.aspx" Index="01" />
+  <Link ID="11" GroupID="1" Name="User Catalog" URL="users.aspx" Index="02" />
 
   <!--Resource Management-->
-  <Link ID="34" GroupID="2" Name="Applications" URL="applications.aspx" Index="01" />
-  <Link ID="35" GroupID="2" Name="Servers" URL="servers.aspx" Index="02" />
-  <Link ID="36" GroupID="2" Name="Server Functions" URL="serverfunctions.aspx" Index="03" />
-  <Link ID="37" GroupID="2" Name="Server Status" URL="serverstatuses.aspx" Index="04" />
-  <Link ID="38" GroupID="2" Name="Server Types" URL="servertypes.aspx" Index="05" />
-  <Link ID="39" GroupID="2" Name="Server Versions" URL="serverversions.aspx" Index="06" />
+  <Link ID="20" GroupID="2" Name="Applications" URL="applications.aspx" Index="01" />
+  <Link ID="21" GroupID="2" Name="Certificates" URL="certificates.aspx" Index="02" />
+  <Link ID="21" GroupID="2" Name="Issues" URL="issues.aspx" Index="02" />  
+  <Link ID="22" GroupID="2" Name="Ports and Protocols" URL="ports.aspx" Index="03" />
+  <Link ID="22" GroupID="2" Name="Projects" URL="projects.aspx" Index="04" />  
+  <Link ID="23" GroupID="2" Name="Servers" URL="servers.aspx" Index="05" />
+  <Link ID="24" GroupID="2" Name="Server Environments" URL="serverenvironments.aspx" Index="05" />  
+  <Link ID="24" GroupID="2" Name="Server Functions" URL="serverfunctions.aspx" Index="06" />
+  <Link ID="25" GroupID="2" Name="Server Status" URL="serverstatuses.aspx" Index="07" />
+  <Link ID="26" GroupID="2" Name="Server Types" URL="servertypes.aspx" Index="08" />
+  <Link ID="27" GroupID="2" Name="Server Versions" URL="serverversions.aspx" Index="09" />
 
   <!--Monitoring-->
-  <Link ID="40" GroupID="3" Name="Activity" URL="activity.aspx" Index="01" />
-  <Link ID="41" GroupID="3" Name="Debug Details" URL="debug.aspx" Index="02" />
-  <Link ID="42" GroupID="3" Name="Exceptions" URL="exceptions.aspx" Index="03" />
-  <Link ID="43" GroupID="3" Name="Transactions" URL="transactions.aspx" Index="05" />
+  <Link ID="30" GroupID="3" Name="Activity" URL="activity.aspx" Index="01" />
+  <Link ID="31" GroupID="3" Name="Debug Details" URL="debug.aspx" Index="02" />
+  <Link ID="32" GroupID="3" Name="Exceptions" URL="exceptions.aspx" Index="03" />
+  <Link ID="33" GroupID="3" Name="Transactions" URL="transactions.aspx" Index="04" />
 
   <!--System Settings-->
-  <Link ID="50" GroupID="4" Name="Application Settings" URL="settings.aspx" Index="01" />
-  <Link ID="51" GroupID="4" Name="Tabs" URL="tabs.aspx" Index="02" />
-  <Link ID="52" GroupID="4" Name="Menus" URL="menus.aspx" Index="03" />
+  <Link ID="40" GroupID="4" Name="Application Settings" URL="settings.aspx" Index="01" />
+  <Link ID="41" GroupID="4" Name="Tabs" URL="tabs.aspx" Index="02" />
+  <Link ID="42" GroupID="4" Name="Menus" URL="menus.aspx" Index="03" />
 
 
   <!--Configuration Wizards-->
-  <Link ID="60" GroupID="5" Name="Database Utility" URL="dbutility.aspx" Index="01" />
-  <Link ID="61" GroupID="5" Name="Initial Setup" URL="initialsetup.aspx" Index="02" />
-  <Link ID="62" GroupID="5" Name="Mail Test" URL="mailtest.aspx" Index="03" />
+  <Link ID="50" GroupID="5" Name="Database Utility" URL="dbutility.aspx" Index="01" />
+  <Link ID="51" GroupID="5" Name="Initial Setup" URL="initialsetup.aspx" Index="02" />
+  <Link ID="52" GroupID="5" Name="Mail Test" URL="mailtest.aspx" Index="03" />
 
 
 </root>

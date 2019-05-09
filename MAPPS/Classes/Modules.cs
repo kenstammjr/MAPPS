@@ -339,7 +339,7 @@ namespace MAPPS {
             using (new Impersonator()) {
                 SqlConnection conn = DataSource.Conn();
                 try {
-                    string sql = "SELECT * FROM dbo.Modules ";
+                    string sql = "SELECT * FROM dbo.Modules order by displayindex ";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(dt);

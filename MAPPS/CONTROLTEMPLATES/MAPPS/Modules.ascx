@@ -12,7 +12,7 @@
             <SharePoint:SPGridView ID="gvData" runat="server" AutoGenerateColumns="False"
                 AllowSorting="False"
                 Width="100%" BorderStyle="None" BorderWidth="0px" GridLines="None"
-                AllowPaging="False" BackColor="White" OnRowCommand="gvData_RowCommand">
+                AllowPaging="False" BackColor="White" OnRowCommand="gvData_RowCommand" ShowHeader="false">
                 <EmptyDataRowStyle CssClass="ms-vb" />
                 <HeaderStyle CssClass="ms-viewheadertr" Height="22px" />
                 <AlternatingRowStyle CssClass="ms-alternating" />

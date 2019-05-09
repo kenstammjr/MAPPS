@@ -32,7 +32,7 @@
                     <asp:TemplateField HeaderText="Port">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnName" runat="server" CommandArgument='<%# DataBinder.Eval(Container,"DataItem.ID") %>'
-                                CommandName="ViewItem" Text='<%# DataBinder.Eval(Container,"DataItem.Port") %>' />
+                                CommandName="ViewItem" Text='<%# DataBinder.Eval(Container,"DataItem.Name") %>' />
                         </ItemTemplate>
                         <HeaderStyle CssClass="mapps-grid-header-left-none" Wrap="false" />
                         <ItemStyle CssClass="mapps-grid-text" HorizontalAlign="Left" Wrap="false" />
@@ -68,31 +68,8 @@
             </h3>
         </td>
         <td valign="middle" width="350px" class="snapps-formbody">
-            <asp:TextBox ID="txtPort" runat="server" CssClass="ms-long" MaxLength="50" />
+            <asp:DropDownList ID="ddlPort" runat="server" CssClass="ms-long" />
             <asp:Label ID="lblPortView" runat="server" CssClass="mapps-item" />
-        </td>
-    </tr>
-    <%--Protocol--%>
-    <tr>
-        <td nowrap="true" valign="top" width="10px" class="ms-formlabel">
-            <h3 class="ms-standardheader">Protocol
-                        <asp:Label ID="lblProtocolRequired" runat="server" CssClass="ms-formvalidation" Text="*" ToolTip="This is a required field." />
-            </h3>
-        </td>
-        <td valign="middle" width="350px" class="snapps-formbody">
-            <asp:TextBox ID="txtProtocol" runat="server" CssClass="ms-long" Width="75" MaxLength="15" />
-            <asp:Label ID="lblProtocolView" runat="server" CssClass="mapps-item" />
-        </td>
-    </tr>
-    <%--Description--%>
-    <tr>
-        <td nowrap="true" valign="top" width="10px" class="ms-formlabel">
-            <h3 class="ms-standardheader">Description
-            </h3>
-        </td>
-        <td valign="middle" width="350px" class="snapps-formbody">
-            <asp:TextBox ID="txtDescription" runat="server" CssClass="ms-input" Width="300" MaxLength="350" />
-            <asp:Label ID="lblDescriptionView" runat="server" CssClass="mapps-item" />
         </td>
     </tr>
      <tr>
