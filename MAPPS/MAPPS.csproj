@@ -594,6 +594,7 @@
     <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{edb4520f-7eea-47cb-8a05-2a2faea4d1ce}</SharePointProjectItemId>
     </None>
+    <None Include="Documents\Delete Missing Setup Files.ps1" />
     <None Include="Features\Farm\Farm.feature">
       <FeatureId>{9fc4594b-1d28-441a-bbbb-bdbff3b56696}</FeatureId>
     </None>
